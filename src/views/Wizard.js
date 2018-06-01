@@ -14,6 +14,8 @@ class Wizard extends Component {
 // - set results
 // we can run both of those actions on this page to set redux state
 
+// also need to check state.user.email and if it is == to null then we need to display the enter email popup
+
   render() {
     return (
       <div>
