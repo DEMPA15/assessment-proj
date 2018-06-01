@@ -8,6 +8,12 @@ import TestProgress from '../components/TestProgress'
 
 
 class Wizard extends Component {
+
+//I think we can have a loading key on local state and change it to true once our necessary data comes back
+// - get questions and
+// - set results
+// we can run both of those actions on this page to set redux state
+
   render() {
     return (
       <div>

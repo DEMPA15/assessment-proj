@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class LinkDisplay extends Component {
 
- // posts email and assessment id to server and gets generated link
+// displays link from assessment list
 
   render() {
     return (
