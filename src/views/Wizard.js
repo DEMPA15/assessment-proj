@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CodeArea from '../components/CodeArea'
+import CodeEditor from '../components/CodeEditor'
 import EnterEmail from '../components/EnterEmail'
 import NavButtons from '../components/NavButtons'
 import ProgressBar from '../components/ProgressBar'
-import QuestionText from '../components/CodeArea'
+import QuestionText from '../components/QuestionText'
 import TestProgress from '../components/TestProgress'
 
 
@@ -14,7 +14,7 @@ class Wizard extends Component {
         <ProgressBar />
         <QuestionText />
         <TestProgress />
-        <CodeArea />
+        <CodeEditor />
         <NavButtons />
       </div>
     );
