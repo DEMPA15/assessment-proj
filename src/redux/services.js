@@ -37,15 +37,16 @@
 ]
 
 
-//-------- Get results
-//sends code from redux to backend to be tested and posts results to redux
+//-------- Post results
+//sends code from redux ---stringify--- to backend to be tested and posts results to redux
 // The results should be formatted on the backend before coming to the front. 
 
 //format
 
 [{
     q: 'Q1',
-    passed: false, 
+    passed: false,
+    code: '',
     tests: {
         T1: false, 
         T2: false,

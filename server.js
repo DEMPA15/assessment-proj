@@ -20,6 +20,34 @@ app.use(session({
     resave: false,
 }))
 
+//-----------endpoints----------//
+app.post(`/api/link/:email/:assessmentID`, (req, res) => {
+    // Request will come in with email and assessment id
+    // We will create the link then return the link with the encrypted email and test id.
+})
+  
+app.get(`/api/assessments`, (req, res) => {
+    // Request will pull all Assesments' name and id's from Mongo DB
+    // Will return array of objects -- names and id's.
+})
+
+app.get(`/api/questions/:assessmentID`, (req, res) => {
+    // get all questions from assessment id and format before sending back
+})
+  
+app.post(`/api/post-results`, (req, res) => {
+    // Will pull tests from Mongo DB
+    // will create file from tests and code 
+    // will run child process and return results
+    // will parse results and send back to client
+})
+  
+app.post(`/api/submit`, (req,res) => {
+    // Will receive result data
+    // Will draft and send out email
+    // Will return success or fail
+})
+
 
 const port = process.env.PORT || 3010
 app.listen(port, ()=>{
