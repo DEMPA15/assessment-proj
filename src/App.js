@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AssessmentList from './views/AssessmentList';
 import Wizard from './views/Wizard';
 import SplashPage from './views/SplashPage';
+import Submitted from './views/Submitted';
 
 
 class App extends Component {
@@ -10,9 +11,10 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={SplashPage} />
-          <Route path='/assessments' component={AssessmentList}/>
-          <Route path='/wizard/:email/:assessmentID/:questionNumber' component={Wizard}/> 
+          <Route exact path='/' component={ SplashPage } />
+          <Route path='/assessments' component={ AssessmentList }/>
+          <Route path='/wizard/:email/:assessmentID/:questionNumber' component={ Wizard }/> 
+          <Route path='/confirmation' component = { Submitted } />
         </Switch>
       </Router>
     );
