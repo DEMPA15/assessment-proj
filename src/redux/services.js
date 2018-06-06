@@ -8,32 +8,10 @@
 //format
 [
     {
-        q: 'Q1',
+        qID: 'Q1',
         qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-            T2: '',
-            T3: ''
-        }
+        testText: []
     }, 
-    {
-        q: 'Q2',
-        qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-            T2: ''
-        }
-    }, 
-    {
-        q: 'Q3',
-        qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-        }
-    }
 ]
 
 
@@ -43,13 +21,15 @@
 
 //format
 
-[{
-    q: 'Q1',
-    passed: false,
-    code: '',
-    tests: {
-        T1: false, 
-        T2: false,
-        T3: false
-    }
-}]
+[
+    {
+        qID: '',
+        passed: false, 
+        tests: [
+            {
+                text: '',
+                passed: true
+            }
+        ]
+    } 
+]
