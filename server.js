@@ -32,10 +32,13 @@ app.get(`/api/assessments`, (req, res) => {
 })
 
 app.get(`/api/questions/:assessmentID`, (req, res) => {
-    // get all questions from assessment id and format before sending back
+    // get all questions from assessment id 
+    // filter through and remove the actual stringified tests, 
+    // format before sending back
 })
   
 app.post(`/api/post-results`, (req, res) => {
+    // needs to receive assessmentID, qID, and code 
     // Will pull tests from Mongo DB
     // will create file from tests and code 
     // will run child process and return results

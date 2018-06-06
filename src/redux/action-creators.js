@@ -11,7 +11,7 @@ import { SET_RESULTS } from './constraints'
 // --------set results
 
 //the payload here needs to contain the results shell with all passed keys set to false. We will need to know
-//the state.questions.length before we can create this payload. 
+//the state.questions.length AND each state.questions[i].tests.length before we can create this payload. 
 // we can probably create the shell on the front end
 
 export function setResults(payload){
@@ -21,32 +21,19 @@ export function setResults(payload){
     }
 }
 
+
 // shell format
 [
     {
-        q: 'Q1',
+        qID: '',
         passed: false, 
-        tests: {
-            T1: false, 
-            T2: false,
-            T3: false
-        }
+        tests: [
+            {
+                text: '',
+                passed: true
+            }
+        ]
     }, 
-    {
-        q: 'Q2',
-        passed: false, 
-        tests: {
-            T1: false, 
-            T2: false
-        }
-    }, 
-    {
-        q: 'Q3',
-        passed: false, 
-        tests: {
-            T1: false
-        }
-    }
 ]
 
 
