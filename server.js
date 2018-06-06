@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
@@ -38,18 +39,62 @@ app.get(`/api/questions/:assessmentID`, (req, res) => {
 })
 
 app.post(`/api/post-results`, (req, res) => {
-    console.log(req.body.name)
-    res.send(req.body)
     // Will pull tests from Mongo DB
     // will create file from tests and code
     // will run child process and return results
     // will parse results and send back to client
 })
 
-app.post(`/api/submit`, emailController.submit
+app.post(`/api/submit`, (req,res)=>{
+
     // Will receive result data
     // Will draft and send out email
     // Will return success or fail
+
+    const output = `
+    <p>Does this email work?</p>
+    <h3>Contact Info</h3>
+    <ul>
+        <li>Name: ${req.body.name}</li>
+        <li>email: ${req.body.email}</li>
+    </ul>
+    <h3>Message:</h3>
+    <p>${req.body.message}</p>
+    `;
+
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+          user: 'wpr152018@gmail.com',
+          pass: 'wpr15-a-password'
+      },
+      tls:{
+      rejectUnauthorized: false
+      }
+    });
+
+    // setup email data with unicode symbols
+    let mailOptions = {
+      from: '"Group Project" <wpr152018@gmail.com>',
+      to: 'ryan90butler@gmail.com',
+      subject: `Assessment results for ${req.body.name}`,
+      text: 'Hello can you hear me?',
+      html: output
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+      res.send({'message sent':true})
+    });
+    }
 );
 
 const port = process.env.PORT || 3010
