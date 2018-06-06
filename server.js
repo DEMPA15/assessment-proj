@@ -7,8 +7,6 @@ const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
-const emailController = require('./server/controllers/emailController');
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json())
