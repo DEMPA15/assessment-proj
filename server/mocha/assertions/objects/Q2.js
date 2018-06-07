@@ -1,8 +1,6 @@
-
 const expect = require('chai').expect
 
-module.exports =  [
-    {
+module.exports = [{
         text: 'accessByBracketNotation should be correct',
         assertion: function () {
             var duck = {
@@ -10,14 +8,14 @@ module.exports =  [
                 pond: "Hyde Park Serpentine",
                 bites: true,
                 fluffiness: 100
-              }
-			expect(this.subject(duck)).to.equal(true);
-		}
+            }
+            expect(this.subject(duck)).to.equal(true);
+        }
     },
     {
         text: 'accessByBracketNotation should use bracket notation',
         assertion: function () {
-			expect(this.subject.toString()).to.include("duck['bites']");
-		}
+            expect(this.subject.toString()).to.include("duck['bites']");
+        }
     }
 ]
