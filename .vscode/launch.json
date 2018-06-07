@@ -8,13 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/server.js",
-            "skipFiles": [
-                "${workspaceFolder}/node_modules/**/*.js",
-                "<node_internals>/**/*.js",
-                "${workspaceFolder}/lib/**/*.js"
-              ],
-            "smartStep": true
+            "program": "${workspaceFolder}/server.js"
         }
     ]
 }

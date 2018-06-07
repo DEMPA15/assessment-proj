@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const QuestionSchema = new Schema({
-    qID: Number,
+    qID: String,
     qText: String,
     tests: [String]
 })
