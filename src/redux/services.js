@@ -8,32 +8,10 @@
 //format
 [
     {
-        q: 'Q1',
+        qID: 'Q1',
         qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-            T2: '',
-            T3: ''
-        }
+        testText: []
     }, 
-    {
-        q: 'Q2',
-        qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-            T2: ''
-        }
-    }, 
-    {
-        q: 'Q3',
-        qText: '',
-        qID: '',
-        testText: {
-            T1: '',
-        }
-    }
 ]
 
 
@@ -41,15 +19,26 @@
 //sends code from redux ---stringify--- to backend to be tested and posts results to redux
 // The results should be formatted on the backend before coming to the front. 
 
+//------ this needs to be in the endpoint that runs the code 
+// const beginModule = 'module.exports = ';
+
+// const data = beginModule + users code from redux;
+
+// axios.post('/api/post-results', { data, assessmentName: 'object', qID:1 })
+//   .then(({ data }) => console.log(data))
+//   .catch(console.error)
+
 //format
 
-[{
-    q: 'Q1',
-    passed: false,
-    code: '',
-    tests: {
-        T1: false, 
-        T2: false,
-        T3: false
-    }
-}]
+[
+    {
+        qID: '',
+        passed: false, 
+        tests: [
+            {
+                text: '',
+                passed: true
+            }
+        ]
+    } 
+]
