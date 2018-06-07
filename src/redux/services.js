@@ -19,6 +19,15 @@
 //sends code from redux ---stringify--- to backend to be tested and posts results to redux
 // The results should be formatted on the backend before coming to the front. 
 
+//------ this needs to be in the endpoint that runs the code 
+// const beginModule = 'module.exports = ';
+
+// const data = beginModule + users code from redux;
+
+// axios.post('/api/post-results', { data, assessmentName: 'object', qID:1 })
+//   .then(({ data }) => console.log(data))
+//   .catch(console.error)
+
 //format
 
 [
