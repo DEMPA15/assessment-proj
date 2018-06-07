@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-
 class ProgressBar extends Component {
-
 
  //-------better solution
  // map through state.results to render correct icons
@@ -11,7 +9,7 @@ class ProgressBar extends Component {
 
  // when icon is clicked navigates to the correct question
 
- // needs to re-render everytime Run is clicked or route is changed
+ // needs to re-render every time Run is clicked or route is changed
 
 
   render() {
