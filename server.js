@@ -42,7 +42,10 @@ app.get(`/api/assessments`, (req, res) => {
     // Request will pull all Assesments' name and id's from Mongo DB
     // Will return array of objects -- names and id's.
     Assessments.find({}, (err, assessments)=>{
-        res.send(assessments)
+        const assessmentsArray = assessments.map((assessment, i) => {
+           return {id: assessment.id, name: assessment.name};
+        })
+        res.send(assessmentsArray);
     })
 })
 
