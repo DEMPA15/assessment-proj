@@ -1,1 +1,0 @@
-module.exports = function getKeys(doors){var doors = {red: 'cedar', blue: 'stone', green: 'pine', brown: 'mahogany' }; let doorKeys = Object.keys(doors); return doorKeys}
