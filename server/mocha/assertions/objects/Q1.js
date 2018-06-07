@@ -18,4 +18,4 @@ module.exports = [{
             expect(this.subject.toString()).to.include('duck.name');
         }
     }
-]
+] 
