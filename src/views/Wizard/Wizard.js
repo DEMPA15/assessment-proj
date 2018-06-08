@@ -43,6 +43,15 @@ componentDidMount(){
 }
 
   render() {
+    const qID = this.props.match.params.qID
+    const assessmentID = this.props.match.params.assessmentID
+    let qIndex;
+      questions.map((question, i)=>{
+        if(question.qID == qID){
+          return i
+        }
+      })
+
     return (
       <div>
         {
@@ -50,14 +59,14 @@ componentDidMount(){
           <LoadingGif />
           :
           <div className='wizard-body'>
-            <Header qID={this.props.match.params.qID}/>
+            <Header qID={qID}/>
             <div className='dashboard'>
               <div className='questions-results-container'>
-                <QuestionText qID={this.props.match.params.qID}/>
-                <TestProgress qID={this.props.match.params.qID}/>
+                <QuestionText qIndex={qIndex}/>
+                <TestProgress qID={qID}/>
               </div>
-              <CodeEditor qID={this.props.match.params.qID} assessmentID={this.props.match.params.assessmentID}/>
-              <ProgressBar  qID={this.props.match.params.qID} history={this.props.history}/>
+              <CodeEditor qID={qID} assessmentID={assessmentID}/>
+              <ProgressBar  qID={qID} history={this.props.history}/>
             </div>
           </div>
         }

@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 
 class TestProgress extends Component {
 
- //needs state.results[route's questionNumber param].tests to map through each test and 
- //render the appropriate image depending on its boolean
+ //needs state.results[this.props.qID].tests to map through each test and 
+ //render the appropriate image depending on its passed boolean
 
- //needs state.questions[route's questionNumber param].testText to map through each and render the text
-
- //needs to re-render every time Run is clicked or the route changes
+ //needs state.results[this.props.qID].tests to map through each and render the text
 
  //be careful to make sure test-text matches the correct test-boolean
 
