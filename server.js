@@ -47,6 +47,12 @@ app.get(`/api/assessments`, (req, res) => {
     })
 })
 
+app.get('/api/assessment-name/:assessmentID', (req, res)=>{
+    Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
+        res.send(assessment.name);
+    })
+})
+
 app.get(`/api/questions/:assessmentID`, (req, res) => {
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         res.send(assessment.questions);

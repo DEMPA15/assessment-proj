@@ -13,7 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={ SplashPage } />
           <Route path='/assessments' component={ AssessmentList }/>
-          <Route path='/wizard/:email/:assessmentID/:questionNumber' component={ Wizard }/> 
+          <Route path='/wizard/:email/:assessmentID/:qID' component={ Wizard }/> 
           <Route path='/confirmation' component = { Submitted } />
         </Switch>
       </Router>

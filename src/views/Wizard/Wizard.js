@@ -5,6 +5,7 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
+import Header from '../../components/Header/Header'
 
 import { connect } from 'react-redux';
 import { getQuestions, setResults } from '../../redux/action-creators'
@@ -48,12 +49,13 @@ componentDidMount(){
           this.state.loading ?
           <LoadingGif />
           :
-          <div>
-          <ProgressBar />
-          <QuestionText />
-          <TestProgress />
-          <CodeEditor />
-          <NavButtons />
+          <div className='wizard-body'>
+            <Header qID={this.props.match.params.qID}/>
+            <ProgressBar />
+            <QuestionText />
+            <TestProgress />
+            <CodeEditor />
+            <NavButtons />
           </div>
         }
       </div>
