@@ -1,4 +1,4 @@
-import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){
@@ -11,6 +11,13 @@ export function getQuestions(assessmentID){
 export function setResults(payload){
     return {
         type: SET_RESULTS,
+        payload: payload
+    }
+}
+
+export function setCode(payload){
+    return {
+        type: SET_CODE,
         payload: payload
     }
 }

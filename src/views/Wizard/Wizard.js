@@ -8,7 +8,7 @@ import Header from '../../components/Header/Header'
 import './wizard.css'
 
 import { connect } from 'react-redux';
-import { getQuestions, setResults } from '../../redux/action-creators'
+import { getQuestions, setResults, setCode } from '../../redux/action-creators'
 
 
 class Wizard extends Component {
@@ -26,6 +26,7 @@ componentDidMount(){
     .then(response=>{
       const results = []
       this.props.questions.forEach((question, i)=>{
+        this.props.setCode({[question.qID]: ''})
         let tests = []
         question.tests.forEach(test=>{tests.push({text: test, passed: false})})
         results[question.qID] = { passed: false, tests: tests}
@@ -77,4 +78,4 @@ function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
