@@ -10,9 +10,9 @@ const userInfo = {
 function user(state = userInfo, action ){
     switch(action.type){
         case SET_NAME:
-            return state.name = action.payload;
+            return Object.assign({}, state, action.payload)
         case SET_EMAIL:
-            return state.email = action.payload
+            return Object.assign({}, state, action.payload)
         default:
             return state; 
     }

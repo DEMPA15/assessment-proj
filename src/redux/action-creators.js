@@ -15,17 +15,17 @@ export function setResults(payload){
     }
 }
 
-export function setName(payload){
+export function setName(name){
     return {
         type: SET_NAME,
-        payload: payload
+        payload: { name }
     }
 }
 
-export function setEmail(payload){
+export function setEmail(email){
     return {
         type: SET_EMAIL,
-        payload: payload
+        payload: { email }
     }
 }
 
