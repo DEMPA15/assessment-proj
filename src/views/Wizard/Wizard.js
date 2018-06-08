@@ -51,10 +51,10 @@ componentDidMount(){
           :
           <div className='wizard-body'>
             <Header qID={this.props.match.params.qID}/>
-            <ProgressBar />
-            <QuestionText />
-            <TestProgress />
-            <CodeEditor />
+            <ProgressBar  qID={this.props.match.params.qID} history={this.props.history}/>
+            <QuestionText qID={this.props.match.params.qID}/>
+            <TestProgress qID={this.props.match.params.qID}/>
+            <CodeEditor qID={this.props.match.params.qID} assessmentID={this.props.match.params.assessmentID}/>
             <NavButtons />
           </div>
         }
