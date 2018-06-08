@@ -55,10 +55,9 @@ app.get(`/api/questions/:assessmentID`, (req, res) => {
     // {
     //     qID: 'Q1',
     //     qText: '',
-    //     testText: []
+    //     tests: []
     // }, 
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
-        console.log(assessment)
         res.send(assessment.questions);
     })
 })

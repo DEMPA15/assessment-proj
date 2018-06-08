@@ -7,7 +7,7 @@ import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 
 import { connect } from 'react-redux';
-import { getQuestions } from '../../redux/action-creators'
+import { getQuestions, setResults } from '../../redux/action-creators'
 
 
 class Wizard extends Component {
@@ -21,7 +21,18 @@ class Wizard extends Component {
 
 componentDidMount(){
   const tempAssessmentID = '5b18882560b192ae05d33dfd'
-  this.props.getQuestions(tempAssessmentID)
+  Promise.resolve(this.props.getQuestions(tempAssessmentID))
+    .then(response=>{
+      const results = []
+      this.props.questions.map((question, i)=>{
+        let tests = []
+        question.tests.map(test=>{tests.push({text: test, passed: false})})
+        results.push({ qID: question.qID, passed: false, tests: tests})})
+      Promise.resolve(this.props.setResults(results))
+    })
+    .catch(error=>{
+      console.log(error)
+    })
 }
 
   render() {
@@ -36,8 +47,8 @@ componentDidMount(){
     );
   }
 }
-function mapStateToProps ({}) {
-  return {};
+function mapStateToProps ({ questions}) {
+  return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults })(Wizard); 

@@ -31,7 +31,12 @@ function questions(state = [], action ){
 }
 
 function results(state = [], action ){
-    return state
+    switch(action.type){
+        case `SET_RESULTS`:
+            return [...state, ...action.payload];
+        default:
+            return state
+    }
 }
 
 
