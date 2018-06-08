@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import CodeEditor from '../../components/CodeEditor/CodeEditor'
-import NavButtons from '../../components/NavButtons/NavButtons'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
 import Header from '../../components/Header/Header'
+import './wizard.css'
 
 import { connect } from 'react-redux';
 import { getQuestions, setResults } from '../../redux/action-creators'
@@ -51,11 +51,14 @@ componentDidMount(){
           :
           <div className='wizard-body'>
             <Header qID={this.props.match.params.qID}/>
-            <ProgressBar  qID={this.props.match.params.qID} history={this.props.history}/>
-            <QuestionText qID={this.props.match.params.qID}/>
-            <TestProgress qID={this.props.match.params.qID}/>
-            <CodeEditor qID={this.props.match.params.qID} assessmentID={this.props.match.params.assessmentID}/>
-            <NavButtons />
+            <div className='dashboard'>
+              <div className='questions-results-container'>
+                <QuestionText qID={this.props.match.params.qID}/>
+                <TestProgress qID={this.props.match.params.qID}/>
+              </div>
+              <CodeEditor qID={this.props.match.params.qID} assessmentID={this.props.match.params.assessmentID}/>
+              <ProgressBar  qID={this.props.match.params.qID} history={this.props.history}/>
+            </div>
           </div>
         }
       </div>
