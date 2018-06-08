@@ -11,15 +11,15 @@ import { getQuestions, setResults } from '../../redux/action-creators'
 
 
 class Wizard extends Component {
-
-//I think we can have a loading key on local state and change it to true once our necessary data comes back
-// - get questions and
-// - set results
-// we can run both of those actions on this page to set redux state
-
-// also need to check state.user.email and if it is == to null then we need to display the enter email popup
+  constructor(){
+    super()
+    this.state = {
+      loading: true
+    }
+  }
 
 componentDidMount(){
+  const assessmentID = this.props.match.params.assessmentID
   const tempAssessmentID = '5b18882560b192ae05d33dfd'
   Promise.resolve(this.props.getQuestions(tempAssessmentID))
     .then(response=>{
@@ -29,6 +29,11 @@ componentDidMount(){
         question.tests.map(test=>{tests.push({text: test, passed: false})})
         results.push({ qID: question.qID, passed: false, tests: tests})})
       Promise.resolve(this.props.setResults(results))
+        .then(response=>{
+          this.setState({
+            loading: false
+          })
+        })
     })
     .catch(error=>{
       console.log(error)
@@ -47,7 +52,7 @@ componentDidMount(){
     );
   }
 }
-function mapStateToProps ({ questions}) {
+function mapStateToProps ({ questions }) {
   return { questions };
   }
 

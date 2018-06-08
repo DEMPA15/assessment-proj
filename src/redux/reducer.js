@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS } from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE } from './constraints'
 
 // initial state used to initiate the popup
 const userInfo = {
@@ -10,11 +10,14 @@ const userInfo = {
 
 //reducer functions
 function user(state = userInfo, action ){
-    return state
-}
-
-function assessmentInfo(state = {}, action){
-
+    switch(action.type){
+        case `${SET_NAME}`:
+            return state.name = action.payload;
+        case `${SET_EMAIL}`:
+            return state.email = action.payload
+        default:
+            return state; 
+    }
 }
 
 function questions(state = [], action ){
@@ -32,9 +35,18 @@ function questions(state = [], action ){
 
 function results(state = [], action ){
     switch(action.type){
-        case `SET_RESULTS`:
+        case SET_RESULTS:
             return [...state, ...action.payload];
         default:
+            return state
+    }
+}
+
+function code(state={}, action){
+    switch(action.type){
+        case ENTER_CODE:
+            return Object.assign({}, state, action.payload)
+        default: 
             return state
     }
 }
