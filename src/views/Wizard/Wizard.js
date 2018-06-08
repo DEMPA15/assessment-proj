@@ -21,7 +21,7 @@ class Wizard extends Component {
 
 componentDidMount(){
   // const assessmentID = this.props.match.params.assessmentID
-  const tempAssessmentID = '5b18882560b192ae05d33dfd'
+  const tempAssessmentID = '5b196710302c6293f15c6ef9'
   Promise.resolve(this.props.getQuestions(tempAssessmentID))
     .then(response=>{
       const results = []
@@ -59,7 +59,7 @@ componentDidMount(){
           <LoadingGif />
           :
           <div className='wizard-body'>
-            <Header qID={qID}/>
+            <Header qID={qID} assessmentID={assessmentID}/>
             <div className='dashboard'>
               <div className='questions-results-container'>
                 <QuestionText qIndex={qIndex}/>
