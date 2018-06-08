@@ -46,12 +46,11 @@ componentDidMount(){
     const qID = this.props.match.params.qID
     const assessmentID = this.props.match.params.assessmentID
     let qIndex;
-      questions.map((question, i)=>{
-        if(question.qID == qID){
-          return i
+      this.props.questions.forEach((question, i)=>{
+        if(question.qID === qID){
+          qIndex = i
         }
       })
-
     return (
       <div>
         {
