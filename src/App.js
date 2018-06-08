@@ -4,6 +4,7 @@ import AssessmentList from './views/AssessmentList/AssessmentList';
 import Wizard from './views/Wizard/Wizard';
 import SplashPage from './views/SplashPage/SplashPage';
 import Submitted from './views/Submitted/Submitted';
+import CodeEditor from './components/CodeEditor/CodeEditor';
 
 
 class App extends Component {
