@@ -4,7 +4,7 @@ import EnterEmail from '../../components/EnterEmail/EnterEmail'
 import NavButtons from '../../components/NavButtons/NavButtons'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import QuestionText from '../../components/QuestionText/QuestionText'
-import TestProgress from '../../components/TestProgress/TestProgress'
+import TestProgress from '../../components/TestResults/TestResults'
 
 import { connect } from 'react-redux';
 import { getQuestions, setResults } from '../../redux/action-creators'
