@@ -39,8 +39,6 @@ app.post(`/api/link/:email/:assessmentID`, (req, res) => {
 })
 
 app.get(`/api/assessments`, (req, res) => {
-    // Request will pull all Assesments' name and id's from Mongo DB
-    // Will return array of objects -- names and id's.
     Assessments.find({}, (err, assessments)=>{
         const assessmentsArray = assessments.map((assessment, i) => {
            return {id: assessment.id, name: assessment.name};
@@ -49,46 +47,39 @@ app.get(`/api/assessments`, (req, res) => {
     })
 })
 
+app.get('/api/assessment-name/:assessmentID', (req, res)=>{
+    Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
+        res.send(assessment.name);
+    })
+})
+
 app.get(`/api/questions/:assessmentID`, (req, res) => {
-    // get all questions from assessment id or name 
-    // format before sending back
-    // {
-    //     qID: 'Q1',
-    //     qText: '',
-    //     tests: []
-    // }, 
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         res.send(assessment.questions);
     })
 })
 
   
-app.post(`/api/post-results`, async (req, res) => {
+app.post(`/api/post-results`,  (req, res) => {
     const { data, assessmentID, qID } = req.body;
     const path = './test.js';
-  
-    await writeFileAsync(path, data)
-  
-    testRunner(path, assessmentName, qID)
-      .then(result => {
-        res.send(result);
-      })
-      .catch(err => {
-        console.log(err)
-      })
 
-    // needs to receive assessmentName, qID, and code 
-    // Will pull tests from file
-    // will create file from code 
-    // will build test suite, run code and return results
-    // will send results back to client
+    Assessments.findOne({_id: assessmentID}, async (err, assessment)=>{
+
+        await writeFileAsync(path, data)
+  
+        testRunner(path, assessment.name, qID)
+          .then(result => {
+            res.send(result);
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    })
 })
 
-app.post(`/api/submit`, (req,res)=>{
 
-//     // Will receive result data
-//     // Will draft and send out email
-//     // Will return success or fail
+app.post(`/api/submit`, (req,res)=>{
 
     const output = `
     <p>Does this email work?</p>

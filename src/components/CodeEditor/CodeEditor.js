@@ -19,6 +19,8 @@ class CodeEditor extends Component {
 
   }
 
+ // gets qID and assessmentID from parent props
+
   render() {
     console.log(this.props)
     return (
