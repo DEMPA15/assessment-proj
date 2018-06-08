@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import EnterEmail from '../../components/EnterEmail/EnterEmail';
 
 
 class AssessmentList extends Component {
@@ -8,7 +9,8 @@ class AssessmentList extends Component {
 
     this.state = {
       assessments: [],
-      searchText: ''
+      searchText: '',
+      displayPopup: false
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,6 +23,9 @@ class AssessmentList extends Component {
   //needs a search bar
 
   componentDidMount() {
+    // if (!this.props.user.name) {
+    //   show email popup
+    // }
     axios.get(`/api/assessments`)
       .then((res) => {
         this.setState({
@@ -36,32 +41,33 @@ class AssessmentList extends Component {
   }
 
   render() {
-    const assessments = this.state.assessments.map((assessment, i) => {
+    let assessments = this.state.assessments.map((assessment, i) => {
+      // add plus buttons
+      // select all function
       if (this.state.searchText === '') {
-        return <li key={assessment.id}> {assessment.name} </li>
+        return <div className='assessment-button'><button key={assessment.id}> {assessment.name}</button><br/></div>
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <li key={assessment.id}> {assessment.name} </li>
+        return <div className='assessment-button'><button key={assessment.id}> {assessment.name}</button><br/></div>
       }
     })
-    if (assessments.length >= 1) {
+    if (assessments.length === 0) {
+      assessments = 'No results found.'
+    }
+
       return (
-        <div>
+        <div className='assessments-page' >
           <h1>Assessments</h1>
-          <p>Search: </p>
-          <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
-          {assessments}
+          <div id='search-box' >
+            <p>Search: </p>
+            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
+          </div>
+          <div className='assessments-list' >
+            {assessments}
+          </div>
+          <button>Generate Links</button>
         </div>
       )
-    }
-    else return (
-      <div>
-        <h1>Assessments</h1>
-        <p>Search: </p>
-        <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
-        <p>No results found.</p>
-      </div>
-    )
   }
 }
 

@@ -1,5 +1,22 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.assessments-page {
+  text-align: center;
+}
+
+.assessment-button {
+  margin-bottom: 10px;
+}
+
+.assessments-list {
+  display: inline-block;
+  text-align: left;
+}
+
+#search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-box > p {
+  padding-right: 5px;
 }
