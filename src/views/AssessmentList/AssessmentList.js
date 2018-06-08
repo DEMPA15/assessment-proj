@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import EnterEmail from '../../components/EnterEmail/EnterEmail';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addAssessment } from '../../redux/action-creators';
 
 
 class AssessmentList extends Component {
@@ -13,6 +16,7 @@ class AssessmentList extends Component {
       displayPopup: false
     }
     this.handleChange = this.handleChange.bind(this);
+    this.addToList = this.addToList.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -40,15 +44,23 @@ class AssessmentList extends Component {
     });
   }
 
+  addToList(e){
+    const list = ([{
+      name: e.target.name,
+      id: e.target.value
+    }])
+    this.props.addAssessment(list);
+  }
+
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
       // add plus buttons
       // select all function
       if (this.state.searchText === '') {
-        return <div className='assessment-button'><button key={assessment.id}> {assessment.name}</button><br/></div>
+        return <div className='assessment-button'><button key={assessment.id} name={assessment.name} value={assessment.id}> {assessment.name}</button><br/></div>
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <div className='assessment-button'><button key={assessment.id}> {assessment.name}</button><br/></div>
+        return <div className='assessment-button'><button key={assessment.id} name={assessment.name} value={assessment.id}> {assessment.name}</button><br/></div>
       }
     })
     if (assessments.length === 0) {
@@ -65,10 +77,13 @@ class AssessmentList extends Component {
           <div className='assessments-list' >
             {assessments}
           </div>
-          <button>Generate Links</button>
         </div>
       )
   }
 }
 
-export default AssessmentList;
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({ addAssessment }, dispatch)
+}
+
+export default connect(state => state, mapDispatchToProps)(AssessmentList);

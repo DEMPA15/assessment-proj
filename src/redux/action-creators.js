@@ -1,4 +1,4 @@
-import { SET_RESULTS, GET_QUESTIONS } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, GENERATE_LINK, ADD_ASSESSMENT } from './constraints'
 import services from './services'
 
 // holds the functions that create our actions used to change state in the reducer
@@ -52,3 +52,19 @@ export function setResults(payload){
 
 
 //-------post results
+
+
+//------generate link
+
+export function link(obj){
+    return {
+        type: GENERATE_LINK,
+        payload: obj
+    }
+}
+export function addAssessment(obj){
+    return {
+        type: ADD_ASSESSMENT,
+        payload: obj
+    }
+}

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS } from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, GENERATE_LINK, ADD_ASSESSMENT } from './constraints'
 
 // initial state used to initiate the popup
 const userInfo = {
@@ -39,8 +39,26 @@ function results(state = [], action ){
     }
 }
 
+function link(state = {}, action){
+    switch(action.type){
+        case GENERATE_LINK:
+            return {...state, ...action.payload}
+        default:
+            return state;
+    }
+}
+
+function assessments(state = [], action){
+    switch(action.type){
+        case ADD_ASSESSMENT:
+            return [...state, ...action.payload]
+        default:
+            return state;
+    }
+}
+
 
 //combine reducers to send to index.js
-const reducer = combineReducers({user, questions, results});
+const reducer = combineReducers({user, questions, results, link});
 
 export default reducer;
