@@ -65,7 +65,7 @@ app.get(`/api/questions/:assessmentName`, (req, res) => {
 
   
 app.post(`/api/post-results`, async (req, res) => {
-    const { data, assessmentName, qID } = req.body;
+    const { data, assessmentID, qID } = req.body;
     const path = './test.js';
   
     await writeFileAsync(path, data)
@@ -87,9 +87,9 @@ app.post(`/api/post-results`, async (req, res) => {
 
 app.post(`/api/submit`, (req,res)=>{
 
-    // Will receive result data
-    // Will draft and send out email
-    // Will return success or fail
+//     // Will receive result data
+//     // Will draft and send out email
+//     // Will return success or fail
 
     const output = `
     <p>Does this email work?</p>
@@ -137,7 +137,7 @@ app.post(`/api/submit`, (req,res)=>{
     }
 );
 
-const port = process.env.PORT || 3010
+const port = process.env.PORT || 5000
 app.listen(port, ()=>{
     console.log(`This server is listening on port ${port}`)
 })

@@ -1,19 +1,53 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import brace from 'brace';
+import AceEditor from 'react-ace';
 
+import * as Actions from '../../redux/action-creators'
+import { connect } from 'react-redux';
 
-class CodeArea extends Component {
+import 'brace/mode/javascript';
+import 'brace/theme/monokai'
 
- // uses action creator to set code to redux ---stringify
- // may need to look for library that allows for a code editor type thing
- // uses action creator to send code to server to be tested and postResults (run button)
+class CodeEditor extends Component {
+  
+  onChange = (newValue) => {
+    
+    const index = Number(this.props.match.params.questionNumber)
+    const key = `Q${index}`
+    this.props.enterCode({[key]:newValue})
+
+  }
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        CodeArea
+        <AceEditor
+          mode="javascript"
+          theme="monokai"
+          name="blah2"
+          onLoad={this.onLoad}
+          onChange={this.onChange}
+          fontSize={14}
+          showPrintMargin={true}
+          showGutter={true}
+          highlightActiveLine={true}
+          value={this.props.code}
+          focus={true}
+          setOptions={{
+            enableBasicAutocompletion: false,
+            enableLiveAutocompletion: false,
+            enableSnippets: true,
+            showLineNumbers: true,
+            tabSize: 2,
+          }}
+        >
+        </AceEditor>
+        <button className ='run' >Run</button>
       </div>
     );
   }
 }
 
-export default CodeArea;
+export default connect(state => state, Actions)(CodeEditor);

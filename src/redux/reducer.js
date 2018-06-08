@@ -22,6 +22,6 @@ function results(state = [], action ){
 
 
 //combine reducers to send to index.js
-const reducer = combineReducers({user, questions, results});
+const reducer = combineReducers({user, questions, results, code});
 
 export default reducer;
