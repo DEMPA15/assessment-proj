@@ -1,19 +1,17 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE } from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS} from './constraints'
 
-// initial state used to initiate the popup
+
 const userInfo = {
     name: null,
     email: null
 };
 
-
-//reducer functions
 function user(state = userInfo, action ){
     switch(action.type){
-        case `${SET_NAME}`:
+        case SET_NAME:
             return state.name = action.payload;
-        case `${SET_EMAIL}`:
+        case SET_EMAIL:
             return state.email = action.payload
         default:
             return state; 
@@ -33,10 +31,16 @@ function questions(state = [], action ){
     }
 }
 
-function results(state = [], action ){
+function results(state = {}, action ){
     switch(action.type){
         case SET_RESULTS:
-            return [...state, ...action.payload];
+            return Object.assign({}, state, action.payload)
+        case `${POST_RESULTS}_PENDING`:
+            return state;
+        case `${POST_RESULTS}_FULFILLED`:
+            return Object.assign({}, state, action.payload)
+        case `${POST_RESULTS}_REJECTED`:
+             return state
         default:
             return state
     }
@@ -51,8 +55,6 @@ function code(state={}, action){
     }
 }
 
-
-//combine reducers to send to index.js
-const reducer = combineReducers({user, questions, results});
+const reducer = combineReducers({user, questions, results, code});
 
 export default reducer;

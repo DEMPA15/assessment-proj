@@ -1,4 +1,4 @@
-import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){
@@ -29,8 +29,6 @@ export function setEmail(payload){
     }
 }
 
-//-----enter code
-
  export function enterCode(payload){
      return {
          type: ENTER_CODE,
@@ -38,5 +36,9 @@ export function setEmail(payload){
      }
  }
 
-
-//-------post results
+export function postResults(code, assessmentID, qID){
+    return {
+        type: POST_RESULTS,
+        payload: services.postResults(code, assessmentID, qID)
+    }
+}

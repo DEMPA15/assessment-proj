@@ -1,5 +1,3 @@
-//This file will contain our axios calls that go through redux
-
 import axios from 'axios';
 
 const services = {
@@ -8,35 +6,22 @@ const services = {
             .then(questions=>{
                 return questions.data
             })
-    }
+    },
+
+    postResults: (code, assessmentID, qID)=>{
+        const beginModule = 'module.exports = ';
+        const data = beginModule + code;
+
+        return axios.post('/api/post-results', { data, assessmentID, qID })
+            .then(results=>{
+                return {
+                    [results.data.qID]: {
+                        passed: results.data.passed,
+                        tests: results.data.tests
+                    }
+                }
+            })
+    },
 }
-
-//-------- Post results
-//sends code from redux ---stringify--- to backend to be tested and posts results to redux
-// The results should be formatted on the backend before coming to the front. 
-
-//------ this needs to be in the endpoint that runs the code 
-// const beginModule = 'module.exports = ';
-
-// const data = beginModule + users code from redux;
-
-// axios.post('/api/post-results', { data, assessmentName: 'object', qID:1 })
-//   .then(({ data }) => console.log(data))
-//   .catch(console.error)
-
-//format
-
-// [
-//     {
-//         qID: '',
-//         passed: false, 
-//         tests: [
-//             {
-//                 text: '',
-//                 passed: true
-//             }
-//         ]
-//     } 
-// ]
 
 export default services
