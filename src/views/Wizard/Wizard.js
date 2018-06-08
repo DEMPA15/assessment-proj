@@ -6,6 +6,9 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 
+import { connect } from 'react-redux';
+import { getQuestions } from '../../redux/action-creators'
+
 
 class Wizard extends Component {
 
@@ -15,6 +18,11 @@ class Wizard extends Component {
 // we can run both of those actions on this page to set redux state
 
 // also need to check state.user.email and if it is == to null then we need to display the enter email popup
+
+componentDidMount(){
+  const tempAssessmentID = '5b18882560b192ae05d33dfd'
+  this.props.getQuestions(tempAssessmentID)
+}
 
   render() {
     return (
@@ -28,5 +36,8 @@ class Wizard extends Component {
     );
   }
 }
+function mapStateToProps ({}) {
+  return {};
+  }
 
-export default Wizard;
+export default connect(mapStateToProps , { getQuestions })(Wizard); 

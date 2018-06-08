@@ -1,18 +1,28 @@
 //This file will contain our axios calls that go through redux
 
+import axios from 'axios';
 
+const services = {
+    getQuestions: (assessmentID)=>{
+        return axios.get(`/api/questions/${assessmentID}`)
+            .then(questions=>{
+                return questions.data
+            })
+    }
+}
 
 //--------Get Questions
 // These should be organized on the back end before coming to the front and being set to redux
 
 //format
-[
-    {
-        qID: 'Q1',
-        qText: '',
-        testText: []
-    }, 
-]
+
+// [
+//     {
+//         qID: 'Q1',
+//         qText: '',
+//         testText: []
+//     }, 
+// ]
 
 
 //-------- Post results
@@ -30,15 +40,17 @@
 
 //format
 
-[
-    {
-        qID: '',
-        passed: false, 
-        tests: [
-            {
-                text: '',
-                passed: true
-            }
-        ]
-    } 
-]
+// [
+//     {
+//         qID: '',
+//         passed: false, 
+//         tests: [
+//             {
+//                 text: '',
+//                 passed: true
+//             }
+//         ]
+//     } 
+// ]
+
+export default services

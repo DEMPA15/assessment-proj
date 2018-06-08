@@ -1,10 +1,18 @@
-import { SET_RESULTS } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS } from './constraints'
+import services from './services'
 
 // holds the functions that create our actions used to change state in the reducer
 
 
 
 //-------get questions
+
+export function getQuestions(assessmentID){
+    return {
+        type: GET_QUESTIONS,
+        payload: services.getQuestions(assessmentID)
+    }
+}
 
 
 

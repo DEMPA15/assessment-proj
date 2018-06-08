@@ -49,7 +49,7 @@ app.get(`/api/assessments`, (req, res) => {
     })
 })
 
-app.get(`/api/questions/:assessmentName`, (req, res) => {
+app.get(`/api/questions/:assessmentID`, (req, res) => {
     // get all questions from assessment id or name 
     // format before sending back
     // {
@@ -57,7 +57,7 @@ app.get(`/api/questions/:assessmentName`, (req, res) => {
     //     qText: '',
     //     testText: []
     // }, 
-    Assessments.findOne({name: req.params.assessmentName}, (err, assessment)=>{
+    Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         console.log(assessment)
         res.send(assessment.questions);
     })
