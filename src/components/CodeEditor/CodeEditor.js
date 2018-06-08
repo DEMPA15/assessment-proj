@@ -7,6 +7,8 @@ class CodeArea extends Component {
  // may need to look for library that allows for a code editor type thing
  // uses action creator to send code to server to be tested and postResults (run button)
 
+ // gets qID and assessmentID from parent props
+
   render() {
     return (
       <div>
