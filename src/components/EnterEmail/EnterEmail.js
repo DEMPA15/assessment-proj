@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './EnterEmail.css';
-
+import {connect} from 'react-redux';
+import * as Actions from '../../redux/action-creators';
 class EnterEmail extends Component {
   constructor (props){
     super(props)
@@ -16,6 +17,11 @@ class EnterEmail extends Component {
     });
   }
 
+  submitEmail(){
+    this.props.submitEmail(this.state.email)
+    this.props.history.push('/assessments')
+  }
+
   render() {
     return (
       <div className = "student-email">
@@ -26,7 +32,7 @@ class EnterEmail extends Component {
             <input type="text" placeholder="email" value={this.state.email} onChange={this.handleChange}/>
           </div>
           <div>
-            <button onClick = {this.handleChange}>Submit</button>
+            <button onClick = {this.submitEmail}>Submit</button>
           </div>
      
      </div> 
@@ -34,4 +40,4 @@ class EnterEmail extends Component {
   }
 }
 
-export default EnterEmail;
+export default connect(state => state, Actions)(EnterEmail);
