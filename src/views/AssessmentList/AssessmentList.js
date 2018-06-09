@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import EnterEmail from '../../components/EnterEmail/EnterEmail';
+import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addAssessment } from '../../redux/action-creators';
@@ -16,7 +17,7 @@ class AssessmentList extends Component {
       displayPopup: false
     }
     this.handleChange = this.handleChange.bind(this);
-    this.addToList = this.addToList.bind(this);
+    this.addAssessment = this.addAssessment.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -44,12 +45,13 @@ class AssessmentList extends Component {
     });
   }
 
-  addToList(e){
-    const list = ([{
-      name: e.target.name,
-      id: e.target.value
-    }])
-    this.props.addAssessment(list);
+  addAssessment(e){
+    debugger;
+    const assessment = [{
+      name: e.target.title,
+      id: e.target.id
+    }];
+    this.props.addAssessment(assessment);
   }
 
   render() {
@@ -57,10 +59,10 @@ class AssessmentList extends Component {
       // add plus buttons
       // select all function
       if (this.state.searchText === '') {
-        return <div className='assessment-button'><button key={assessment.id} name={assessment.name} value={assessment.id}> {assessment.name}</button><br/></div>
+        return <div className='assessment' key={assessment.id}> <button onClick={this.addAssessment} title={assessment.name} id={assessment.id}><AddMinusButton  add={true}/><p name={assessment.name} value={assessment.id}> {assessment.name}</p><br/></button> </div>
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <div className='assessment-button'><button key={assessment.id} name={assessment.name} value={assessment.id}> {assessment.name}</button><br/></div>
+        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} name={assessment.name} value={assessment.id}><AddMinusButton add={true}/><p > {assessment.name}</p><br/></div>
       }
     })
     if (assessments.length === 0) {
