@@ -1,0 +1,19 @@
+.assessment-button {
+    margin-bottom: 50px;
+    display: flex;
+    border: 1px solid black;
+    // line-height: 75px;
+    height: 75px;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.assessment-button:hover {
+    cursor: pointer;
+}
+
+.assessment-button i {
+    padding-right: 5px;
+}
