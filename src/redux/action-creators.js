@@ -1,4 +1,4 @@
-import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, GENERATE_LINK, ADD_ASSESSMENT } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){

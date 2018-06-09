@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, GENERATE_LINK} from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, GENERATE_LINK, ADD_ASSESSMENT} from './constraints'
 
 
 const userInfo = {
