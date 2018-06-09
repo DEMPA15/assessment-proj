@@ -82,7 +82,7 @@ app.post(`/api/post-results`, async (req, res) => {
     // will create file from code
     // will build test suite, run code and return results
     // will send results back to client
-})
+});
 
 app.post(`/api/submit`, (req,res)=>{
 
@@ -99,10 +99,10 @@ app.post(`/api/submit`, (req,res)=>{
     <h3>Contact Info</h3>
     <ul>
         <li>Name: ${req.body.name}</li>
-        <li>email: ${req.body.email}</li>
     </ul>
-    <h3>Message:</h3>
-    <p>${req.body.message}</p>
+    <h3>Below is the </h3>
+    <p>${req.body.results}</p>
+    <br/>
     `;
 
     let transporter = nodemailer.createTransport({
@@ -121,7 +121,7 @@ app.post(`/api/submit`, (req,res)=>{
     // setup email data with unicode symbols
     let mailOptions = {
       from: '"Group Project" <wpr152018@gmail.com>',
-      to: 'ryan90butler@gmail.com',
+      to: `${req.body.mentorEmail}`,
       subject: `Assessment results for ${req.body.name}`,
       text: 'Hello can you hear me?',
       html: output
@@ -137,8 +137,7 @@ app.post(`/api/submit`, (req,res)=>{
 
       res.send({'message sent':true})
     });
-    }
-);
+});
 
 const port = process.env.PORT || 3010
 app.listen(port, ()=>{
