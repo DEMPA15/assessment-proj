@@ -6,7 +6,7 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 }
 .questions-results-container{
     width: 260px;

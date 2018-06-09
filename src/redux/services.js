@@ -12,10 +12,10 @@ const services = {
     postResults: (code, assessmentID, qID)=>{
         const beginModule = 'module.exports = ';
         const data = beginModule + code;
-        debugger
+        
         return axios.post('/api/post-results', { data, assessmentID, qID })
             .then(results=>{
-                debugger
+                
                 return {
                     [results.data.qID]: {
                         passed: results.data.passed,
