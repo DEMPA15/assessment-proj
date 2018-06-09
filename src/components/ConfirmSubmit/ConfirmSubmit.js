@@ -51,13 +51,16 @@ class ConfirmSubmit extends Component {
             {/* <label> Email </label> */}
             <input  placeholder='Enter Email' onChange={(e)=>this.props.setEmail(e.target.value)}/>
           </div>
-          <button className='confirmSubmit-button' onClick={this.props.sendResults()}>
-              {
-                this.state.allPassed ? 'Submit Answers'
-                :
-                'Submit Answers Anyway'
-              } 
-          </button>
+          <div className='button-container'>
+            <button className='cancel-button-red confirmSubmit-button' onClick={()=>this.props.closePopup('hidden')}> Cancel </button>
+            <button className='submit-button-green confirmSubmit-button' onClick={this.props.sendResults()}>
+                {
+                  this.state.allPassed ? 'Submit Answers'
+                  :
+                  'Submit Answers Anyway'
+                } 
+            </button>
+          </div>
 
         </div>
       </div>
