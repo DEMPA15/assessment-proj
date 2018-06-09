@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 
 class AddMinusButton extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
-            add: true
-        }
-    }
+    //     this.state = {
+    //         add: true
+    //     }
+    // }
 
     // onClick() {
     //     if (this.state.add) {
@@ -25,7 +25,7 @@ class AddMinusButton extends Component {
         if (this.props.add) {
             return (
                 <div className='add-minus-button'>
-                    <i className="material-icons">
+                    <i className="material-icons" title={this.props.title} id={this.props.id}>
                         add_circle_outline
                      </i>
                 </div>
@@ -33,7 +33,7 @@ class AddMinusButton extends Component {
         }
         else return (
             <div className='add-minus-button'>
-                <i className="material-icons">
+                <i className="material-icons" title={this.props.title} id={this.props.id}>
                     remove_circle_outline
                  </i>
             </div>
