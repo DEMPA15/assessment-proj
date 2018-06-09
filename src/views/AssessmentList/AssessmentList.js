@@ -4,6 +4,7 @@ import EnterEmail from '../../components/EnterEmail/EnterEmail';
 import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
 import AddAllAssessments from '../../components/AddAllAssessments/AddAllAssessments';
+import LoadingGif from '../../components/LoadingGif/LoadingGif'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addAssessment } from '../../redux/action-creators';
@@ -17,7 +18,7 @@ class AssessmentList extends Component {
     this.state = {
       assessments: [],
       searchText: '',
-      displayPopup: false
+      loading: true,
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
@@ -38,7 +39,8 @@ class AssessmentList extends Component {
     axios.get(`/api/assessments`)
       .then((res) => {
         this.setState({
-          assessments: res.data
+          assessments: res.data,
+          loading: false
         })
       })
   }
@@ -49,7 +51,7 @@ class AssessmentList extends Component {
     });
   }
 
-  addAssessment(e){
+  addAssessment(e) {
     const name = e.target.title;
     const id = e.target.id;
 
@@ -67,7 +69,6 @@ class AssessmentList extends Component {
     })
     this.props.addAssessment(assessmentsToSend);
   }
-      // select all function
 
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
@@ -81,25 +82,27 @@ class AssessmentList extends Component {
     if (assessments.length === 0) {
       assessments = 'No results found.'
     }
-
-      return (
-        <div className='assessments-page' >
-          <h1>Assessments</h1>
-          <div id='search-box' >
-            <p>Search: </p>
-            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
-          </div>
-          <AddAllAssessments addAll={this.addAll} allAssessments={this.state.assessments} />
-          <div className='assessments-list' >
-            {assessments}
-          </div>
-          <LinkDisplay />
+    if (this.state.loading) {
+      return <LoadingGif />
+    }
+    else return (
+      <div className='assessments-page' >
+        <h1>Assessments</h1>
+        <div id='search-box' >
+          <p>Search: </p>
+          <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
         </div>
-      )
+        <AddAllAssessments addAll={this.addAll} allAssessments={this.state.assessments} />
+        <div className='assessments-list' >
+          {assessments}
+        </div>
+        <LinkDisplay />
+      </div>
+    )
   }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addAssessment }, dispatch)
 }
 
