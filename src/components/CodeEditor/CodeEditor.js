@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import brace from 'brace';
 import AceEditor from 'react-ace';
 
 import * as Actions from '../../redux/action-creators'
