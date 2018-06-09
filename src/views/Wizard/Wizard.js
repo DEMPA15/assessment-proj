@@ -1,34 +1,42 @@
 import React, { Component } from 'react';
 import CodeEditor from '../../components/CodeEditor/CodeEditor'
-import EnterEmail from '../../components/EnterEmail/EnterEmail'
-import NavButtons from '../../components/NavButtons/NavButtons'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import QuestionText from '../../components/QuestionText/QuestionText'
-import TestProgress from '../../components/TestResults/TestResults'
+import TestProgress from '../../components/TestProgress/TestProgress'
+import LoadingGif from '../../components/LoadingGif/LoadingGif'
+import Header from '../../components/Header/Header'
+import './wizard.css'
 
 import { connect } from 'react-redux';
-import { getQuestions, setResults } from '../../redux/action-creators'
+import { getQuestions, setResults, setCode } from '../../redux/action-creators'
 
 
 class Wizard extends Component {
-
-//I think we can have a loading key on local state and change it to true once our necessary data comes back
-// - get questions and
-// - set results
-// we can run both of those actions on this page to set redux state
-
-// also need to check state.user.email and if it is == to null then we need to display the enter email popup
+  constructor(){
+    super()
+    this.state = {
+      loading: true
+    }
+  }
 
 componentDidMount(){
-  const tempAssessmentID = '5b18882560b192ae05d33dfd'
+  // const assessmentID = this.props.match.params.assessmentID
+  const tempAssessmentID = '5b196710302c6293f15c6ef9'
   Promise.resolve(this.props.getQuestions(tempAssessmentID))
     .then(response=>{
       const results = []
-      this.props.questions.map((question, i)=>{
+      this.props.questions.forEach((question, i)=>{
+        this.props.setCode({[question.qID]: ''})
         let tests = []
-        question.tests.map(test=>{tests.push({text: test, passed: false})})
-        results.push({ qID: question.qID, passed: false, tests: tests})})
+        question.tests.forEach(test=>{tests.push({text: test, passed: false})})
+        results[question.qID] = { passed: false, tests: tests}
+      })
       Promise.resolve(this.props.setResults(results))
+        .then(response=>{
+          this.setState({
+            loading: false
+          })
+        })
     })
     .catch(error=>{
       console.log(error)
@@ -36,19 +44,38 @@ componentDidMount(){
 }
 
   render() {
+    const qID = this.props.match.params.qID
+    const assessmentID = this.props.match.params.assessmentID
+    let qIndex;
+      this.props.questions.forEach((question, i)=>{
+        if(question.qID === qID){
+          qIndex = i
+        }
+      })
     return (
       <div>
-        <ProgressBar />
-        <QuestionText />
-        <TestProgress />
-        <CodeEditor />
-        <NavButtons />
+        {
+          this.state.loading ?
+          <LoadingGif />
+          :
+          <div className='wizard-body'>
+            <Header qID={qID} assessmentID={assessmentID}/>
+            <div className='dashboard'>
+              <div className='questions-results-container'>
+                <QuestionText qIndex={qIndex}/>
+                <TestProgress qID={qID}/>
+              </div>
+              <CodeEditor qID={qID} assessmentID={assessmentID}/>
+              <ProgressBar  qID={qID} history={this.props.history}/>
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
-function mapStateToProps ({ questions}) {
+function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
