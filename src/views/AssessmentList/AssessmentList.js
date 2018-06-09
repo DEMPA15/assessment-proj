@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import EnterEmail from '../../components/EnterEmail/EnterEmail';
 import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
+import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addAssessment } from '../../redux/action-creators';
@@ -46,24 +47,24 @@ class AssessmentList extends Component {
   }
 
   addAssessment(e){
-    if (!this.props.assessments.includes({id: e.target.id})) {
-      const assessment = [{
-        name: e.target.title,
-        id: e.target.id
-      }];
-      this.props.addAssessment(assessment);
+    const name = e.target.title;
+    const id = e.target.id;
+
+    if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
+      const assessment = [{ name, id }];
+      return this.props.addAssessment(assessment);
     }
   }
 
+      // select all function
+
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
-      // add plus buttons
-      // select all function
       if (this.state.searchText === '') {
-        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} title={assessment.name} id={assessment.id} > <AddMinusButton add={true} title={assessment.name} id={assessment.id} /><p title={assessment.name} id={assessment.id}> {assessment.name}</p><br/></div>
+        return <AddAssessmentButton addAssessment={this.addAssessment} assessment={assessment} key={i} />
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} title={assessment.name} id={assessment.id}><AddMinusButton add={true} title={assessment.name} id={assessment.id} /><p title={assessment.name} id={assessment.id}> {assessment.name}</p><br/></div>
+        return <AddAssessmentButton addAssessment={this.addAssessment} assessment={assessment} key={i} />
       }
     })
     if (assessments.length === 0) {
