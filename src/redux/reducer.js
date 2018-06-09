@@ -64,8 +64,6 @@ function assessments(state = [], action){
     }
 }
 
-
-//combine reducers to send to index.js
 function code(state={}, action){
     switch(action.type){
         case ENTER_CODE:
@@ -74,7 +72,7 @@ function code(state={}, action){
             return state
     }
 }
-
-const reducer = combineReducers({user, questions, results, code, link, assessments});
+//combine reducers to send to index.js
+const reducer = combineReducers({user, questions, results, link, assessments, code});
 
 export default reducer;
