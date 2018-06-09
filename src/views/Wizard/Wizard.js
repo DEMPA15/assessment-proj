@@ -20,9 +20,9 @@ class Wizard extends Component {
   }
 
 componentDidMount(){
-  // const assessmentID = this.props.match.params.assessmentID
-  const tempAssessmentID = '5b196710302c6293f15c6ef9'
-  Promise.resolve(this.props.getQuestions(tempAssessmentID))
+  const assessmentID = this.props.match.params.assessmentID
+
+  Promise.resolve(this.props.getQuestions(assessmentID))
     .then(response=>{
       const results = []
       this.props.questions.forEach((question, i)=>{
@@ -44,8 +44,9 @@ componentDidMount(){
 }
 
   render() {
-    const qID = this.props.match.params.qID
-    const assessmentID = this.props.match.params.assessmentID
+    const qID = this.props.match.params.qID;
+    const assessmentID = this.props.match.params.assessmentID;
+    const emailID = this.props.match.params.email;
     let qIndex;
       this.props.questions.forEach((question, i)=>{
         if(question.qID === qID){
@@ -65,8 +66,12 @@ componentDidMount(){
                 <QuestionText qIndex={qIndex}/>
                 <TestProgress qID={qID}/>
               </div>
-              <CodeEditor qID={qID} assessmentID={assessmentID}/>
-              <ProgressBar  qID={qID} history={this.props.history}/>
+              <div className='editor-container'>
+                <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history}/>
+              </div>
+              <div className='progressBar-container'>
+                <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
+              </div>
             </div>
           </div>
         }
