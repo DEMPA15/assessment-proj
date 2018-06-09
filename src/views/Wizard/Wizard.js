@@ -21,7 +21,6 @@ class Wizard extends Component {
 
 componentDidMount(){
   const assessmentID = this.props.match.params.assessmentID
-
   Promise.resolve(this.props.getQuestions(assessmentID))
     .then(response=>{
       const results = []
