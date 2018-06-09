@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { debug } from 'util';
 
 const services = {
     getQuestions: (assessmentID)=>{
@@ -15,7 +14,6 @@ const services = {
         
         return axios.post('/api/post-results', { data, assessmentID, qID })
             .then(results=>{
-                
                 return {
                     [results.data.qID]: {
                         passed: results.data.passed,
