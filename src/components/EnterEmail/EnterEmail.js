@@ -9,6 +9,8 @@ class EnterEmail extends Component {
       email: ""
     }
     this.handleChange = this.handleChange.bind(this);
+    this.setEmail = this.setEmail.bind(this);
+    
   }
 
   handleChange(event) {
@@ -17,8 +19,8 @@ class EnterEmail extends Component {
     });
   }
 
-  submitEmail(){
-    this.props.submitEmail(this.state.email)
+  setEmail(){
+    this.props.setEmail(this.state.email)
     this.props.history.push('/assessments')
   }
 
@@ -32,7 +34,7 @@ class EnterEmail extends Component {
             <input type="text" placeholder="email" value={this.state.email} onChange={this.handleChange}/>
           </div>
           <div>
-            <button onClick = {this.submitEmail}>Submit</button>
+            <button onClick = {this.setEmail}>Submit</button>
           </div>
      
      </div> 
