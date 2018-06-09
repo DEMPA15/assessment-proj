@@ -46,7 +46,7 @@ function results(state = {}, action ){
     }
 }
 
-function link(state = {}, action){
+function link(state = [], action){
     switch(action.type){
         case GENERATE_LINK:
             return {...state, ...action.payload}
