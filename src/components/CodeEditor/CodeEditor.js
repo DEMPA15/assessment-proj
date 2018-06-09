@@ -12,11 +12,7 @@ import 'brace/theme/monokai'
 class CodeEditor extends Component {
   
   onChange = (newValue) => {
-    
-    const index = Number(this.props.match.params.questionNumber)
-    const key = `Q${index}`
-    this.props.enterCode({[key]:newValue})
-
+    this.props.enterCode({[this.props.qID]:newValue})
   }
 
  // gets qID and assessmentID from parent props
@@ -35,7 +31,7 @@ class CodeEditor extends Component {
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
-          value={this.props.code}
+          value= {this.props.code[this.props.qID]}
           focus={true}
           setOptions={{
             enableBasicAutocompletion: false,
