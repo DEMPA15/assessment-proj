@@ -18,7 +18,6 @@ class CodeEditor extends Component {
  // gets qID and assessmentID from parent props
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <AceEditor
@@ -31,7 +30,7 @@ class CodeEditor extends Component {
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
-          value= {this.props.code[this.props.qID]}
+          value={this.props.code[this.props.qID]}
           focus={true}
           setOptions={{
             enableBasicAutocompletion: false,
@@ -42,7 +41,7 @@ class CodeEditor extends Component {
           }}
         >
         </AceEditor>
-        <button className ='run' >Run</button>
+        <button className ='run-button' onClick={()=>this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)}>Run</button>
       </div>
     );
   }
