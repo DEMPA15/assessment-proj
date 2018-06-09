@@ -12,9 +12,8 @@ class Header extends Component {
     }
 
     componentDidMount(){
-        // const assessmentID = this.props.match.params.assessmentID
-        const tempAssessmentID = '5b18882560b192ae05d33dfd'
-        axios.get(`/api/assessment-name/${tempAssessmentID}`)
+        const assessmentID = this.props.assessmentID
+        axios.get(`/api/assessment-name/${assessmentID}`)
             .then(name=>{
                 let assessmentName = name.data.charAt(0).toUpperCase() + name.data.slice(1)
                 this.setState({

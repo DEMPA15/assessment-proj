@@ -8,7 +8,7 @@ import Header from '../../components/Header/Header'
 import './wizard.css'
 
 import { connect } from 'react-redux';
-import { getQuestions, setResults } from '../../redux/action-creators'
+import { getQuestions, setResults, setCode } from '../../redux/action-creators'
 
 
 class Wizard extends Component {
@@ -20,12 +20,12 @@ class Wizard extends Component {
   }
 
 componentDidMount(){
-  // const assessmentID = this.props.match.params.assessmentID
-  const tempAssessmentID = '5b18882560b192ae05d33dfd'
-  Promise.resolve(this.props.getQuestions(tempAssessmentID))
+  const assessmentID = this.props.match.params.assessmentID
+  Promise.resolve(this.props.getQuestions(assessmentID))
     .then(response=>{
       const results = []
       this.props.questions.forEach((question, i)=>{
+        this.props.setCode({[question.qID]: ''})
         let tests = []
         question.tests.forEach(test=>{tests.push({text: test, passed: false})})
         results[question.qID] = { passed: false, tests: tests}
@@ -43,8 +43,9 @@ componentDidMount(){
 }
 
   render() {
-    const qID = this.props.match.params.qID
-    const assessmentID = this.props.match.params.assessmentID
+    const qID = this.props.match.params.qID;
+    const assessmentID = this.props.match.params.assessmentID;
+    const emailID = this.props.match.params.email;
     let qIndex;
       this.props.questions.forEach((question, i)=>{
         if(question.qID === qID){
@@ -58,14 +59,18 @@ componentDidMount(){
           <LoadingGif />
           :
           <div className='wizard-body'>
-            <Header qID={qID}/>
+            <Header qID={qID} assessmentID={assessmentID}/>
             <div className='dashboard'>
               <div className='questions-results-container'>
                 <QuestionText qIndex={qIndex}/>
                 <TestProgress qID={qID}/>
               </div>
-              <CodeEditor qID={qID} assessmentID={assessmentID}/>
-              <ProgressBar  qID={qID} history={this.props.history}/>
+              <div className='editor-container'>
+                <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history}/>
+              </div>
+              <div className='progressBar-container'>
+                <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
+              </div>
             </div>
           </div>
         }
@@ -77,4 +82,4 @@ function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
