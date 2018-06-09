@@ -90,18 +90,21 @@ app.post(`/api/post-results`, async (req, res) => {
 
 
 app.post(`/api/submit`, (req,res)=>{
+    console.log(req.body)
+
+    Object.keys(req.body).map(questions=>{
+        if(Q in req.body[questions]){
+            console.log(req.body)
+          }
+        })
+    //map through keys of an object
 
     //email will need:
     // student name, code, test results
     //mentor email
 
     const output = `
-    <p>Does this email work?</p>
-    <h3>Contact Info</h3>
-    <ul>
-        <li>Name: ${req.body.name}</li>
-    </ul>
-    <h3>Below is the </h3>
+    <h3>Below are the assessment results for ${req.body.studentName}</h3>
     <p>${req.body.results}</p>
     <br/>
     `;
@@ -122,7 +125,7 @@ app.post(`/api/submit`, (req,res)=>{
     // setup email data with unicode symbols
     let mailOptions = {
       from: '"Group Project" <wpr152018@gmail.com>',
-      to: `${req.body.mentorEmail}`,
+      to: `b6utle5r@gmail.com`,
       subject: `Assessment results for ${req.body.name}`,
       text: 'Hello can you hear me?',
       html: output
