@@ -46,7 +46,7 @@ class AssessmentList extends Component {
   }
 
   addAssessment(e){
-    if (!this.props.assessments.include({id: e.target.id})) {
+    if (!this.props.assessments.includes({id: e.target.id})) {
       const assessment = [{
         name: e.target.title,
         id: e.target.id
