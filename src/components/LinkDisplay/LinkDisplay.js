@@ -13,16 +13,16 @@ class LinkDisplay extends Component {
 
 // displays link from assessment list
 
-generateLink(e){
-  const encryptLink = ({
-    [e.target.name]: `http://localhost:3010/wizard/${this.props.user.email}/${e.target.value}/1`
+generateLink(){
+  const encryptLink = this.props.assessments.map((element,i) => {
+    return {[element.name]: `http://localhost:3010/wizard/${this.props.user.email}/${element.id}/1`}
   })
   this.props.link(encryptLink);
 }
 
   render() {
     const links = this.props.assessments.map((assessment, i) => {
-      return <div key={i} value={assessments.id}>
+      return <div key={i} >
                 {assessment.name}<button>-</button>
             </div>
     })
