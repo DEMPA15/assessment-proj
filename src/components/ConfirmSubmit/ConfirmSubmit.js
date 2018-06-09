@@ -7,13 +7,13 @@ class ConfirmSubmit extends Component {
   constructor(){
     super()
     this.state = {
-      readyToSubmit: true
+      allPassed: true
     }
   }
 
   componentDidMount(){
-    this.props.questions.forEach(question=>{
-      if(!question.passed){
+    Object.keys(this.props.results).map(question=>{
+      if(!this.props.results[question].passed){
         this.setState({
           allPassed: false
         })
@@ -46,18 +46,18 @@ class ConfirmSubmit extends Component {
           </div>
           <div className='infoToSubmit-container'>
             Enter your info to submit your answers:
-            <label>Name</label>
-            <input onChange={(e)=>this.props.setName(e.target.value)}/>
-            <label> Email </label>
-            <input onChange={(e)=>this.props.setEmail(e.target.value)}/>
-            <button onClick={this.props.sendResults()}>
+            {/* <label>Name</label> */}
+            <input placeholder='Enter Name' onChange={(e)=>this.props.setName(e.target.value)}/>
+            {/* <label> Email </label> */}
+            <input  placeholder='Enter Email' onChange={(e)=>this.props.setEmail(e.target.value)}/>
+          </div>
+          <button className='confirmSubmit-button' onClick={this.props.sendResults()}>
               {
                 this.state.allPassed ? 'Submit Answers'
                 :
                 'Submit Answers Anyway'
               } 
-            </button>
-          </div>
+          </button>
 
         </div>
       </div>

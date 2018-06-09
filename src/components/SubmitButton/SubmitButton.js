@@ -47,7 +47,7 @@ class SubmitButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={()=>this.confirmSubmitPopupVisibility('visible')}> Submit Answers </button>
+        <button onClick={()=>this.confirmSubmitPopupVisibility('visible')}> {this.props.buttonText} </button>
 
         <div className='popup'>
           <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={()=>this.sendResults} />
