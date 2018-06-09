@@ -72,6 +72,7 @@ class CodeEditor extends Component {
     return (
       <div>
         <AceEditor
+          style={{zIndex: 0}}
           mode="javascript"
           theme="monokai"
           name="blah2"
