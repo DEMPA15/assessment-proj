@@ -1,11 +1,5 @@
-import { SET_RESULTS, GET_QUESTIONS, GENERATE_LINK, ADD_ASSESSMENT } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS } from './constraints'
 import services from './services'
-
-// holds the functions that create our actions used to change state in the reducer
-
-
-
-//-------get questions
 
 export function getQuestions(assessmentID){
     return {
@@ -14,14 +8,6 @@ export function getQuestions(assessmentID){
     }
 }
 
-
-
-// --------set results
-
-//the payload here needs to contain the results shell with all passed keys set to false. We will need to know
-//the state.questions.length AND each state.questions[i].tests.length before we can create this payload. 
-// we can probably create the shell on the front end
-
 export function setResults(payload){
     return {
         type: SET_RESULTS,
@@ -29,27 +15,26 @@ export function setResults(payload){
     }
 }
 
+export function setName(name){
+    return {
+        type: SET_NAME,
+        payload: { name }
+    }
+}
 
-// shell format
-[
-    {
-        qID: '',
-        passed: false, 
-        tests: [
-            {
-                text: '',
-                passed: true
-            }
-        ]
-    }, 
-]
+export function setEmail(email){
+    return {
+        type: SET_EMAIL,
+        payload: { email }
+    }
+}
 
-
-//------set user Info
-
-
-//-----enter code
-
+ export function enterCode(payload){
+     return {
+         type: ENTER_CODE,
+         payload: payload
+     }
+ }
 
 //-------post results
 
@@ -66,5 +51,11 @@ export function addAssessment(obj){
     return {
         type: ADD_ASSESSMENT,
         payload: obj
+    }
+}
+export function postResults(code, assessmentID, qID){
+    return {
+        type: POST_RESULTS,
+        payload: services.postResults(code, assessmentID, qID)
     }
 }
