@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { link } from '../../redux/action-creators';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import * as Actions from '../../redux/action-creators';
+import AddMinusButton from '../AddMinusButton/AddMinusButton';
 
 
 class LinkDisplay extends Component {
@@ -10,55 +10,56 @@ class LinkDisplay extends Component {
     super(props);
     this.state = {
       generated: false,
-      link: '',
-      copied: false
+      slide: false,
     }
     
     this.generateLink = this.generateLink.bind(this);
+    this.slideOut = this.slideOut.bind(this);
   }
 
 // displays link from assessment list
 
 generateLink(){
   const encryptLink = this.props.assessments.map((element,i) => {
-    return {[element.name]: `http://localhost:3010/wizard/${this.props.user.email}/${element.id}/1`}
+    return {
+      name: element.name,
+      link: `http://localhost:3010/wizard/${this.props.user.email}/${element.id}/1`
+    }
   })
   this.props.link(encryptLink);
   this.setState({
     generated: true
   })
 }
-
-onChange = ({target: {link}}) => {
-  this.setState({link, copied: false});
-};
-
-onCopy = () => {
-  this.setState({copied: true});
-};
+slideOut(){
+  this.setState({
+    slide: true
+  })
+}
 
   render() {
     const list = this.props.assessments.map((assessment, i) => {
       return <div key={i} >
-                {assessment.name}<button>-</button>
+                {assessment.name}
+                <AddMinusButton />
             </div>
     })
-    if (this.state.generated === true){
-      const links = this.props.link.map((link,i) => {
+    return (
+      <div onClick= {this.slideOut}>
+        <span>
+        { list }
+        </span>
+        { this.state.slide === true && 
+        <button onClick={ this.generateLink }>Generate Links</button>
+      }
+      { this.state.generated === true &&
+      this.props.links.map((testLink, i) => {
         return <div key={i}>
-                  {link}
+          {testLink.name} {testLink.link}
               </div>
       })
-    
-    }
-    return (
-      <div>
-        { list }
-        <button onClick={ this.generateLink }>Generate Links</button>
-        <textarea onChange={this.onChange} value={this.link} />
-        <CopyToClipboard onCopy={this.onCopy} text={this.link}>
-          <button>Copy</button>
-        </CopyToClipboard>
+
+      }
       </div>
         
       
@@ -66,8 +67,6 @@ onCopy = () => {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ link }, dispatch)
-}
 
-export default connect(state => state, mapDispatchToProps)(LinkDisplay);
+
+export default connect(state => state, Actions)(LinkDisplay);
