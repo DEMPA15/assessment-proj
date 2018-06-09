@@ -20,6 +20,7 @@ class AssessmentList extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
+    this.addAllAssessments = this.addAllAssessments.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -56,6 +57,16 @@ class AssessmentList extends Component {
       return this.props.addAssessment(assessment);
     }
   }
+
+  addAllAssessments(e) {
+
+    const assessmentsToSend = this.state.assessments.map((assessment, i) => {
+      if (!this.props.assessments.find(propsAssessment => propsAssessment.id === assessment.id)) {
+        return assessment;
+      }
+    })
+    this.props.addAssessment(assessmentsToSend);
+  }
       // select all function
 
   render() {
@@ -78,7 +89,7 @@ class AssessmentList extends Component {
             <p>Search: </p>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
           </div>
-          <div className='add-all-assessments' >
+          <div className='add-all-assessments' onClick={this.addAllAssessments}>
             <AddMinusButton add={true}/><p>Add all assessments</p>
           </div>
           <div className='assessments-list' >
