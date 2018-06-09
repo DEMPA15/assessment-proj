@@ -1,0 +1,36 @@
+
+.confirmSubmit-results-container{
+    height: 60%;
+}
+.infoToSubmit-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5px;
+    height: 20%
+}
+.infoToSubmit-container input {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 200px;
+    height: 20px;
+    margin: 5px;
+    margin-left: 15px;
+    text-align: center;
+
+}
+.infoToSubmit-container label {
+    margin: 5px;
+    margin-top: 10px;
+    font-size: .9em;
+}
+.confirmSubmit-button{
+    margin: 20px;
+    background-image:linear-gradient(65deg, rgb(142, 199, 104) ,rgb(119, 216, 55));
+    width: 200px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: .8em;
+    font-weight: bold;
+}

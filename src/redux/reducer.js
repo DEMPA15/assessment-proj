@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, GENERATE_LINK, ADD_ASSESSMENT} from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, GENERATE_LINK, ADD_ASSESSMENT, SET_CODE} from './constraints'
 
 
 const userInfo = {
@@ -66,6 +66,8 @@ function assessments(state = [], action){
 
 function code(state={}, action){
     switch(action.type){
+        case SET_CODE:
+            return Object.assign({}, state, action.payload)
         case ENTER_CODE:
             return Object.assign({}, state, action.payload)
         default: 

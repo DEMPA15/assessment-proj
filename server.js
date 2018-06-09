@@ -54,42 +54,56 @@ app.get('/api/assessment-name/:assessmentID', (req, res)=>{
 })
 
 app.get(`/api/questions/:assessmentID`, (req, res) => {
+    // get all questions from assessment id or name
+    // format before sending back
+    // {
+    //     qID: 'Q1',
+    //     qText: '',
+    //     tests: []
+    // },
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         res.send(assessment.questions);
     })
 })
 
-  
-app.post(`/api/post-results`,  (req, res) => {
-    const { data, assessmentID, qID } = req.body;
+
+app.post(`/api/post-results`, async (req, res) => {
+    const { data, assessmentName, qID } = req.body;
     const path = './test.js';
 
-    Assessments.findOne({_id: assessmentID}, async (err, assessment)=>{
+    await writeFileAsync(path, data)
 
-        await writeFileAsync(path, data)
-  
-        testRunner(path, assessment.name, qID)
-          .then(result => {
-            res.send(result);
-          })
-          .catch(err => {
-            console.log(err)
-          })
-    })
-})
+    testRunner(path, assessmentName, qID)
+      .then(result => {
+        res.send(result);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+    // needs to receive assessmentName, qID, and code
+    // Will pull tests from file
+    // will create file from code
+    // will build test suite, run code and return results
+    // will send results back to client
+});
 
 
 app.post(`/api/submit`, (req,res)=>{
+
+    //email will need:
+    // student name, code, test results
+    //mentor email
 
     const output = `
     <p>Does this email work?</p>
     <h3>Contact Info</h3>
     <ul>
         <li>Name: ${req.body.name}</li>
-        <li>email: ${req.body.email}</li>
     </ul>
-    <h3>Message:</h3>
-    <p>${req.body.message}</p>
+    <h3>Below is the </h3>
+    <p>${req.body.results}</p>
+    <br/>
     `;
 
     let transporter = nodemailer.createTransport({
@@ -108,7 +122,7 @@ app.post(`/api/submit`, (req,res)=>{
     // setup email data with unicode symbols
     let mailOptions = {
       from: '"Group Project" <wpr152018@gmail.com>',
-      to: 'ryan90butler@gmail.com',
+      to: `${req.body.mentorEmail}`,
       subject: `Assessment results for ${req.body.name}`,
       text: 'Hello can you hear me?',
       html: output
@@ -124,8 +138,7 @@ app.post(`/api/submit`, (req,res)=>{
 
       res.send({'message sent':true})
     });
-    }
-);
+});
 
 const port = process.env.PORT || 5000
 app.listen(port, ()=>{
