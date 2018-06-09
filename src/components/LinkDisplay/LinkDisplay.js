@@ -5,6 +5,11 @@ import { link } from '../../redux/action-creators';
 
 
 class LinkDisplay extends Component {
+  constructor(props){
+    super(props);
+    
+    this.generateLink = this.generateLink.bind(this);
+  }
 
 // displays link from assessment list
 
@@ -16,10 +21,15 @@ generateLink(e){
 }
 
   render() {
+    const links = this.props.assessments.map((assessment, i) => {
+      return <div key={i} value={assessments.id}>
+                {assessment.name}<button>-</button>
+            </div>
+    })
     return (
       <div>
-        LinkDisplay
-        <button>Generate Links</button>
+        { links }
+        <button onClick={ this.generateLink }>Generate Links</button>
       </div>
     );
   }
