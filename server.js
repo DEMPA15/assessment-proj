@@ -54,7 +54,6 @@ app.get('/api/assessment-name/:assessmentID', (req, res)=>{
 })
 
 app.get(`/api/questions/:assessmentID`, (req, res) => {
-<<<<<<< HEAD
     // get all questions from assessment id or name
     // format before sending back
     // {
@@ -62,14 +61,11 @@ app.get(`/api/questions/:assessmentID`, (req, res) => {
     //     qText: '',
     //     tests: []
     // },
-=======
->>>>>>> 4bb8109ea41618e72b5f087ddf49e95a1bd217bd
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         res.send(assessment.questions);
     })
 })
 
-<<<<<<< HEAD
 
 app.post(`/api/post-results`, async (req, res) => {
     const { data, assessmentName, qID } = req.body;
@@ -91,26 +87,6 @@ app.post(`/api/post-results`, async (req, res) => {
     // will build test suite, run code and return results
     // will send results back to client
 });
-=======
-  
-app.post(`/api/post-results`,  (req, res) => {
-    const { data, assessmentID, qID } = req.body;
-    const path = './test.js';
-
-    Assessments.findOne({_id:assessmentID}, async (err, assessment)=>{
-
-        await writeFileAsync(path, data)
-        
-        testRunner(path, assessment.name, qID)
-          .then(result => {
-            res.send(result);
-          })
-          .catch(err => {
-            console.log(err)
-          })
-    })
-})
->>>>>>> 4bb8109ea41618e72b5f087ddf49e95a1bd217bd
 
 
 app.post(`/api/submit`, (req,res)=>{
