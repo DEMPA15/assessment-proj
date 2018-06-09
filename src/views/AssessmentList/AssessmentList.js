@@ -3,6 +3,7 @@ import axios from 'axios';
 import EnterEmail from '../../components/EnterEmail/EnterEmail';
 import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
+import AddAllAssessments from '../../components/AddAllAssessments/AddAllAssessments';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addAssessment } from '../../redux/action-creators';
@@ -20,7 +21,7 @@ class AssessmentList extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
-    this.addAllAssessments = this.addAllAssessments.bind(this);
+    this.addAll = this.addAll.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -31,8 +32,8 @@ class AssessmentList extends Component {
   //needs a search bar
 
   componentDidMount() {
-    // if (!this.props.user.name) {
-    //   show email popup
+    // if (!this.props.user.email) {
+    //   this.props.history.push('/email');
     // }
     axios.get(`/api/assessments`)
       .then((res) => {
@@ -58,8 +59,7 @@ class AssessmentList extends Component {
     }
   }
 
-  addAllAssessments(e) {
-
+  addAll(e) {
     const assessmentsToSend = this.state.assessments.map((assessment, i) => {
       if (!this.props.assessments.find(propsAssessment => propsAssessment.id === assessment.id)) {
         return assessment;
@@ -89,9 +89,7 @@ class AssessmentList extends Component {
             <p>Search: </p>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
           </div>
-          <div className='add-all-assessments' onClick={this.addAllAssessments}>
-            <AddMinusButton add={true}/><p>Add all assessments</p>
-          </div>
+          <AddAllAssessments addAll={this.addAll} allAssessments={this.state.assessments} />
           <div className='assessments-list' >
             {assessments}
           </div>

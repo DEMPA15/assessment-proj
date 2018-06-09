@@ -3,13 +3,23 @@ import AddMinusButton from '../AddMinusButton/AddMinusButton';
 import { connect } from 'react-redux';
 
 
-class AddAssessmentButton extends Component {
+class addAllAssessments extends Component {
 
     render() {
-        return (
-            <div></div>
+        if (this.props.allAssessments.length !== this.props.assessments.length){
+            return (
+                <div className='add-all-assessments' onClick={this.props.addAll}>
+                    <AddMinusButton add={true} /><p>Add all assessments</p>
+                </div>
+            )
+        }
+        else return (
+            <div className='add-all-assessments' onClick={this.addAllAssessments}>
+                <p>All assessments added.</p>
+            </div>
         )
+
     }
 }
 
-export default connect(state => state)(AddAssessmentButton);
+export default connect(state => state)(addAllAssessments);
