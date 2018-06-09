@@ -46,12 +46,13 @@ class AssessmentList extends Component {
   }
 
   addAssessment(e){
-    debugger;
-    const assessment = [{
-      name: e.target.title,
-      id: e.target.id
-    }];
-    this.props.addAssessment(assessment);
+    if (!this.props.assessments.include({id: e.target.id})) {
+      const assessment = [{
+        name: e.target.title,
+        id: e.target.id
+      }];
+      this.props.addAssessment(assessment);
+    }
   }
 
   render() {
@@ -59,10 +60,10 @@ class AssessmentList extends Component {
       // add plus buttons
       // select all function
       if (this.state.searchText === '') {
-        return <div className='assessment' key={assessment.id}> <button onClick={this.addAssessment} title={assessment.name} id={assessment.id}><AddMinusButton  add={true}/><p name={assessment.name} value={assessment.id}> {assessment.name}</p><br/></button> </div>
+        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} title={assessment.name} id={assessment.id} > <AddMinusButton add={true} title={assessment.name} id={assessment.id} /><p title={assessment.name} id={assessment.id}> {assessment.name}</p><br/></div>
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} name={assessment.name} value={assessment.id}><AddMinusButton add={true}/><p > {assessment.name}</p><br/></div>
+        return <div className='assessment' onClick={this.addAssessment} key={assessment.id} title={assessment.name} id={assessment.id}><AddMinusButton add={true} title={assessment.name} id={assessment.id} /><p title={assessment.name} id={assessment.id}> {assessment.name}</p><br/></div>
       }
     })
     if (assessments.length === 0) {

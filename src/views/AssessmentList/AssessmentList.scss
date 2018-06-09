@@ -5,11 +5,12 @@
 .assessment {
     margin-bottom: 10px;
     display: flex;
+    border: 1px solid black;
 }
 
-// .assessment:hover {
-//     cursor: pointer;
-// }
+.assessment:hover {
+    cursor: pointer;
+}
 
 .assessments-list {
     display: inline-block;
