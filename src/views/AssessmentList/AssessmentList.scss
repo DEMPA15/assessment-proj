@@ -2,9 +2,14 @@
     text-align: center;
 }
 
-.assessment-button {
+.assessment {
     margin-bottom: 10px;
+    display: flex;
 }
+
+// .assessment:hover {
+//     cursor: pointer;
+// }
 
 .assessments-list {
     display: inline-block;
@@ -20,3 +25,11 @@
 #search-box > p {
     padding-right: 5px;
 }
+
+.assessments-page i:hover {
+    cursor: pointer;
+}
+
+// .assessments-page p {
+
+// }
