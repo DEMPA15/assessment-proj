@@ -54,38 +54,29 @@ app.get('/api/assessment-name/:assessmentID', (req, res)=>{
 })
 
 app.get(`/api/questions/:assessmentID`, (req, res) => {
-    // get all questions from assessment id or name
-    // format before sending back
-    // {
-    //     qID: 'Q1',
-    //     qText: '',
-    //     tests: []
-    // },
     Assessments.findOne({_id: req.params.assessmentID}, (err, assessment)=>{
         res.send(assessment.questions);
     })
 })
 
+app.post(`/api/post-results`,  (req, res) => {
+    const { data, assessmentID, qID } = req.body;
+    Assessments.findOne({_id: assessmentID}, async (err, assessment)=>{
+        let assessmentName = assessment.name
+        const path = './test.js';
 
-app.post(`/api/post-results`, async (req, res) => {
-    const { data, assessmentName, qID } = req.body;
-    const path = './test.js';
+        await writeFileAsync(path, data)
 
-    await writeFileAsync(path, data)
+        testRunner(path, assessmentName, qID)
+        .then(result => {
+            res.send(result);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
 
-    testRunner(path, assessmentName, qID)
-      .then(result => {
-        res.send(result);
-      })
-      .catch(err => {
-        console.log(err)
-      })
-
-    // needs to receive assessmentName, qID, and code
-    // Will pull tests from file
-    // will create file from code
-    // will build test suite, run code and return results
-    // will send results back to client
+    
 });
 
 

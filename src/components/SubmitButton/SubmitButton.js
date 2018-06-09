@@ -13,9 +13,10 @@ class SubmitButton extends Component {
     }
 
     this.sendResults = this.sendResults.bind(this)
+    this.editConfirmSubmitVisibility = this.editConfirmSubmitVisibility.bind(this)
   }
 
-  confirmSubmitPopupVisibility(value){
+  editConfirmSubmitVisibility(value){
     this.setState({
       confirmSubmitPopup: value
     })
@@ -47,10 +48,10 @@ class SubmitButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={()=>this.confirmSubmitPopupVisibility('visible')}> {this.props.buttonText} </button>
+        <button onClick={()=>this.editConfirmSubmitVisibility('visible')}> {this.props.buttonText} </button>
 
         <div className='popup'>
-          <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={()=>this.sendResults} />
+          <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={()=>this.sendResults} closePopup={(value)=>this.editConfirmSubmitVisibility(value)} />
         </div>
 
       </div>

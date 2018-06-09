@@ -1,0 +1,40 @@
+.assessments-page {
+    text-align: center;
+}
+
+.assessments-list {
+    display: inline-block;
+    text-align: left;
+}
+
+#search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-box > p {
+    padding-right: 5px;
+}
+
+.assessments-page i:hover {
+    cursor: pointer;
+}
+
+.add-all-assessments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-all-assessments i {
+    padding-right: 5px;
+}
+
+.add-all-assessments:hover {
+    cursor: pointer;
+}
+
+// .assessments-page p {
+
+// }
