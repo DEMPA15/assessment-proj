@@ -1,0 +1,29 @@
+.popup{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+.popup-background{
+    background-color: rgba(0, 0, 0,.6);
+    height:100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+    pointer-events: all;
+}
+.popup-content{
+    height: 500px;
+    width: 600px;
+    opacity: 1;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;  
+}
