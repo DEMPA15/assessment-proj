@@ -11,14 +11,22 @@ import 'brace/theme/monokai'
 
 class CodeEditor extends Component {
   
+  
   onChange = (newValue) => {
     this.props.enterCode({[this.props.qID]:newValue})
   }
-
+  postResults = (e) => {
+    this.props.postResults(this.props.code, this.props.assessmentID, this.props.qID)
+    .then(response => {
+      console.log('this worked')
+    })
+    .catch( err => {
+      console.log('didn"t pass')
+    })
+  }
  // gets qID and assessmentID from parent props
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <AceEditor
@@ -42,7 +50,7 @@ class CodeEditor extends Component {
           }}
         >
         </AceEditor>
-        <button className ='run' >Run</button>
+        <button className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
       </div>
     );
   }

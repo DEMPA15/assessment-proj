@@ -44,6 +44,7 @@ export function setEmail(email){
  }
 
 export function postResults(code, assessmentID, qID){
+    debugger
     return {
         type: POST_RESULTS,
         payload: services.postResults(code, assessmentID, qID)
