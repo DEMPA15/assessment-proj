@@ -55,7 +55,6 @@ class AssessmentList extends Component {
       return this.props.addAssessment(assessment);
     }
   }
-
       // select all function
 
   render() {
@@ -77,6 +76,9 @@ class AssessmentList extends Component {
           <div id='search-box' >
             <p>Search: </p>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
+          </div>
+          <div className='add-all-assessments' >
+            <AddMinusButton add={true}/><p>Add all assessments</p>
           </div>
           <div className='assessments-list' >
             {assessments}

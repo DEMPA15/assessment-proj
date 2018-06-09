@@ -2,16 +2,6 @@
     text-align: center;
 }
 
-.assessment {
-    margin-bottom: 10px;
-    display: flex;
-    border: 1px solid black;
-}
-
-.assessment:hover {
-    cursor: pointer;
-}
-
 .assessments-list {
     display: inline-block;
     text-align: left;
@@ -29,6 +19,16 @@
 
 .assessments-page i:hover {
     cursor: pointer;
+}
+
+.add-all-assessments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-all-assessments i {
+    padding-right: 5px;
 }
 
 // .assessments-page p {
