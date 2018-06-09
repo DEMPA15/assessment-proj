@@ -1,55 +1,40 @@
-.assessments-page {
-  text-align: center;
+/*  colors:  Main Blue : #328cc1
+             Dk Blue:   #073857
+             Red:       #CA4B43
+             Green:     #477A26
+             Yellow:    #D9B310
+ */            
+
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+h1 {
+  font-weight: 700;
+  color: #328cc1; 
 }
 
-.assessments-list {
-  display: inline-block;
-  text-align: left;
+h2 {
+  font-weight: 300;
+  color: #328cc1
 }
 
-#search-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.q-answer {
+  font-family: 'Roboto', sans-serif;
+  color: #1E262B;
+}
+.q-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #073857;
 }
 
-#search-box > p {
-  padding-right: 5px;
-}
-
-.assessments-page i:hover {
-  cursor: pointer;
-}
-
-.add-all-assessments {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-all-assessments i {
-  padding-right: 5px;
-}
-
-.add-all-assessments:hover {
-  cursor: pointer;
-}
-
-.assessment-button {
-  margin-bottom: 50px;
-  display: flex;
-  border: 1px solid black;
-  height: 75px;
-  width: 200px;
-  margin: auto;
-  text-align: center;
-  align-items: center;
-}
-
-.assessment-button:hover {
-  cursor: pointer;
-}
-
-.assessment-button i {
-  padding-right: 5px;
+.button {
+  margin-top: 10px;
+  width:40%;
+  border: solid 1px #D9B310;
+  border-radius: 5px;
+  background: #328cc1;
+  color: white;
+  padding: 10px;
 }
