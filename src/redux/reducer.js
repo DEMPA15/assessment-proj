@@ -46,10 +46,10 @@ function results(state = {}, action ){
     }
 }
 
-function link(state = {}, action){
+function links(state = [], action){
     switch(action.type){
         case GENERATE_LINK:
-            return {...state, ...action.payload}
+            return [...state, ...action.payload]
         default:
             return state;
     }
@@ -73,6 +73,6 @@ function code(state={}, action){
     }
 }
 //combine reducers to send to index.js
-const reducer = combineReducers({user, questions, results, link, assessments, code});
+const reducer = combineReducers({user, questions, results, links, assessments, code});
 
 export default reducer;

@@ -6,6 +6,7 @@ import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessm
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addAssessment } from '../../redux/action-creators';
+import LinkDisplay from '../../components/LinkDisplay/LinkDisplay';
 
 
 class AssessmentList extends Component {
@@ -83,6 +84,7 @@ class AssessmentList extends Component {
           <div className='assessments-list' >
             {assessments}
           </div>
+          <LinkDisplay />
         </div>
       )
   }
