@@ -1,29 +1,36 @@
-.popup{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
+
+.confirmSubmit-results-container{
+    height: 60%;
 }
-.popup-background{
-    background-color: rgba(0, 0, 0,.6);
-    height:100vh;
-    width: 100%;
+.infoToSubmit-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center ;
-    pointer-events: all;
+    justify-content: space-between;
+    margin: 5px;
+    height: 20%
 }
-.popup-content{
-    height: 500px;
-    width: 600px;
-    opacity: 1;
-    border-radius: 5px;
-    background-color: white;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;  
+.infoToSubmit-container input {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 200px;
+    height: 20px;
+    margin: 5px;
+    margin-left: 15px;
+    text-align: center;
+
+}
+.infoToSubmit-container label {
+    margin: 5px;
+    margin-top: 10px;
+    font-size: .9em;
+}
+.confirmSubmit-button{
+    margin: 20px;
+    background-image:linear-gradient(65deg, rgb(142, 199, 104) ,rgb(119, 216, 55));
+    width: 200px;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: .8em;
+    font-weight: bold;
 }

@@ -21,7 +21,7 @@ class ProgressBar extends Component {
       <div>
         <span className='title'>Assessment Progress</span>
         {questions}
-        <SubmitButton emailID={this.props.emailID} history={this.props.history}/>
+        <SubmitButton emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers'}/>
       </div>
     );
   }

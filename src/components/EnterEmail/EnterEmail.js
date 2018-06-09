@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-
+import './EnterEmail.css';
 
 class EnterEmail extends Component {
+  constructor (props){
+    super(props)
+    this.state = {
+      email: ""
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-// uses action creator to set name and email to redux
-// recieves a param from parent is a function to change visibility top false
-
-// if role is student then show warning message
+  handleChange(event) {
+    this.setState({
+      email: event.target.value
+    });
+  }
 
   render() {
     return (
-      <div>
-        EnterEmail
-      </div>
+      <div className = "student-email">
+          <div>
+            <h1> Enter Email </h1>
+          </div>
+          <div>
+            <input type="text" placeholder="email" value={this.state.email} onChange={this.handleChange}/>
+          </div>
+          <div>
+            <button onClick = {this.handleChange}>Submit</button>
+          </div>
+     
+     </div> 
     );
   }
 }
