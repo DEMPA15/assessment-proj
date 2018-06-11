@@ -1,31 +1,41 @@
 
 .confirmSubmit-results-container{
-    height: 60%;
+    height: 50%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .infoToSubmit-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 5px;
-    height: 20%
+    height: 25%;
 }
 .infoToSubmit-container input {
     border: 1px solid black;
     border-radius: 3px;
     width: 200px;
-    height: 20px;
+    height: 25px;
     margin: 5px;
     margin-left: 15px;
     text-align: center;
-
 }
-.infoToSubmit-container label {
-    margin: 5px;
-    margin-top: 10px;
-    font-size: .9em;
+.infoToSubmit-container input:first-of-type{
+    margin-top: 15px;
 }
 .confirmSubmit-button{
     width: 200px;
     height: 40px;
-    margin:20px;
+}
+.button-container{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    width: 80%;
+    justify-content: space-between;
+
 }

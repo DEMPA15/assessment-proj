@@ -1,3 +1,10 @@
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:visited{
+  text-decoration: none;
+}
 .assessments-page {
   text-align: center;
 }
@@ -53,6 +60,16 @@
 .assessment-button i {
   padding-right: 5px;
 }
+.section-title{
+  font-weight: bold;
+  font-size: 1.3em;
+  letter-spacing: .03em;
+}
+.section-subtitle{
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: .03em;
+}
 .popup{
   position: fixed;
   top: 0;
@@ -89,12 +106,18 @@
   font-size: .8em;
   font-weight: bold;
 }
+.submit-button-green:hover{
+  cursor: pointer;
+}
 .cancel-button-red{
   background-image:linear-gradient(65deg, rgb(250, 50, 36) , rgb(216, 47, 35));
   border: 2px solid black;
   border-radius: 4px;
   font-size: .8em;
   font-weight: bold;
+}
+.cancel-button-red{
+  cursor: pointer;
 }
 .icon-passed{
   background-image: url('./assets/passed.png');

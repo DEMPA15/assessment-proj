@@ -2,6 +2,8 @@
     background-color: #fff;
 }
 .dashboard{
+
+    height: 100vh;
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -16,7 +18,10 @@
 }
 .editor-container{
     width: 50%;
+    height: 80vh;
 }
 .progressBar-container{
     width: 20%;
+    max-height: 80vh;
+    margin-right: 10px;
 }

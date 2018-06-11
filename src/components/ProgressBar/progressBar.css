@@ -1,0 +1,19 @@
+.assessment-progress-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.assessment-progress-title{
+    align-self: flex-start;
+}
+.question-result-box{
+    align-self: flex-start;
+}
+.question-link:hover {
+    cursor: pointer;
+}
+.assessment-progress-submit-button{
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+}

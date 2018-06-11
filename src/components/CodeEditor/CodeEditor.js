@@ -3,6 +3,7 @@ import axios from 'axios';
 import brace from 'brace';
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
+import './codeEditor.css'
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
@@ -70,9 +71,9 @@ class CodeEditor extends Component {
       button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
     return (
-      <div>
+      <div className='codeEditor-container'>
         <AceEditor
-          style={{zIndex: 0}}
+          style={{zIndex: 0, height: 'inherit', width: '90%' }}
           mode="javascript"
           theme="monokai"
           name="blah2"

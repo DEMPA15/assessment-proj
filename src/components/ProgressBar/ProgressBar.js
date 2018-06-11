@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import './progressBar.css'
 
 class ProgressBar extends Component {
 
@@ -13,15 +14,19 @@ class ProgressBar extends Component {
       return <div key={i} className='question-result-box'>
                 <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
                 <Link to={`/wizard/${this.props.emailID}/${this.props.assessmentID}/${question}`}>  
-                  <div className='question-link'>{idToTitle(question)} </div> 
+                  <div className='question-link section-subtitle'>{idToTitle(question)} </div> 
                 </Link>
             </div>
     })
     return (
       <div>
-        <span className='title'>Assessment Progress</span>
-        {questions}
-        <SubmitButton emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers'}/>
+        <div className='assessment-progress-container'>
+          <span className='section-title assessment-progress-title'>Assessment Progress</span>
+          {questions}
+        </div>
+        <div className='assessment-progress-submit-button'>
+          <SubmitButton  emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers'}/>
+        </div>
       </div>
     );
   }
