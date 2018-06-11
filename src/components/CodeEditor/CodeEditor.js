@@ -19,24 +19,38 @@ class CodeEditor extends Component {
     const QID = this.props.qID
     const ASSID = this.props.assessmentID;
     const history = this.props.history;
-    if(document.getElementById('run').innerHTML==='Run'){
-    this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)
-    
-    .then(response => {
-
-      if(response.value[QID].passed === true){
-        debugger
-        const qIDArr = QID.split('')
-        const newQnum = Number(qIDArr[1])+1;
-        const newQ = `Q${newQnum}`
-        history.push(`/wizard/1/${ASSID}/${newQ}`);
-      }else{
-        console.log(`test didn't pass`);
-      }
-    })
-    .catch( err => {
-      console.log('something broke')
-    })}
+    const keys = Object.keys(this.props.questions);
+    const last = `Q${Number(keys.pop())+1}`;
+    if(last===this.props.qID){
+      this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
+      .then(response => {
+        if(response.value[QID].passed === true){
+          this.setState({
+            lastQ:true,
+          })
+        }else{
+          console.log(`test didn't pass`);
+        }
+      })
+      .catch( err => {
+        console.log('something broke')
+      })
+    }else{
+      this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
+      .then(response => {
+        if(response.value[QID].passed === true){
+          const qIDArr = QID.split('')
+          const newQnum = Number(qIDArr[1])+1;
+          const newQ = `Q${newQnum}`
+          history.push(`/wizard/1/${ASSID}/${newQ}`);
+        }else{
+          console.log(`test didn't pass`);
+        }
+      })
+      .catch( err => {
+        console.log('something broke')
+      })
+    }
   }
  // gets qID and assessmentID from parent props
 
