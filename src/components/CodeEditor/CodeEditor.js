@@ -65,7 +65,7 @@ class CodeEditor extends Component {
   render() {
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history}/>
+      button = <SubmitButton history ={this.props.history} buttonText = 'Submit'/>
     }else{
       button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
