@@ -5,8 +5,12 @@ import './SplashPage.css'
 class SplashPage extends Component {
 
   handleClick(){
-    this.props.history.push('/assessments')
+    this.props.history.push('/email')
   }
+  //redirect to /email --already fixed
+  //remove border on assessments link
+  //get rid of padding/margin. make page flush with everything
+
   render() {
     return (
       <div className="splash-main">
