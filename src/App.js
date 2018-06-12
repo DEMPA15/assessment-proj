@@ -5,6 +5,7 @@ import Wizard from './views/Wizard/Wizard';
 import SplashPage from './views/SplashPage/SplashPage';
 import Submitted from './views/Submitted/Submitted';
 import EnterEmail from './components/EnterEmail/EnterEmail';
+import QuestionText from './components/QuestionText/QuestionText';
 
 
 class App extends Component {
