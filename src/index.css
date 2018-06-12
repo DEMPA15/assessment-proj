@@ -15,6 +15,11 @@ a{
 a:visited{
   text-decoration: none;
 }
+body{
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
 .assessments-page {
   text-align: center;
 }

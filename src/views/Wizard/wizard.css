@@ -2,6 +2,7 @@
     background-color: #001012;
     background-image: url('../../assets/Ellipse.png');
     background-repeat: repeat-y;
+    height: 100vh;
     color: #e3e3e3
 }
 .dashboard{
