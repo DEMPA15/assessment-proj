@@ -3,7 +3,7 @@
 }
 
 .assessments-list {
-  display: inline-block;
+  display: flex;
   text-align: left;
 }
 
@@ -18,20 +18,6 @@
 }
 
 .assessments-page i:hover {
-  cursor: pointer;
-}
-
-.add-all-assessments {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-all-assessments i {
-  padding-right: 5px;
-}
-
-.add-all-assessments:hover {
   cursor: pointer;
 }
 
@@ -53,52 +39,17 @@
 .assessment-button i {
   padding-right: 5px;
 }
-.popup{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-}
-.popup-background{
-  background-color: rgba(0, 0, 0,.6);
-  height:100vh;
-  width: 100%;
+
+.add-remove-all {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center ;
-  pointer-events: all;
 }
-.popup-content{
-  height: 500px;
-  width: 600px;
-  opacity: 1;
-  border-radius: 5px;
-  background-color: white;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;  
-}
-.submit-button-green{
-  background-image:linear-gradient(65deg ,rgb(119, 216, 55), rgb(152, 212, 112));
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: .8em;
-  font-weight: bold;
-}
-.cancel-button-red{
-  background-image:linear-gradient(65deg, rgb(250, 50, 36) , rgb(216, 47, 35));
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: .8em;
-  font-weight: bold;
-}
-.icon-passed{
 
+.add-remove-all i {
+  padding-right: 5px;
 }
-.icon-failed{
 
+.add-remove-all:hover {
+  cursor: pointer;
 }

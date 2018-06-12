@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import EnterEmail from '../../components/EnterEmail/EnterEmail';
 import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
-import AddAllAssessments from '../../components/AddAllAssessments/AddAllAssessments';
+import AddRemoveAll from '../../components/AddRemoveAll/AddRemoveAll';
+import LoadingGif from '../../components/LoadingGif/LoadingGif'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addAssessment } from '../../redux/action-creators';
+import { addAssessment, removeAssessment, removeAllAssessments } from '../../redux/action-creators';
 import LinkDisplay from '../../components/LinkDisplay/LinkDisplay';
 
 
@@ -17,11 +17,13 @@ class AssessmentList extends Component {
     this.state = {
       assessments: [],
       searchText: '',
-      displayPopup: false
+      loading: true,
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
+    this.removeAssessment = this.removeAssessment.bind(this);
     this.addAll = this.addAll.bind(this);
+    this.removeAll = this.removeAll.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -38,7 +40,8 @@ class AssessmentList extends Component {
     axios.get(`/api/assessments`)
       .then((res) => {
         this.setState({
-          assessments: res.data
+          assessments: res.data,
+          loading: false
         })
       })
   }
@@ -49,7 +52,7 @@ class AssessmentList extends Component {
     });
   }
 
-  addAssessment(e){
+  addAssessment(e) {
     const name = e.target.title;
     const id = e.target.id;
 
@@ -57,6 +60,15 @@ class AssessmentList extends Component {
       const assessment = [{ name, id }];
       return this.props.addAssessment(assessment);
     }
+  }
+
+  removeAssessment(e) {
+    const assessment = {
+      name: e.target.title,
+      id: e.target.id
+    };
+
+    this.props.removeAssessment(assessment)
   }
 
   addAll(e) {
@@ -67,40 +79,46 @@ class AssessmentList extends Component {
     })
     this.props.addAssessment(assessmentsToSend);
   }
-      // select all function
+
+  removeAll(e) {
+    this.props.removeAllAssessments();
+  }
 
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
       if (this.state.searchText === '') {
-        return <AddAssessmentButton addAssessment={this.addAssessment} assessment={assessment} key={i} />
+        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment} key={i} />
       }
       else if (assessment.name.includes(this.state.searchText)) {
-        return <AddAssessmentButton addAssessment={this.addAssessment} assessment={assessment} key={i} />
+        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment} key={i} />
       }
     })
     if (assessments.length === 0) {
       assessments = 'No results found.'
     }
-
-      return (
-        <div className='assessments-page' >
-          <h1>Assessments</h1>
-          <div id='search-box' >
-            <p>Search: </p>
-            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
-          </div>
-          <AddAllAssessments addAll={this.addAll} allAssessments={this.state.assessments} />
-          <div className='assessments-list' >
-            {assessments}
-          </div>
-          <LinkDisplay />
+    if (this.state.loading) {
+      return <LoadingGif />
+    }
+    else return (
+      <div className='assessments-page' >
+        <h1>Assessments</h1>
+        <div id='search-box' >
+          <p>Search: </p>
+          <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
         </div>
-      )
+        <AddRemoveAll add ={true }addAll={this.addAll} allAssessments={this.state.assessments} />
+        <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments}/>
+        <div className='assessments-list' >
+          {assessments}
+        </div>
+        <LinkDisplay />
+      </div>
+    )
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({ addAssessment }, dispatch)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addAssessment, removeAssessment, removeAllAssessments }, dispatch)
 }
 
 export default connect(state => state, mapDispatchToProps)(AssessmentList);

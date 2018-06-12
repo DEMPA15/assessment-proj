@@ -10,7 +10,7 @@ class ProgressBar extends Component {
       return 'Question - ' + qID.split('').splice(1).join('')
     }
     const questions = Object.keys(this.props.results).map((question, i)=>{
-      return <div key={i}>
+      return <div key={i} className='question-result-box'>
                 <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
                 <Link to={`/wizard/${this.props.emailID}/${this.props.assessmentID}/${question}`}>  
                   <div className='question-link'>{idToTitle(question)} </div> 
