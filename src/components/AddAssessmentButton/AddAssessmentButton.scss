@@ -1,13 +1,17 @@
 .assessment-button {
-    margin-bottom: 50px;
-    display: flex;
+    margin-bottom: 25px;
     border: 1px solid black;
-    // line-height: 75px;
-    height: 75px;
-    width: 200px;
+    height: 150px;
+    width: 400px;
     margin: auto;
     text-align: center;
     align-items: center;
+}
+
+.assessment-button-top {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5px;
 }
 
 .assessment-button:hover {

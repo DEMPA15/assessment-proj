@@ -5,6 +5,7 @@
 .assessments-list {
   display: flex;
   text-align: left;
+  flex-wrap: wrap;
 }
 
 #search-box {
@@ -21,15 +22,25 @@
   cursor: pointer;
 }
 
-.assessment-button {
-  margin-bottom: 50px;
+.add-remove-all {
   display: flex;
+  padding-right: 5px;
+}
+
+.assessment-button {
+  margin-bottom: 25px;
   border: 1px solid black;
-  height: 75px;
-  width: 200px;
+  height: 150px;
+  width: 400px;
   margin: auto;
   text-align: center;
   align-items: center;
+}
+
+.assessment-button-top {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px;
 }
 
 .assessment-button:hover {

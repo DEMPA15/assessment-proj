@@ -5,6 +5,7 @@
 .assessments-list {
     display: flex;
     text-align: left;
+    flex-wrap: wrap;    
 }
 
 #search-box {
@@ -19,6 +20,11 @@
 
 .assessments-page i:hover {
     cursor: pointer;
+}
+
+.add-remove-all {
+    display: flex;
+    padding-right: 5px;
 }
 
 // .assessments-page p {
