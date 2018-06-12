@@ -2,9 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 20px;
 }
 .assessment-progress-title{
-    align-self: flex-start;
+    text-align: center;
 }
 .question-result-box{
     align-self: flex-start;

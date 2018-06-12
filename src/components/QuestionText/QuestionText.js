@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './questionText.css' 
 
 
 class QuestionText extends Component {
@@ -8,10 +10,17 @@ class QuestionText extends Component {
   render() {
     return (
       <div>
-        QuestionText
-      </div>
+       <div>
+           <span className='section-title'>Question {this.props.qIndex + 1} </span> 
+           <div className='questionText-container'> {this.props.questions[this.props.qIndex].qText} </div>
+         </div>
+     </div>  
     );
   }
 }
 
-export default QuestionText;
+function mapStateToProps ({ questions }) {
+  return { questions };
+  }
+
+export default connect(mapStateToProps , { })(QuestionText); 

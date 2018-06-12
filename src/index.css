@@ -1,3 +1,13 @@
+ /*  colors:  Main Blue : #328cc1
+             Dk Blue:   #073857
+             Red:       #CA4B43
+             Green:     #477A26
+             Yellow:    #D9B310
+ */ 
+
+ *{
+   box-sizing: border-box;
+ }
 a{
   text-decoration: none;
   color: inherit;
@@ -61,12 +71,12 @@ a:visited{
   padding-right: 5px;
 }
 .section-title{
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.3em;
   letter-spacing: .03em;
 }
 .section-subtitle{
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1em;
   letter-spacing: .03em;
 }
@@ -89,22 +99,24 @@ a:visited{
   pointer-events: all;
 }
 .popup-content{
-  height: 500px;
-  width: 600px;
+  height: 60%;
+  width: 55%;
   opacity: 1;
   border-radius: 5px;
-  background-color: white;
-  color: #333;
+  background-color: #052225;
+  border: 1px solid #328cc1;
+  color: #e3e3e3;
   display: flex;
   flex-direction: column;
   padding: 10px;  
+  max-width: 580px;
+  min-width: 300px;
 }
 .submit-button-green{
-  background-image:linear-gradient(65deg ,rgb(119, 216, 55), rgb(152, 212, 112));
-  border: 2px solid black;
+  background-color:#56b560;
   border-radius: 4px;
   font-size: .8em;
-  font-weight: bold;
+  border: none;
 }
 .submit-button-green:hover{
   cursor: pointer;

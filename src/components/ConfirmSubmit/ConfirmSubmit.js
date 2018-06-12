@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {setName, setEmail} from '../../redux/action-creators'
-import { Link } from 'react-router-dom'
 import './confirmSubmit.css'
 
 class ConfirmSubmit extends Component {
@@ -9,7 +8,8 @@ class ConfirmSubmit extends Component {
     super()
     this.state = {
       allPassed: true,
-      submitButton: 'disabled'
+      submitButton: 'disabled',
+      borderColor: 'black'
     }
   }
 
@@ -21,6 +21,17 @@ class ConfirmSubmit extends Component {
         })
       }
     })
+  }
+  sendResults(){
+    if(this.props.user.name && this.props.user.email){
+      this.props.sendResults()
+    }
+    else{
+      this.setState({
+        borderColor: 'red'
+      })
+      alert('Both your name and email are required')
+    }
   }
 
   render() {
@@ -36,30 +47,35 @@ class ConfirmSubmit extends Component {
     return (
       <div className='popup-background' style={{visibility: this.props.visibility}}>
         <div className='popup-content'>
-          <div className='section-title'>
+          <div className='section-title popup-title-container'>
             {
               this.state.allPassed ? 'All tests pass!'
               :
               'Not all tests have passed'
             }
+            <button className='cancel-button-red' onClick={()=>this.props.closePopup('hidden')} style={{maxHeight: 25, fontSize: '.6em'}}> X </button>
           </div>
+          <div className='confirmSubmit-content'>
           <div className='confirmSubmit-results-container'>
             { questions }
           </div>
           <div className='infoToSubmit-container'>
-            <span className='section-title'>Enter your info to submit your answers:</span>
-            <input placeholder='Enter Name' onChange={(e)=>this.props.setName(e.target.value)}/>
-            <input  placeholder='Enter Email' onChange={(e)=>this.props.setEmail(e.target.value)}/>
-          </div>
-          <div className='button-container'>
-            <button className='cancel-button-red confirmSubmit-button' onClick={()=>this.props.closePopup('hidden')}> Cancel </button>
-            <button className='submit-button-green confirmSubmit-button' disabled={this.state.submitButton} onClick={this.props.sendResults()}>
+          <span className='section-title confirmSubmit-subtitle'>Enter your info to submit your answers:</span>
+          <div className='infoToSubmit'>
+            <div>
+              <input type='name' placeholder='Enter Name' onChange={(e)=>this.props.setName(e.target.value)} style={{borderColor:this.state.borderColor}}/>
+              <input type='email'  placeholder='Enter Email' onChange={(e)=>this.props.setEmail(e.target.value)} style={{borderColor:this.state.borderColor}}/>
+              <button className='submit-button-green confirmSubmit-button' onClick={()=>this.sendResults()}>
                 {
                   this.state.allPassed ? 'Submit Answers'
                   :
                   'Submit Answers Anyway'
                 } 
             </button>
+            </div>
+           
+          </div>
+          </div>
           </div>
         </div>
       </div>

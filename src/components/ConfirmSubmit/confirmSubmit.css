@@ -1,6 +1,24 @@
-
+.popup-title-container{
+    width: 97%;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+.confirmSubmit-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.confirmSubmit-subtitle{
+    text-align: left;
+    margin-left: 10px;
+}
 .confirmSubmit-results-container{
-    height: 50%;
+    height: 60%;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -9,26 +27,33 @@
 .infoToSubmit-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 5px;
-    height: 25%;
 }
-.infoToSubmit-container input {
+.infoToSubmit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.infoToSubmit input {
     border: 1px solid black;
     border-radius: 3px;
-    width: 200px;
+    width: 150px;
     height: 25px;
     margin: 5px;
     margin-left: 15px;
     text-align: center;
-}
-.infoToSubmit-container input:first-of-type{
-    margin-top: 15px;
+
 }
 .confirmSubmit-button{
+    margin: 5px;
     width: 200px;
-    height: 40px;
+    height: 30px;
+
 }
 .button-container{
     align-self: center;
@@ -37,5 +62,4 @@
     margin-top: 15px;
     width: 80%;
     justify-content: space-between;
-
 }

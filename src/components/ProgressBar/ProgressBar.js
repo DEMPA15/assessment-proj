@@ -20,12 +20,12 @@ class ProgressBar extends Component {
     })
     return (
       <div>
+        <span className='section-title assessment-progress-title'>Assessment Progress</span>
         <div className='assessment-progress-container'>
-          <span className='section-title assessment-progress-title'>Assessment Progress</span>
           {questions}
         </div>
         <div className='assessment-progress-submit-button'>
-          <SubmitButton  emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers'}/>
+          <SubmitButton  emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers >>>'}/>
         </div>
       </div>
     );
