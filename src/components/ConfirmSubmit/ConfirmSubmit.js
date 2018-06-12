@@ -8,8 +8,6 @@ class ConfirmSubmit extends Component {
     super()
     this.state = {
       allPassed: true,
-      submitButton: 'disabled',
-      borderColor: 'black'
     }
   }
 
@@ -27,9 +25,6 @@ class ConfirmSubmit extends Component {
       this.props.sendResults()
     }
     else{
-      this.setState({
-        borderColor: 'red'
-      })
       alert('Both your name and email are required')
     }
   }

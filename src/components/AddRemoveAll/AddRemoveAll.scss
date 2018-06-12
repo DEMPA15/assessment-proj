@@ -1,0 +1,13 @@
+.add-remove-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-remove-all i {
+    padding-right: 5px;
+}
+
+.add-remove-all:hover {
+    cursor: pointer;
+}

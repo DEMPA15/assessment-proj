@@ -4,7 +4,7 @@ import brace from 'brace';
 import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
-import './codeEditor.css'
+import './CodeEditor.css';
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
@@ -67,7 +67,7 @@ class CodeEditor extends Component {
   render() {
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history}/>
+      button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
     }else{
       button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
