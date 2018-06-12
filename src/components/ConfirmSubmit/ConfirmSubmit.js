@@ -12,7 +12,7 @@ class ConfirmSubmit extends Component {
   }
 
   componentDidMount(){
-    Object.keys(this.props.results).map(question=>{
+    Object.keys(this.props.results).forEach(question=>{
       if(!this.props.results[question].passed){
         this.setState({
           allPassed: false
