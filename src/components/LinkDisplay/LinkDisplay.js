@@ -10,11 +10,10 @@ class LinkDisplay extends Component {
     super(props);
     this.state = {
       generated: false,
-      slide: false,
     }
     
     this.generateLink = this.generateLink.bind(this);
-    this.slideOut = this.slideOut.bind(this);
+    // this.slideOut = this.slideOut.bind(this);
   }
 
 // displays link from assessment list
@@ -23,7 +22,7 @@ generateLink(){
   const encryptLink = this.props.assessments.map((element,i) => {
     return {
       name: element.name,
-      link: `http://localhost:3010/wizard/${this.props.user.email}/${element.id}/1`
+      link: `http://localhost:8001/wizard/${this.props.user.email}/${element.id}/Q1`
     }
   })
   this.props.link(encryptLink);
@@ -31,27 +30,30 @@ generateLink(){
     generated: true
   })
 }
-slideOut(){
-  this.setState({
-    slide: true
-  })
-}
+// slideOut(){
+//   this.setState({
+//     slide: true
+//   })
+// }
 
   render() {
     const list = this.props.assessments.map((assessment, i) => {
-      return <div key={i} >
+      return <div key={i} value={i}>
                 {assessment.name}
                 <AddMinusButton />
             </div>
     })
+    var visibility = "hide";
+
+    if (this.props.menuVisibility){
+      visibility = "show"
+    }
     return (
-      <div onClick= {this.slideOut}>
+      <div id='flyoutMenu' onClick={ this.props.handleMouseDown } className={visibility}>
         <span>
         { list }
         </span>
-        { this.state.slide === true && 
         <button onClick={ this.generateLink }>Generate Links</button>
-      }
       { this.state.generated === true &&
       this.props.links.map((testLink, i) => {
         return <div key={i}>

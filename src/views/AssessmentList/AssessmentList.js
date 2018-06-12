@@ -18,12 +18,15 @@ class AssessmentList extends Component {
       assessments: [],
       searchText: '',
       loading: true,
+      visible: false,
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
     this.removeAssessment = this.removeAssessment.bind(this);
     this.addAll = this.addAll.bind(this);
     this.removeAll = this.removeAll.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -44,6 +47,17 @@ class AssessmentList extends Component {
           loading: false
         })
       })
+  }
+
+  toggleMenu(){
+    this.setState({
+      visible: !this.state.visible
+    })
+  }
+
+  handleMouseDown(e){
+    this.toggleMenu();
+    e.stopPropagation();
   }
 
   handleChange(e) {
@@ -111,7 +125,9 @@ class AssessmentList extends Component {
         <div className='assessments-list' >
           {assessments}
         </div>
-        <LinkDisplay />
+        <button onClick={ this.handleMouseDown }>-</button>
+      { this.state.visible === true &&
+         <LinkDisplay onClick={ this.handleMouseDown } menuVisibility={ this.state.visible }/>}
       </div>
     )
   }
