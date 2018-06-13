@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {setName, setEmail, postResults} from '../../redux/action-creators'
-import './confirmSubmit.css'
 
 class ConfirmSubmit extends Component {
   constructor(){
