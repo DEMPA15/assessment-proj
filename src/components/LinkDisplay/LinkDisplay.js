@@ -50,23 +50,22 @@ removeAssessment(e) {
   render() {
     const list = this.props.assessments.map((assessment, i) => {
       return <div key={i}>
-                {assessment.name}
                 <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment}/>
             </div>
     })
     const asslinks = this.props.links.map((testLink, i) => {
         return <div key={i}>
-          {testLink.name} {testLink.link}
+          { testLink.name }: <a href={`${testLink.link}`}> { testLink.link }</a>
         
         </div>
     })
 
     return (
-      <div>
+      <div className="LinkDisplay">
         <span>
         { list }
         </span>
-        <button className='generate-links-button' onClick={ this.generateLink }>Generate Links</button>
+        <button className='generate-links-button' onClick={ this.generateLink }>GENERATE LINKS</button>
         { asslinks }
       </div>
         
