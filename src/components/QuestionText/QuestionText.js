@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './questionText.css' 
 
-
-class QuestionText extends Component {
-
- // needs state.questions[this.props.qIndex].qText to render that text here
-
+ class QuestionText extends Component {
+  
   render() {
     return (
       <div>
-        QuestionText
-      </div>
+         <div>
+          <h2>Question + {this.props.qID} </h2> 
+          <input type="text" value ={this.props.questions[this.props.qIndex].qText} />
+          </div>
+      </div>    
     );
   }
 }
 
-export default QuestionText;
+function mapStateToProps ({ questions }) {
+  return { questions };
+  }
+
+export default connect(mapStateToProps , { })(QuestionText); 

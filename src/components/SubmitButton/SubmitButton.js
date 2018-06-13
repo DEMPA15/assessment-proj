@@ -49,7 +49,6 @@ class SubmitButton extends Component {
     return (
       <div>
         <button className='submit-button-green' onClick={()=>this.editConfirmSubmitVisibility('visible')}> {this.props.buttonText} </button>
-
         <div className='popup'>
           <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={()=>this.sendResults} closePopup={(value)=>this.editConfirmSubmitVisibility(value)} />
         </div>

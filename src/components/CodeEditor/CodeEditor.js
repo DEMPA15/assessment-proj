@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import brace from 'brace';
+import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
+import './CodeEditor.css';
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
@@ -65,16 +67,16 @@ class CodeEditor extends Component {
   render() {
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history}/>
+      button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
     }else{
       button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
     return (
-      <div>
+      <div className='codeEditor-container'>
         <AceEditor
-          style={{zIndex: 0}}
+          style={{zIndex: 0, height: 'inherit', width: '98%' }}
           mode="javascript"
-          theme="monokai"
+          theme="solarized_dark"
           name="blah2"
           onLoad={this.onLoad}
           onChange={this.onChange}

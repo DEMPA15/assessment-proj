@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './testProgress.css'
 
 
 class TestProgress extends Component {
@@ -16,18 +17,17 @@ class TestProgress extends Component {
       return 'Test - ' + (testIndex + 1)
     }
     const tests = this.props.results[this.props.qID].tests.map((test, i)=>{
-      return <div key={i} className='test-result-box'>
-                <div className='test-results-title'>
+      return <div key={i} className='test-results-box'>
+                <div className='test-results-title section-subtitle'>
                   <div className={test.passed ? 'icon-passed' : 'icon-failed'} />
                   <div>{indexToTitle(i)} </div> 
                 </div> 
-                <div>{test.text} </div>
-                
+                <div className='test-results-text'>{test.text} </div>
             </div>
     })
     return (
-      <div>
-        TestProgress
+      <div className='test-results-container'>
+        <span className='section-title'>Test Results</span>
         {tests}
       </div>
     );

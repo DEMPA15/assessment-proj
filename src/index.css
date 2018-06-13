@@ -1,3 +1,25 @@
+ /*  colors:  Main Blue : #328cc1
+             Dk Blue:   #073857
+             Red:       #CA4B43
+             Green:     #477A26
+             Yellow:    #D9B310
+ */ 
+
+ *{
+   box-sizing: border-box;
+ }
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:visited{
+  text-decoration: none;
+}
+body{
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
 .assessments-page {
   text-align: center;
 }
@@ -50,11 +72,86 @@
 .assessment-button i {
   padding-right: 5px;
 }
-
-.add-remove-all {
+.section-title{
+  /* font-weight: bold; */
+  font-size: 1.3em;
+  letter-spacing: .03em;
+}
+.section-subtitle{
+  /* font-weight: bold; */
+  font-size: 1em;
+  letter-spacing: .03em;
+}
+.popup{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.popup-background{
+  background-color: rgba(0, 0, 0,.6);
+  height:100vh;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center ;
+  pointer-events: all;
+}
+.popup-content{
+  height: 60%;
+  width: 55%;
+  opacity: 1;
+  border-radius: 5px;
+  background-color: #052225;
+  border: 1px solid #328cc1;
+  color: #e3e3e3;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;  
+  max-width: 580px;
+  min-width: 300px;
+}
+.submit-button-green{
+  background-color:#56b560;
+  border-radius: 4px;
+  font-size: .8em;
+  border: none;
+}
+.submit-button-green:hover{
+  cursor: pointer;
+}
+.cancel-button-red{
+  background-image:linear-gradient(65deg, rgb(250, 50, 36) , rgb(216, 47, 35));
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: .8em;
+  font-weight: bold;
+}
+.cancel-button-red{
+  cursor: pointer;
+}
+.icon-passed{
+  background-image: url('./assets/passed.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+.icon-failed{
+  background-image: url('./assets/failed.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
 }
 
 .add-remove-all i {
@@ -63,4 +160,11 @@
 
 .add-remove-all:hover {
   cursor: pointer;
+}
+.add-remove-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center ;
+  pointer-events: all;
 }
