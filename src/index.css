@@ -1,9 +1,3 @@
- /*  colors:  Main Blue : #328cc1
-             Dk Blue:   #073857
-             Red:       #CA4B43
-             Green:     #477A26
-             Yellow:    #D9B310
- */ 
 
  *{
    box-sizing: border-box;
@@ -63,12 +57,10 @@ body{
   padding-right: 5px;
 }
 .section-title{
-  /* font-weight: bold; */
   font-size: 1.3em;
   letter-spacing: .03em;
 }
 .section-subtitle{
-  /* font-weight: bold; */
   font-size: 1em;
   letter-spacing: .03em;
 }
@@ -143,11 +135,9 @@ body{
   width: 20px;
   margin-right: 5px;
 }
-
 .add-remove-all i {
   padding-right: 5px;
 }
-
 .add-remove-all:hover {
   cursor: pointer;
 }
