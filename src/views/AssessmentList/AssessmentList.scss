@@ -34,6 +34,35 @@
 .add-remove-all {
     display: flex;
     padding-right: 5px;
+
+.slide-up-container-false {
+    position: fixed;
+    height: 45px;
+    background: #073857;
+    width: 40%;
+    bottom: 0;
+    left: 30%;
+    transition: height 1s;
+    min-width: 320px;
+}
+.slide-up-container-true {
+    position: fixed;
+    height: 75vh;
+    background: #073857;
+    width: 40%;
+    bottom: 0;
+    left: 30%;
+    transition: height 1s;
+    min-width: 320px;
+}
+.slide-up-button{
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 0px;
+    border: solid 1px #073857;
+    background: #D9B310;
+    color: #328cc1;
+    border-radius: 4px 4px 0px 0px;
 }
 
 // .assessments-page p {
