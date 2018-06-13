@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/action-creators';
 import AddMinusButton from '../AddMinusButton/AddMinusButton';
+import AddAssessmentButton from '../AddAssessmentButton/AddAssessmentButton';
 
 
 class LinkDisplay extends Component {
@@ -10,11 +11,11 @@ class LinkDisplay extends Component {
     super(props);
     this.state = {
       generated: false,
-      slide: false,
     }
     
     this.generateLink = this.generateLink.bind(this);
-    this.slideOut = this.slideOut.bind(this);
+    this.removeAssessment = this.removeAssessment.bind(this);
+    // this.slideOut = this.slideOut.bind(this);
   }
 
 // displays link from assessment list
@@ -23,7 +24,7 @@ generateLink(){
   const encryptLink = this.props.assessments.map((element,i) => {
     return {
       name: element.name,
-      link: `http://localhost:3010/wizard/${this.props.user.email}/${element.id}/1`
+      link: `http://localhost:8001/wizard/${this.props.user.email}/${element.id}/Q1`
     }
   })
   this.props.link(encryptLink);
@@ -31,35 +32,42 @@ generateLink(){
     generated: true
   })
 }
-slideOut(){
-  this.setState({
-    slide: true
-  })
+
+removeAssessment(e) {
+  const assessment = {
+    name: e.target.title,
+    id: e.target.id
+  };
+
+  this.props.removeAssessment(assessment)
 }
+// slideOut(){
+//   this.setState({
+//     slide: true
+//   })
+// }
 
   render() {
     const list = this.props.assessments.map((assessment, i) => {
-      return <div key={i} >
+      return <div key={i}>
                 {assessment.name}
-                <AddMinusButton />
+                <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment}/>
             </div>
     })
+    const asslinks = this.props.links.map((testLink, i) => {
+        return <div key={i}>
+          {testLink.name} {testLink.link}
+        
+        </div>
+    })
+
     return (
-      <div onClick= {this.slideOut}>
+      <div>
         <span>
         { list }
         </span>
-        { this.state.slide === true && 
-        <button onClick={ this.generateLink }>Generate Links</button>
-      }
-      { this.state.generated === true &&
-      this.props.links.map((testLink, i) => {
-        return <div key={i}>
-          {testLink.name} {testLink.link}
-              </div>
-      })
-
-      }
+        <button className='generate-links-button' onClick={ this.generateLink }>Generate Links</button>
+        { asslinks }
       </div>
         
       

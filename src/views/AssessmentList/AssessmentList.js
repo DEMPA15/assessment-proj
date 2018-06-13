@@ -18,12 +18,14 @@ class AssessmentList extends Component {
       assessments: [],
       searchText: '',
       loading: true,
+      visible: false,
     }
     this.handleChange = this.handleChange.bind(this);
     this.addAssessment = this.addAssessment.bind(this);
     this.removeAssessment = this.removeAssessment.bind(this);
     this.addAll = this.addAll.bind(this);
     this.removeAll = this.removeAll.bind(this);
+    this.slideOut = this.slideOut.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -45,6 +47,8 @@ class AssessmentList extends Component {
         })
       })
   }
+
+
 
   handleChange(e) {
     this.setState({
@@ -84,6 +88,18 @@ class AssessmentList extends Component {
     this.props.removeAllAssessments();
   }
 
+  slideOut(){
+    if (this.state.visible === true){
+    return this.setState({
+      visible: false
+    }) } else {
+      return this.setState({
+        visible: true
+      })
+    }
+    
+  }
+
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
       if (this.state.searchText === '') {
@@ -111,7 +127,13 @@ class AssessmentList extends Component {
         <div className='assessments-list' >
           {assessments}
         </div>
-        <LinkDisplay />
+        <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
+          <button className="slide-up-button" onClick={ this.slideOut }>assessments list</button>
+      { this.state.visible === true &&
+         <LinkDisplay />}
+
+        </div>
+        
       </div>
     )
   }
