@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, GENERATE_LINK, ADD_ASSESSMENT} from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, GENERATE_LINK, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS} from './constraints'
 
 
 const userInfo = {
@@ -58,7 +58,11 @@ function links(state = [], action){
 function assessments(state = [], action){
     switch(action.type){
         case ADD_ASSESSMENT:
-            return [...state, ...action.payload]
+            return [...state, ...action.payload];
+        case REMOVE_ASSESSMENT:
+            return state.filter(assessment => assessment.id !== action.payload.id);
+        case REMOVE_ALL_ASSESSMENTS:
+            return [];
         default:
             return state;
     }
