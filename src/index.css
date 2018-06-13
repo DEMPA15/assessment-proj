@@ -3,7 +3,7 @@
 }
 
 .assessments-list {
-  display: inline-block;
+  display: flex;
   text-align: left;
 }
 
@@ -25,20 +25,6 @@ body {
   cursor: pointer;
 }
 
-.add-all-assessments {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-all-assessments i {
-  padding-right: 5px;
-}
-
-.add-all-assessments:hover {
-  cursor: pointer;
-}
-
 .assessment-button {
   margin-bottom: 50px;
   display: flex;
@@ -57,20 +43,10 @@ body {
 .assessment-button i {
   padding-right: 5px;
 }
-.popup{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-}
-.popup-background{
-  background-color: rgba(0, 0, 0,.6);
-  height:100vh;
-  width: 100%;
+
+.add-remove-all {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   justify-content: center ;
   pointer-events: all;
@@ -93,35 +69,11 @@ body {
   font-size: .8em;
   font-weight: bold;
 }
-.cancel-button-red{
-  background-image:linear-gradient(65deg, rgb(250, 50, 36) , rgb(216, 47, 35));
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: .8em;
-  font-weight: bold;
+
+.add-remove-all i {
+  padding-right: 5px;
 }
-.icon-passed{
-  background-image: url('./assets/passed.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 10px;
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-}
-.icon-failed{
-  background-image: url('./assets/failed.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 10px;
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-}
-.question-result-box{
-  display: flex;
-  flex-direction: row;
-  margin: 10px;
+
+.add-remove-all:hover {
+  cursor: pointer;
 }

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-
-class QuestionText extends Component {
-
- // needs state.questions[this.props.qIndex].qText to render that text here
-
+ class QuestionText extends Component {
+  
   render() {
     return (
       <div>
-        QuestionText
-      </div>
+         <div>
+          <h2>Question + {this.props.qID} </h2> 
+          <input type="text" value ={this.props.questions[this.props.qIndex].qText} />
+          </div>
+      </div>    
     );
   }
 }

@@ -62,7 +62,7 @@ componentDidMount(){
             <Header qID={qID} assessmentID={assessmentID}/>
             <div className='dashboard'>
               <div className='questions-results-container'>
-                <QuestionText qIndex={qIndex}/>
+                <QuestionText qIndex={qIndex} qID = {qID}/>
                 <TestProgress qID={qID}/>
               </div>
               <div className='editor-container'>
@@ -82,4 +82,4 @@ function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard);

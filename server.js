@@ -81,13 +81,16 @@ app.post(`/api/post-results`,  (req, res) => {
 
 
 app.post(`/api/submit`, (req,res)=>{
-    const q = []
+    const questionText = []
     Object.keys(req.body).map(questions => {
         if (questions[0]=== 'Q') {
-          return q.push(req.body[questions]);
+          return questionText.push(req.body[questions]);
         }
     });
-
+    const newQuestions = questionText.map((data, i) => {
+        return ((i+1), data)
+    })
+    console.log(newQuestions)
     //email will need:
     // student name, code, test results
     //mentor email
@@ -95,7 +98,7 @@ app.post(`/api/submit`, (req,res)=>{
     const output = `
     <h3>Below are the assessment results for ${req.body.studentName}</h3>
     <p>${req.body.results}</p>
-    <p>${q}</p>
+    <p>${newQuestions}</p>
     <br/>
     `;
 
