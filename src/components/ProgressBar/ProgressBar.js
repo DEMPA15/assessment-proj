@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import './progressBar.css'
 
 class ProgressBar extends Component {
 
