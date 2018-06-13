@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './EnterEmail.css';
 import {connect} from 'react-redux';
 import * as Actions from '../../redux/action-creators';
 class EnterEmail extends Component {

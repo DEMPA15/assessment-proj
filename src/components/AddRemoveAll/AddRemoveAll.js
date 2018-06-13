@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class addAllAssessments extends Component {
 
     render() {
-        if (this.props.allAssessments.length !== this.props.assessments.length && this.props.add ){
+        if (this.props.add && this.props.allAssessments.length !== this.props.assessments.length){
             return (
                 <div className='add-remove-all' onClick={this.props.addAll}>
                     <AddMinusButton add={true} /><p>Add all assessments</p>
