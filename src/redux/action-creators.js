@@ -43,11 +43,6 @@ export function setEmail(email){
      }
  }
 
-//-------post results
-
-
-//------generate link
-
 export function link(obj){
     return {
         type: GENERATE_LINK,

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './questionText.css';
 
+
  class QuestionText extends Component {
   
   render() {
@@ -21,3 +22,4 @@ function mapStateToProps ({ questions }) {
 
 
 export default connect(mapStateToProps)(QuestionText);
+
