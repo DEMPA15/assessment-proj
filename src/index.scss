@@ -30,6 +30,7 @@ a:visited {
     text-decoration: none;
 }
 
+@import './variables.scss';
 @import './shared.scss';
 @import './views/SplashPage/SplashPage.scss';
 @import './views/Wizard/wizard.scss';
