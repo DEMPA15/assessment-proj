@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './questionText.css';
+import './questionText.css'
 
 
  class QuestionText extends Component {
