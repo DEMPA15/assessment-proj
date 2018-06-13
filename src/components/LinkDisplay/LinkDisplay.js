@@ -55,7 +55,7 @@ removeAssessment(e) {
     })
     const asslinks = this.props.links.map((testLink, i) => {
         return <div key={i}>
-          { testLink.name }: <a href={`${testLink.link}`}> { testLink.link }</a>
+          { testLink.name.toUpperCase() }: <a href={`${testLink.link}`}> { testLink.link }</a>
         
         </div>
     })
