@@ -1,7 +1,6 @@
 .assessments-page {
     text-align: center;
     background-color: #001012;
-    background-image: asset('Ellipse.png');
     background-repeat: repeat-y;
     height: 100vh;
     color: #e3e3e3;
@@ -14,7 +13,7 @@
 .assessments-list {
     display: flex;
     text-align: left;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
 }
 
 #search-box {
@@ -23,7 +22,7 @@
     justify-content: center;
 }
 
-#search-box > p {
+#search-box>p {
     padding-right: 5px;
 }
 
@@ -35,6 +34,7 @@
     display: flex;
     padding-right: 5px;
 }
+
 .slide-up-container-false {
     position: fixed;
     height: 45px;
@@ -45,6 +45,7 @@
     transition: height 1s;
     min-width: 320px;
 }
+
 .slide-up-container-true {
     position: fixed;
     height: 75vh;
@@ -55,7 +56,8 @@
     transition: height 1s;
     min-width: 320px;
 }
-.slide-up-button{
+
+.slide-up-button {
     width: 100%;
     font-size: 20px;
     padding: 10px 0px;
