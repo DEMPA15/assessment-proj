@@ -62,7 +62,7 @@ class AssessmentList extends Component {
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
       const assessment = [{ name, id }];
-      return this.props.addAssessment(assessment);
+      this.props.addAssessment(assessment);
     }
   }
 
@@ -122,8 +122,10 @@ class AssessmentList extends Component {
           <p>Search: </p>
           <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
         </div>
-        <AddRemoveAll add ={true }addAll={this.addAll} allAssessments={this.state.assessments} />
-        <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments}/>
+        <div className='add-remove-all' >
+          <AddRemoveAll add ={true }addAll={this.addAll} allAssessments={this.state.assessments} />
+          <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments}/>
+        </div>
         <div className='assessments-list' >
           {assessments}
         </div>

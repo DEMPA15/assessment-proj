@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -30,13 +32,24 @@ body{
   background-color: #001012;
 
 }
+>>>>>>> 198bcc6c928e36cdc5017405e2f5daa3f9b2adc4
 .assessments-page {
   text-align: center;
+  background-color: #001012;
+  background-image: url("./assets/Ellipse.png");
+  background-repeat: repeat-y;
+  height: 100vh;
+  color: #e3e3e3;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .assessments-list {
   display: flex;
   text-align: left;
+  flex-wrap: wrap;
 }
 
 body {
@@ -57,6 +70,9 @@ body {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+.add-remove-all {
+=======
 .slide-up-container-false {
   position: fixed;
   height: 45px;
@@ -91,13 +107,31 @@ body {
 
 .assessment-button {
   margin-bottom: 50px;
+>>>>>>> f778eaefe7a4ec47f1ccf5d08e8a4276e92efa01
   display: flex;
-  border: 1px solid black;
-  height: 75px;
-  width: 200px;
+  padding-right: 5px;
+}
+
+.assessment-button {
+  margin-bottom: 25px;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  height: 150px;
+  width: 400px;
   margin: auto;
   text-align: center;
   align-items: center;
+}
+
+.assessment-button-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.assessment-button-top p {
+  padding-right: 5px;
 }
 
 .assessment-button:hover {
@@ -105,33 +139,15 @@ body {
 }
 
 .assessment-button i {
-  padding-right: 5px;
+  padding-left: 5px;
 }
-.section-title{
-  /* font-weight: bold; */
-  font-size: 1.3em;
-  letter-spacing: .03em;
-}
-.section-subtitle{
-  /* font-weight: bold; */
-  font-size: 1em;
-  letter-spacing: .03em;
-}
-.popup{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-}
-.popup-background{
-  background-color: rgba(0, 0, 0,.6);
-  height:100vh;
-  width: 100%;
+
+.add-remove-all {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+<<<<<<< HEAD
+=======
   justify-content: center ;
   pointer-events: all;
 }
@@ -205,6 +221,7 @@ body {
   width: 20px;
   margin-right: 5px;
 >>>>>>> 8df4c12c6bd5e85cc5eacfed0e967499b76500d0
+>>>>>>> 18e8575f2e39020d22ac913cd028cdc8e724033e
 }
 
 .add-remove-all i {
@@ -213,11 +230,4 @@ body {
 
 .add-remove-all:hover {
   cursor: pointer;
-}
-.add-remove-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: center ;
-  pointer-events: all;
 }
