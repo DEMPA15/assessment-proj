@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {setName, setEmail} from '../../redux/action-creators'
+import {setName, setEmail, postResults} from '../../redux/action-creators'
 import './confirmSubmit.css'
 
 class ConfirmSubmit extends Component {
@@ -82,4 +82,4 @@ function mapStateToProps ({ questions, results, code, user }) {
   return { questions, results, code, user };
   }
 
-export default connect(mapStateToProps , {setName, setEmail} )(ConfirmSubmit); 
+export default connect(mapStateToProps , {setName, setEmail, postResults} )(ConfirmSubmit); 
