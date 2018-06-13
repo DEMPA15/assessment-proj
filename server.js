@@ -81,24 +81,25 @@ app.post(`/api/post-results`,  (req, res) => {
 
 
 app.post(`/api/submit`, (req,res)=>{
+
     const questionText = []
-    Object.keys(req.body).map(questions => {
-        if (questions[0]=== 'Q') {
-          return questionText.push(req.body[questions]);
+    Object.keys(req.body).map(results => {
+        if (results[0]=== 'Q') {
+          return questionText.push(req.body[results]);
         }
     });
     const newQuestions = questionText.map((data, i) => {
-        return ((i+1), data)
+        return (data)
     })
     console.log(newQuestions)
-    //email will need:
+    //email will need
     // student name, code, test results
     //mentor email
 
     const output = `
     <h3>Below are the assessment results for ${req.body.studentName}</h3>
     <p>${req.body.results}</p>
-    <p>${newQuestions}</p>
+    <p>${questionText}</p>
     <br/>
     `;
 
@@ -136,7 +137,7 @@ app.post(`/api/submit`, (req,res)=>{
     });
 });
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 app.listen(port, ()=>{
     console.log(`This server is listening on port ${port}`)
 })

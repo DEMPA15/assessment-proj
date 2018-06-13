@@ -25,9 +25,12 @@ class Header extends Component {
   render() {
 
     return (
+        <div>
       <div className='header-body'>
         <div className='header-logo'/>
         <div className='header-title'>{this.state.assessmentName} Assessment - {this.props.qID}</div>
+      </div>
+      <span className="sexy_line"></span>
       </div>
     );
   }

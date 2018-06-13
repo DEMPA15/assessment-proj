@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import brace from 'brace';
+import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import './CodeEditor.css';
@@ -71,11 +72,11 @@ class CodeEditor extends Component {
       button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
     return (
-      <div>
+      <div className='codeEditor-container'>
         <AceEditor
-          style={{zIndex: 0}}
+          style={{zIndex: 0, height: 'inherit', width: '98%' }}
           mode="javascript"
-          theme="monokai"
+          theme="solarized_dark"
           name="blah2"
           onLoad={this.onLoad}
           onChange={this.onChange}
