@@ -4,7 +4,7 @@ import brace from 'brace';
 import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
-import './codeEditor.css';
+import './code-editor.css';
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
