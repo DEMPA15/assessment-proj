@@ -1,5 +1,14 @@
 .assessments-page {
     text-align: center;
+    background-color: #001012;
+    background-image: asset('Ellipse.png');
+    background-repeat: repeat-y;
+    height: 100vh;
+    color: #e3e3e3;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .assessments-list {
