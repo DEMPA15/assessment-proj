@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
  class QuestionText extends Component {
   
@@ -6,12 +7,16 @@ import React, { Component } from 'react';
     return (
       <div>
          <div>
-          <h2>Question + {this.props.qID} </h2> 
-          <input type="text" value ={this.props.questions[this.props.qIndex].qText} />
+          <h2>Question {this.props.qID.split('')[1]} </h2> 
+          <p> {this.props.questions[this.props.qIndex].qText} </p>
           </div>
       </div>    
     );
   }
 }
+function mapStateToProps ({ questions }) {
+  return { questions };
+  }
 
-export default QuestionText;
+
+export default connect(mapStateToProps)(QuestionText);
