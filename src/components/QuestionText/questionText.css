@@ -1,3 +1,6 @@
-.questionContainer{
-  margin-bottom: 50px;
+.questionText-container{
+    margin-top: 10px;
+}
+.questionText-container p {
+    margin-left: 20px;
 }

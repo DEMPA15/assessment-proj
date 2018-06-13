@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-=======
+
 body {
   font-family: 'Roboto', sans-serif;
 }
 
+
 h1 {
   font-family: 'Nunito', sans-serif;
 }
-
- /*  colors:  Main Blue : #328cc1
-             Dk Blue:   #073857
-             Red:       #CA4B43
-             Green:     #477A26
-             Yellow:    #D9B310
- */ 
-
  *{
    box-sizing: border-box;
  }
@@ -26,13 +18,13 @@ a:visited{
   text-decoration: none;
 }
 body{
+  font-family: 'Roboto', sans-serif;
   border: none;
   margin: 0px;
   padding: 0px;
   background-color: #001012;
 
 }
->>>>>>> 198bcc6c928e36cdc5017405e2f5daa3f9b2adc4
 .assessments-page {
   text-align: center;
   background-color: #001012;
@@ -70,9 +62,9 @@ body {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .add-remove-all {
-=======
+
+}
 .slide-up-container-false {
   position: fixed;
   height: 45px;
@@ -107,7 +99,6 @@ body {
 
 .assessment-button {
   margin-bottom: 50px;
->>>>>>> f778eaefe7a4ec47f1ccf5d08e8a4276e92efa01
   display: flex;
   padding-right: 5px;
 }
@@ -134,6 +125,15 @@ body {
   padding-right: 5px;
 }
 
+.section-title{
+  font-size: 1.2em;
+  letter-spacing: .03em;
+}
+.section-subtitle{
+  font-size: 1em;
+  letter-spacing: .03em;
+}
+
 .assessment-button:hover {
   cursor: pointer;
 }
@@ -146,26 +146,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-=======
+  justify-content: center ;
+  pointer-events: all;
+}
+.popup{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.popup-background{
+  background-color: rgba(0, 0, 0,.6);
+  height:100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center ;
   pointer-events: all;
 }
 .popup-content{
-<<<<<<< HEAD
-  height: 500px;
-  width: 600px;
-  opacity: 1;
-  border-radius: 5px;
-  background-color: white;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-.submit-button-green{
-  background-image:linear-gradient(65deg ,rgb(119, 216, 55), rgb(152, 212, 112));
-=======
   height: 60%;
   width: 55%;
   opacity: 1;
@@ -190,13 +192,10 @@ body {
 }
 .cancel-button-red{
   background-image:linear-gradient(65deg, rgb(250, 50, 36) , rgb(216, 47, 35));
->>>>>>> 8df4c12c6bd5e85cc5eacfed0e967499b76500d0
   border: 2px solid black;
   border-radius: 4px;
   font-size: .8em;
   font-weight: bold;
-<<<<<<< HEAD
-=======
 }
 .cancel-button-red{
   cursor: pointer;
@@ -220,14 +219,10 @@ body {
   height: 20px;
   width: 20px;
   margin-right: 5px;
->>>>>>> 8df4c12c6bd5e85cc5eacfed0e967499b76500d0
->>>>>>> 18e8575f2e39020d22ac913cd028cdc8e724033e
 }
-
 .add-remove-all i {
   padding-right: 5px;
 }
-
 .add-remove-all:hover {
   cursor: pointer;
 }
