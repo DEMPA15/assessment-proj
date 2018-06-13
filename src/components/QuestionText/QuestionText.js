@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './questionText.css' 
 
  class QuestionText extends Component {
   
@@ -14,4 +16,8 @@ import React, { Component } from 'react';
   }
 }
 
-export default QuestionText;
+function mapStateToProps ({ questions }) {
+  return { questions };
+  }
+
+export default connect(mapStateToProps , { })(QuestionText); 

@@ -1,0 +1,17 @@
+.test-results-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+}
+.test-results-box{
+    width: 90%;
+    margin: 5px;
+}
+.test-results-title{
+    display: flex;
+    flex-direction: row;
+}
+.test-results-text{
+    margin-left: 30px;
+}
