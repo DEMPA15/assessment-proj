@@ -1,4 +1,9 @@
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
 h1 {
   font-family: 'Nunito', sans-serif;
 }
@@ -22,11 +27,25 @@ body{
 }
 .assessments-page {
   text-align: center;
+  background-color: #001012;
+  background-image: url("./assets/Ellipse.png");
+  background-repeat: repeat-y;
+  height: 100vh;
+  color: #e3e3e3;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .assessments-list {
   display: flex;
   text-align: left;
+  flex-wrap: wrap;
+}
+
+body {
+  margin: 0px;
 }
 
 #search-box {
@@ -43,24 +62,69 @@ body{
   cursor: pointer;
 }
 
+.add-remove-all {
+
+}
+.slide-up-container-false {
+  position: fixed;
+  height: 45px;
+  background: #073857;
+  width: 40%;
+  bottom: 0;
+  left: 30%;
+  transition: height 1s;
+  min-width: 320px;
+}
+
+.slide-up-container-true {
+  position: fixed;
+  height: 75vh;
+  background: #073857;
+  width: 40%;
+  bottom: 0;
+  left: 30%;
+  transition: height 1s;
+  min-width: 320px;
+}
+
+.slide-up-button {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 0px;
+  border: solid 1px #073857;
+  background: #D9B310;
+  color: #328cc1;
+  border-radius: 4px 4px 0px 0px;
+}
+
 .assessment-button {
   margin-bottom: 50px;
   display: flex;
-  border: 1px solid black;
-  height: 75px;
-  width: 200px;
+  padding-right: 5px;
+}
+
+.assessment-button {
+  margin-bottom: 25px;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  height: 150px;
+  width: 400px;
   margin: auto;
   text-align: center;
   align-items: center;
 }
 
-.assessment-button:hover {
-  cursor: pointer;
-}
-
-.assessment-button i {
+.assessment-button-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-right: 5px;
 }
+
+.assessment-button-top p {
+  padding-right: 5px;
+}
+
 .section-title{
   font-size: 1.2em;
   letter-spacing: .03em;
@@ -68,6 +132,22 @@ body{
 .section-subtitle{
   font-size: 1em;
   letter-spacing: .03em;
+}
+
+.assessment-button:hover {
+  cursor: pointer;
+}
+
+.assessment-button i {
+  padding-left: 5px;
+}
+
+.add-remove-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center ;
+  pointer-events: all;
 }
 .popup{
   position: fixed;
@@ -145,11 +225,4 @@ body{
 }
 .add-remove-all:hover {
   cursor: pointer;
-}
-.add-remove-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: center ;
-  pointer-events: all;
 }

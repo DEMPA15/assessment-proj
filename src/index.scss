@@ -1,3 +1,10 @@
+$asset-base-path: './assets' !default;
+
+@function asset($file) {
+    @return url($asset-base-path + '/' + $file);
+}
+
+
 @import './views/AssessmentList/AssessmentList.scss';
 @import './components/AddAssessmentButton/AddAssessmentButton.scss';
 @import './components/AddRemoveAll/AddRemoveAll.scss';
