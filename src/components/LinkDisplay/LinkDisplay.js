@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/action-creators';
 import AddMinusButton from '../AddMinusButton/AddMinusButton';
+import AddAssessmentButton from '../AddAssessmentButton/AddAssessmentButton';
 
 
 class LinkDisplay extends Component {
@@ -13,6 +14,7 @@ class LinkDisplay extends Component {
     }
     
     this.generateLink = this.generateLink.bind(this);
+    this.removeAssessment = this.removeAssessment.bind(this);
     // this.slideOut = this.slideOut.bind(this);
   }
 
@@ -30,6 +32,15 @@ generateLink(){
     generated: true
   })
 }
+
+removeAssessment(e) {
+  const assessment = {
+    name: e.target.title,
+    id: e.target.id
+  };
+
+  this.props.removeAssessment(assessment)
+}
 // slideOut(){
 //   this.setState({
 //     slide: true
@@ -38,30 +49,25 @@ generateLink(){
 
   render() {
     const list = this.props.assessments.map((assessment, i) => {
-      return <div key={i} value={i}>
+      return <div key={i}>
                 {assessment.name}
-                <AddMinusButton />
+                <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment}/>
             </div>
     })
-    var visibility = "hide";
+    const asslinks = this.props.links.map((testLink, i) => {
+        return <div key={i}>
+          {testLink.name} {testLink.link}
+        
+        </div>
+    })
 
-    if (this.props.menuVisibility){
-      visibility = "show"
-    }
     return (
-      <div id='flyoutMenu' onClick={ this.props.handleMouseDown } className={visibility}>
+      <div>
         <span>
         { list }
         </span>
-        <button onClick={ this.generateLink }>Generate Links</button>
-      { this.state.generated === true &&
-      this.props.links.map((testLink, i) => {
-        return <div key={i}>
-          {testLink.name} {testLink.link}
-              </div>
-      })
-
-      }
+        <button className='generate-links-button' onClick={ this.generateLink }>Generate Links</button>
+        { asslinks }
       </div>
         
       

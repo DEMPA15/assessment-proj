@@ -25,8 +25,7 @@ class AssessmentList extends Component {
     this.removeAssessment = this.removeAssessment.bind(this);
     this.addAll = this.addAll.bind(this);
     this.removeAll = this.removeAll.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.slideOut = this.slideOut.bind(this);
   }
   //check state.user.name if == null make email popup visible
 
@@ -49,16 +48,7 @@ class AssessmentList extends Component {
       })
   }
 
-  toggleMenu(){
-    this.setState({
-      visible: !this.state.visible
-    })
-  }
 
-  handleMouseDown(e){
-    this.toggleMenu();
-    e.stopPropagation();
-  }
 
   handleChange(e) {
     this.setState({
@@ -98,6 +88,18 @@ class AssessmentList extends Component {
     this.props.removeAllAssessments();
   }
 
+  slideOut(){
+    if (this.state.visible === true){
+    return this.setState({
+      visible: false
+    }) } else {
+      return this.setState({
+        visible: true
+      })
+    }
+    
+  }
+
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
       if (this.state.searchText === '') {
@@ -125,9 +127,13 @@ class AssessmentList extends Component {
         <div className='assessments-list' >
           {assessments}
         </div>
-        <button onClick={ this.handleMouseDown }>-</button>
+        <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
+          <button className="slide-up-button" onClick={ this.slideOut }>assessments list</button>
       { this.state.visible === true &&
-         <LinkDisplay onClick={ this.handleMouseDown } menuVisibility={ this.state.visible }/>}
+         <LinkDisplay />}
+
+        </div>
+        
       </div>
     )
   }
