@@ -1,4 +1,7 @@
 
+h1 {
+  font-family: 'Nunito', sans-serif;
+}
  *{
    box-sizing: border-box;
  }
@@ -10,10 +13,12 @@ a:visited{
   text-decoration: none;
 }
 body{
+  font-family: 'Roboto', sans-serif;
   border: none;
   margin: 0px;
   padding: 0px;
   background-color: #001012;
+
 }
 .assessments-page {
   text-align: center;
