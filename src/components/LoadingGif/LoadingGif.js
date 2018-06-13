@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './loadingGif.css'
 
 class LoadingGif extends Component {
 

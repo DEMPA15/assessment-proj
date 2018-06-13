@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
-import './SplashPage.css'
 
 class SplashPage extends Component {
 
