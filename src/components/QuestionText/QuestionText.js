@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
   render() {
     return (
       <div className = 'questionContainer'>
-        <h2 className = 'questionNumber'>Question {this.props.qID.split('')[1]} {}</h2>
+        <h2 className = 'questionNumber'>Question {this.props.qID.split('')[1]}</h2>
         <p className = 'questionText'>{this.props.questions[this.props.qIndex].qText}
         </p>
       </div>

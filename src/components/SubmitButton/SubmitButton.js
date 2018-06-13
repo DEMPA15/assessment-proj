@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux';
 import ConfirmSubmit from '../ConfirmSubmit/ConfirmSubmit';
+import { POST_RESULTS } from '../../redux/constraints';
 
 
 
@@ -49,9 +50,8 @@ class SubmitButton extends Component {
     return (
       <div>
         <button className='submit-button-green' onClick={()=>this.editConfirmSubmitVisibility('visible')}> {this.props.buttonText} </button>
-
         <div className='popup'>
-          <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={()=>this.sendResults} closePopup={(value)=>this.editConfirmSubmitVisibility(value)} />
+          <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editConfirmSubmitVisibility(value)} />
         </div>
 
       </div>
