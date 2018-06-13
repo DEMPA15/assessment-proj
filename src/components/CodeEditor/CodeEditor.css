@@ -12,3 +12,9 @@ button.run:hover{
   color:white;
   border-color:#09094a;
 }
+.editor-container {
+  margin-right: 100px;
+  max-width: 500px;
+  width: 37%;
+  margin-left: 100px;
+}

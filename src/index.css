@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+=======
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Nunito', sans-serif;
+}
+
+ /*  colors:  Main Blue : #328cc1
+             Dk Blue:   #073857
+             Red:       #CA4B43
+             Green:     #477A26
+             Yellow:    #D9B310
+ */ 
+
+ *{
+   box-sizing: border-box;
+ }
+a{
+  text-decoration: none;
+  color: inherit;
+}
+a:visited{
+  text-decoration: none;
+}
+body{
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  background-color: #001012;
+
+}
+>>>>>>> 198bcc6c928e36cdc5017405e2f5daa3f9b2adc4
 .assessments-page {
   text-align: center;
   background-color: #001012;
