@@ -82,4 +82,4 @@ function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard);

@@ -76,27 +76,30 @@ app.post(`/api/post-results`,  (req, res) => {
         })
     })
 
-    
+
 });
 
 
 app.post(`/api/submit`, (req,res)=>{
-    console.log(req.body)
 
-    Object.keys(req.body).map(questions=>{
-        if(Q in req.body[questions]){
-            console.log(req.body)
-          }
-        })
-    //map through keys of an object
+    const questionText = []
+    Object.keys(req.body).map(results => {
+        if (results[0]=== 'Q') {
+          return questionText.push(req.body[results]);
+        }
+    });
 
-    //email will need:
+    //email will need
     // student name, code, test results
     //mentor email
 
     const output = `
     <h3>Below are the assessment results for ${req.body.studentName}</h3>
-    <p>${req.body.results}</p>
+    <p><b>Test Question</b></p>
+    <p>${questionText[0].tests[0].text}</p>
+    <p><b>${req.body.studentName}'s code</b></p>
+    <p>${questionText[0].code}</p>
+    <p>${questionText[0].passed ? 'passed!' : 'did not pass'}</p>
     <br/>
     `;
 
@@ -116,8 +119,8 @@ app.post(`/api/submit`, (req,res)=>{
     // setup email data with unicode symbols
     let mailOptions = {
       from: '"Group Project" <wpr152018@gmail.com>',
-      to: `b6utle5r@gmail.com`,
-      subject: `Assessment results for ${req.body.name}`,
+      to: `${req.body.instructorEmail}`,
+      subject: `Assessment results for ${req.body.studentName}`,
       text: 'Hello can you hear me?',
       html: output
     };
@@ -134,7 +137,7 @@ app.post(`/api/submit`, (req,res)=>{
     });
 });
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 app.listen(port, ()=>{
     console.log(`This server is listening on port ${port}`)
 })
