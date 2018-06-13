@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import './QuestionText.css';
 import { connect } from 'react-redux';
+import './questionText.css';
 
- class QuestionText extends Component {
-  
-  render() {
-    return (
-      <div className = 'questionContainer'>
-        <h2 className = 'questionNumber'>Question {this.props.qID.split('')[1]}</h2>
-        <p className = 'questionText'>{this.props.questions[this.props.qIndex].qText}
-        </p>
-      </div>
-    );
-  }
+class QuestionText extends Component {
+ 
+ render() {
+   return (
+     <div>
+        <div className = 'questionText-container'>
+         <h2>Question {this.props.qID.split('')[1]} </h2>
+         <p> {this.props.questions[this.props.qIndex].qText} </p>
+         </div>
+     </div>    
+   );
+ }
 }
+function mapStateToProps ({ questions }) {
+ return { questions };
+ }
 
-export default connect(state => state)(QuestionText);
+
+export default connect(mapStateToProps)(QuestionText);
