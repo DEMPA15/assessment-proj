@@ -88,18 +88,18 @@ app.post(`/api/submit`, (req,res)=>{
           return questionText.push(req.body[results]);
         }
     });
-    const newQuestions = questionText.map((data, i) => {
-        return (data)
-    })
-    console.log(newQuestions)
+
     //email will need
     // student name, code, test results
     //mentor email
 
     const output = `
     <h3>Below are the assessment results for ${req.body.studentName}</h3>
-    <p>${req.body.results}</p>
-    <p>${questionText}</p>
+    <p><b>Test Question</b></p>
+    <p>${questionText[0].tests[0].text}</p>
+    <p><b>${req.body.studentName}'s code</b></p>
+    <p>${questionText[0].code}</p>
+    <p>${questionText[0].passed ? 'passed!' : 'did not pass'}</p>
     <br/>
     `;
 
@@ -119,8 +119,8 @@ app.post(`/api/submit`, (req,res)=>{
     // setup email data with unicode symbols
     let mailOptions = {
       from: '"Group Project" <wpr152018@gmail.com>',
-      to: `b6utle5r@gmail.com`,
-      subject: `Assessment results for ${req.body.name}`,
+      to: `${req.body.instructorEmail}`,
+      subject: `Assessment results for ${req.body.studentName}`,
       text: 'Hello can you hear me?',
       html: output
     };
