@@ -25,6 +25,15 @@ class CodeEditor extends Component {
   onChange = (newValue) => {
     this.props.enterCode({[this.props.qID]:newValue})
   }
+  nextPage = (e) => {
+    const history = this.props.history;
+    const QID = this.props.qID
+    const ASSID = this.props.assessmentID;
+    const qIDArr = QID.split('')
+    const newQnum = Number(qIDArr[1])+1;
+    const newQ = `Q${newQnum}`
+    history.push(`/wizard/1/${ASSID}/${newQ}`);
+  }
   postResults = (e) => {
     const QID = this.props.qID
     const ASSID = this.props.assessmentID;
@@ -49,10 +58,7 @@ class CodeEditor extends Component {
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
       .then(response => {
         if(response.value[QID].passed === true){
-          const qIDArr = QID.split('')
-          const newQnum = Number(qIDArr[1])+1;
-          const newQ = `Q${newQnum}`
-          history.push(`/wizard/1/${ASSID}/${newQ}`);
+          document.getElementById('codeEditor').style.border = '2px solid green'
         }else{
           console.log(`test didn't pass`);
         }
@@ -62,17 +68,20 @@ class CodeEditor extends Component {
       })
     }
   }
- // gets qID and assessmentID from parent props
 
   render() {
     let button = ''
     if(this.state.lastQ){
       button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
-    }else{
-      button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
+    }
+    //else if(this.props.results[qID].passed === true){
+      // button = <button id = 'codeButton' className ='codeButton' onClick={(e)=> {this.nextPage(e)}}>Run</button>      
+    // }
+    else{
+      button = <button id = 'codeButton' className ='codeButton' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
     return (
-      <div className='codeEditor-container'>
+      <div className='codeEditor-container' id = 'codeEditor'>
         <AceEditor
           style={{zIndex: 0, height: 'inherit', width: '98%' }}
           mode="javascript"
