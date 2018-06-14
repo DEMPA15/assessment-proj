@@ -1,0 +1,39 @@
+.splash-main {
+  background: #073857;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  h1{
+    text-align: center;
+    color: white;
+    margin: 0px;
+    font-size: 40px;
+  }
+}
+
+.splash-img{
+height: 150px;
+width: 150px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 80px;
+margin-bottom: 25px;
+}
+
+.splash-assessments-select {
+  margin: auto;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  background: white;
+  margin-top: 20px;
+  button{
+    height: 50px;
+    font-size: 14px;
+    border: none;
+    color: white;
+    background: gray;
+  }
+}
