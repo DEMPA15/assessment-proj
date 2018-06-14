@@ -41,8 +41,12 @@
         margin-bottom: 10px;
     }
     .assessment-progress-title{
-        margin-top: 10px;
+        margin-top: 3px;
         width: 350px;
+        text-align: left;
+    }
+    .assessment-progress-container{
+        flex-wrap: wrap;
     }
 }
 @media (max-width: 645px){
@@ -51,8 +55,5 @@
     }
     .assessment-progress-submit-button{
         display: none;
-    }
-    .assessment-progress-title{
-        width: 220px;
     }
 }
