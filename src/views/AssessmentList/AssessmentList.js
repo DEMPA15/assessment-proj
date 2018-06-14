@@ -88,25 +88,27 @@ class AssessmentList extends Component {
     this.props.removeAllAssessments();
   }
 
-  slideOut(){
-    if (this.state.visible === true){
-    return this.setState({
-      visible: false
-    }) } else {
+  slideOut() {
+    if (this.state.visible === true) {
+      return this.setState({
+        visible: false
+      })
+    } else {
       return this.setState({
         visible: true
       })
     }
-    
+
   }
 
   render() {
     let assessments = this.state.assessments.map((assessment, i) => {
+      const upperCaseAssessmentName = assessment.name.toUpperCase();
       if (this.state.searchText === '') {
-        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment} key={i} />
+        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
       }
-      else if (assessment.name.includes(this.state.searchText)) {
-        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment} key={i} />
+      else if (upperCaseAssessmentName.includes(this.state.searchText.toUpperCase())) {
+        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
       }
     })
     if (assessments.length === 0) {
@@ -116,26 +118,31 @@ class AssessmentList extends Component {
       return <LoadingGif />
     }
     else return (
-      <div className='assessments-page' >
+      <div className='AssessmentList' >
         <h1>Assessments</h1>
-        <div id='search-box' >
-          <p>Search: </p>
-          <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
+        <div className='search-box' >
+          <p>SEARCH FOR ASSESSMENTS</p><br />
+          <div id='search-box-input-box' >
+            <i class="material-icons">
+              search
+            </i>
+            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
+          </div>
         </div>
         <div className='add-remove-all' >
-          <AddRemoveAll add ={true }addAll={this.addAll} allAssessments={this.state.assessments} />
-          <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments}/>
+          <AddRemoveAll add={true} addAll={this.addAll} allAssessments={this.state.assessments} />
+          <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments} />
         </div>
         <div className='assessments-list' >
           {assessments}
         </div>
         <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
-          <button className="slide-up-button" onClick={ this.slideOut }>ASSESSMENT LIST</button>
-      { this.state.visible === true &&
-         <LinkDisplay />}
+          <button className="slide-up-button" onClick={this.slideOut}>ASSESSMENT LIST</button>
+          {this.state.visible === true &&
+            <LinkDisplay />}
 
         </div>
-        
+
       </div>
     )
   }
