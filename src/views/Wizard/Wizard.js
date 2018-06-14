@@ -5,7 +5,6 @@ import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
 import Header from '../../components/Header/Header'
-import './wizard.css'
 
 import { connect } from 'react-redux';
 import { getQuestions, setResults, setCode } from '../../redux/action-creators'
@@ -53,7 +52,7 @@ componentDidMount(){
         }
       })
     return (
-      <div>
+      <div className="Wizard">
         {
           this.state.loading ?
           <LoadingGif />
@@ -82,4 +81,4 @@ function mapStateToProps ({ questions }) {
   return { questions };
   }
 
-export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard); 
+export default connect(mapStateToProps , { getQuestions, setResults, setCode })(Wizard);

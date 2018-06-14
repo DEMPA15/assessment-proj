@@ -1,12 +1,13 @@
-.loadingGif{
-    background-image: url('../../assets/loadingGif.gif');
+.loadingGif {
+    background-image: url('./assets/loadingGif.gif');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     height: 100px;
     width: 100px;
 }
-.loading-page{
+
+.loading-page {
     /* background-image:linear-gradient(65deg, #0e1230, rgb(8, 8, 77)); */
     height: 100vh;
     display: flex;

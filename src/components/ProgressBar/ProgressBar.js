@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import './progressBar.css'
 
 class ProgressBar extends Component {
 
@@ -19,7 +18,7 @@ class ProgressBar extends Component {
             </div>
     })
     return (
-      <div>
+      <div className='progressBar-container'>
         <span className='section-title assessment-progress-title'>Assessment Progress</span>
         <div className='assessment-progress-container'>
           {questions}

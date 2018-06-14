@@ -1,3 +1,48 @@
+$asset-base-path: './assets' !default;
+@function asset($file) {
+    @return url($asset-base-path + '/' + $file);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #001012;
+    font-family: 'Roboto', sans-serif;
+    background-image: asset('Ellipse.png');
+}
+
+h1 {
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+@import './variables.scss';
+@import './shared.scss';
+@import './views/SplashPage/SplashPage.scss';
+@import './views/Wizard/wizard.scss';
 @import './views/AssessmentList/AssessmentList.scss';
 @import './components/AddAssessmentButton/AddAssessmentButton.scss';
 @import './components/AddRemoveAll/AddRemoveAll.scss';
+@import './components/CodeEditor/code-editor.scss';
+@import './components/ConfirmSubmit/confirmSubmit.scss';
+@import './components/EnterEmail/EnterEmail.scss';
+@import './components/Header/header.scss';
+@import './components/LinkDisplay/LinkDisplay.scss';
+@import './components/ProgressBar/progressBar.scss';
+@import './components/QuestionText/questionText.scss';
+@import './components/TestProgress/testProgress.scss';
+@import './components/LoadingGif/loadingGif.scss';

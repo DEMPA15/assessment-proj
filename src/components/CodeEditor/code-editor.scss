@@ -1,0 +1,53 @@
+button.run{
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+}
+button.run:hover{
+  cursor: pointer;
+  background-color:#09094A;
+  color:white;
+  border-color:#09094a;
+}
+button.skip{
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+}
+button.skip:hover{
+  cursor: pointer;
+  background-color:#09094A;
+  color:white;
+  border-color:#09094a;
+}button.next{
+  width: 98%;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: bold;
+}
+button.next:hover{
+  cursor: pointer;
+  background-color:#09094A;
+  color:white;
+  border-color:#09094a;
+}
+.codeEditor-container{
+   height: 80vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+@media (max-width: 1060px){
+  .codeEditor-container{
+    height: 50vh;
+  }
+}
+.buttonContainer{
+  display:flex;
+  width:98%;
+}

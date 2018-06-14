@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import brace from 'brace';
 import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
-import './code-editor.css';
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
@@ -19,9 +17,19 @@ class CodeEditor extends Component {
     super(props);
     this.state={
       lastQ: false,
+      last:false,
     }
   }
-  
+  componentWillMount = () => {
+    const QID = this.props.qID
+    const keys = Object.keys(this.props.questions);
+    const last = `Q${Number(keys.pop())+1}`;
+    if(last===this.props.qID){
+      this.setState({
+        last : true,
+      })
+    }
+  }
   onChange = (newValue) => {
     this.props.enterCode({[this.props.qID]:newValue})
   }
@@ -33,11 +41,18 @@ class CodeEditor extends Component {
     const newQnum = Number(qIDArr[1])+1;
     const newQ = `Q${newQnum}`
     history.push(`/wizard/1/${ASSID}/${newQ}`);
+    document.getElementById('blah2').style.border = 'none'
+    window.location.reload();
+    const keys = Object.keys(this.props.questions);
+    const last = `Q${Number(keys.pop())+1}`;
+    if(last===this.props.qID){
+      this.setState({
+        last : true,
+      })
+    }
   }
   postResults = (e) => {
     const QID = this.props.qID
-    const ASSID = this.props.assessmentID;
-    const history = this.props.history;
     const keys = Object.keys(this.props.questions);
     const last = `Q${Number(keys.pop())+1}`;
     if(last===this.props.qID){
@@ -47,6 +62,8 @@ class CodeEditor extends Component {
           this.setState({
             lastQ:true,
           })
+          document.getElementById('blah2').style.border = '2px solid green'          
+
         }else{
           console.log(`test didn't pass`);
         }
@@ -58,9 +75,11 @@ class CodeEditor extends Component {
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
       .then(response => {
         if(response.value[QID].passed === true){
-          document.getElementById('codeEditor').style.border = '2px solid green'
+          document.getElementById('blah2').style.border = '2px solid green'          
         }else{
-          console.log(`test didn't pass`);
+          this.setState({
+            wrong:true,
+          })
         }
       })
       .catch( err => {
@@ -73,12 +92,14 @@ class CodeEditor extends Component {
     let button = ''
     if(this.state.lastQ){
       button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
+    }else if(this.state.last){
+      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button><SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/></div>
     }
-    //else if(this.props.results[qID].passed === true){
-      // button = <button id = 'codeButton' className ='codeButton' onClick={(e)=> {this.nextPage(e)}}>Run</button>      
-    // }
+    else if(this.props.results[this.props.qID].passed === true){
+      button = <button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button>      
+    }
     else{
-      button = <button id = 'codeButton' className ='codeButton' onClick={(e)=> {this.postResults(e)}}>Run</button>
+      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button><button id = 'skip' className = 'skip' onClick={(e)=> {this.nextPage(e)}}>Skip</button></div>
     }
     return (
       <div className='codeEditor-container' id = 'codeEditor'>
