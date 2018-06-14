@@ -22,3 +22,38 @@
     margin-top: 10px;
     width: 100%;
 }
+.assessment-progress-submit-button button {
+    padding: 7px;
+}
+@media (max-width: 1060px){
+    .assessment-progress-container{
+        width: 100%;
+        flex-direction: row;
+    }
+    .question-result-box{
+        margin-left: 20px;
+    }
+    .assessment-progress-submit-button{
+        align-self: flex-end;
+        width: 300px;
+        margin-top: 7px;
+        margin-bottom: 10px;
+    }
+    .assessment-progress-title{
+        margin-top: 3px;
+        width: 350px;
+        text-align: left;
+    }
+    .assessment-progress-container{
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 645px){
+    .questions-results-container{
+        flex-wrap: wrap;
+    }
+    .assessment-progress-submit-button{
+        display: none;
+    }
+
+}

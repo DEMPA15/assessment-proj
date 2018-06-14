@@ -62,7 +62,7 @@
     font-weight: bold;
 }
 
-.cancel-button-red {
+.cancel-button-red:hover {
     cursor: pointer;
 }
 
@@ -86,4 +86,11 @@
     height: 20px;
     width: 20px;
     margin-right: 5px;
+}
+.component-wrapper{
+    background-color: #021e22;
+    border: 1px solid  #256991;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
 }
