@@ -13,7 +13,7 @@ class ProgressBar extends Component {
       return <div key={i} className='question-result-box'>
                 <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
                 <Link to={`/wizard/${this.props.emailID}/${this.props.assessmentID}/${question}`}>  
-                  <div className='question-link section-subtitle'>{idToTitle(question)} </div> 
+                  <div className='question-link section-subtitle' style={question === this.props.qID ? {color: '#328cc1'}: {color:'#e3e3e3'}}>{idToTitle(question)} </div> 
                 </Link>
             </div>
     })
