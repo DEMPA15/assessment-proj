@@ -1,10 +1,9 @@
 .AddAssessmentButton {
-    margin-bottom: -25px;
     border: 1px solid #e3e3e3;
     border-radius: 3px;
     height: 150px;
     width: 300px;
-    margin: auto;
+    margin: 10px auto;
     text-align: center;
     align-items: center;
 
@@ -37,4 +36,31 @@
 .AddAssessmentButton:hover {
     cursor: pointer;
     background-color: $main-blue;
+}
+.AddAssessmentButton-link {
+    margin-bottom: -25px;
+    border: $main-blue 1px solid;
+    border-radius: 3px;
+    height: 10%;
+    width: 90%;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px auto;
+}
+.assessment-button-top-link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5px;
+}
+.title-link {
+    color: $main-blue;
+}
+#assessment-link-input{
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: white;
+    align-content: center;
 }

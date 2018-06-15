@@ -15,13 +15,14 @@ class AddAssessmentButton extends Component {
     render() {
         // Assessment links
         if (this.props.link) {
-            return <div className='AddAssessmentButton' key={this.props.assessment.id} id={this.props.assessment.id}>
+            return <div className='AddAssessmentButton-link' key={this.props.assessment.id} id={this.props.assessment.id}>
                 <div className='assessment-button-top-link' onClick={this.props.removeAssessment} title={this.props.assessment.name} id={this.props.assessment.id}>
+                    <p className='title-link' title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                     <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
-                    <p title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                 </div>
-                <p title={this.props.assessment.name} id={this.props.assessment.id}>Description filler.</p>
-                <a>{this.props.assessment.link}</a>
+                <div>
+                <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link}/>
+                </div>
             </div>
         }
         //Assessment can be added

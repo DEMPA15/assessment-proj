@@ -132,7 +132,7 @@ class AssessmentList extends Component {
             <i className="material-icons">
               search
             </i>
-            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
+            <input className='search-input' type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
           </div>
         </div>
         <div className='add-remove-all' >
