@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
 import AddRemoveAll from '../../components/AddRemoveAll/AddRemoveAll';
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
@@ -128,14 +127,12 @@ class AssessmentList extends Component {
           </div>
           <span className="sexy_line"></span>
         </div>
-        <div className='search-box' >
-          <div id='search-box-input-box' >
+          <div id='search-box' >
             <i className="material-icons">
               search
             </i>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
           </div>
-        </div>
         <div className='add-remove-all' >
           <AddRemoveAll add={true} addAll={this.addAll} allAssessments={this.state.assessments} />
           <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments} />

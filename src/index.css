@@ -241,10 +241,31 @@ button:focus {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.AssessmentList .search-box {
-  display: block;
+.AssessmentList .add-remove-all {
+  display: flex;
+  padding-right: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.AssessmentList i:hover {
+  cursor: pointer;
+}
+.AssessmentList #search-box {
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.AssessmentList #search-box i {
+  padding-right: 5px;
+}
+.AssessmentList #search-box i:hover {
+  cursor: default;
+}
+.AssessmentList .search-box > p {
+  padding-right: 5px;
 }
 .AssessmentList input {
   background-color: transparent;
@@ -252,7 +273,8 @@ button:focus {
   border-bottom: 1px #328cc1 solid;
   caret-color: #328cc1;
   color: #328cc1;
-  width: 200px;
+  width: 50%;
+  margin-right: 32px;
   height: 25px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -260,20 +282,13 @@ button:focus {
   font-size: 18.5px;
 }
 .AssessmentList input:focus {
-  width: 350px;
+  width: 60%;
 }
 .AssessmentList input:focus {
   outline: none;
 }
-.AssessmentList .search-box > p {
-  padding-right: 5px;
-}
-.AssessmentList i:hover {
-  cursor: pointer;
-}
-.AssessmentList .add-remove-all {
-  display: block;
-  padding-right: 5px;
+.AssessmentList ::placeholder {
+  color: #328cc1;
 }
 .AssessmentList .slide-up-container-false {
   box-sizing: border-box;
@@ -307,24 +322,6 @@ button:focus {
   background: gray;
   color: white;
   border-radius: 4px 4px 0px 0px;
-}
-.AssessmentList #search-box-input-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.AssessmentList #search-box-input-box i {
-  padding-right: 5px;
-}
-.AssessmentList #search-box-input-box i:hover {
-  cursor: default;
-}
-.AssessmentList #search-box-input-box input {
-  margin-right: 32px;
-}
-.AssessmentList ::placeholder {
-  color: #328cc1;
 }
 
 .AddAssessmentButton {
@@ -369,19 +366,13 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 125px;
 }
 .AddRemoveAll i {
   padding-right: 5px;
 }
 .AddRemoveAll :hover {
   cursor: pointer;
-}
-
-.AddRemoveAll-invisible {
-  visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 button.run {
