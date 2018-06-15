@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import AddMinusButton from '../AddMinusButton/AddMinusButton';
 import { connect } from 'react-redux';
-
+import ClipboardJS from 'clipboard';
+import clipboard from '../../assets/clipboard.png'
 
 class AddAssessmentButton extends Component {
     constructor(props) {
@@ -10,6 +11,19 @@ class AddAssessmentButton extends Component {
         this.state = {
             add: true
         }
+        const clipboard = new ClipboardJS('.btn');
+        
+        clipboard.on('success', function(e){
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger', e.trigger);
+        
+            e.clearSelection();
+        });
+        clipboard.on('error', function(e){
+            console.error('Action', e.action);
+            console.error('Trigger', e.trigger);
+        })
     }
 
     render() {
@@ -20,7 +34,8 @@ class AddAssessmentButton extends Component {
                     <p className='title-link' title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                     <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
                 </div>
-                <div>
+                <div className='assessment-link-container'>
+                <button className='btn' data-clipboard-target="#assessment-link-input"><img className="clipboard-button" src={clipboard}/></button>
                 <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link}/>
                 </div>
             </div>
