@@ -59,9 +59,10 @@ class AssessmentList extends Component {
   addAssessment(e) {
     const name = e.target.title;
     const id = e.target.id;
+    const link = `http://localhost:8001/wizard/${this.props.user.email}/${id}/Q1`;
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
-      const assessment = [{ name, id }];
+      const assessment = [{ name, id, link }];
       this.props.addAssessment(assessment);
     }
   }

@@ -13,25 +13,11 @@ class LinkDisplay extends Component {
       generated: false,
     }
     
-    this.generateLink = this.generateLink.bind(this);
     this.removeAssessment = this.removeAssessment.bind(this);
     // this.slideOut = this.slideOut.bind(this);
   }
 
 // displays link from assessment list
-
-generateLink(){
-  const encryptLink = this.props.assessments.map((element,i) => {
-    return {
-      name: element.name,
-      link: `http://localhost:8001/wizard/${this.props.user.email}/${element.id}/Q1`
-    }
-  })
-  this.props.link(encryptLink);
-  this.setState({
-    generated: true
-  })
-}
 
 removeAssessment(e) {
   const assessment = {
@@ -53,20 +39,11 @@ removeAssessment(e) {
                 <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment}/>
             </div>
     })
-    const asslinks = this.props.links.map((testLink, i) => {
-        return <div key={i}>
-          { testLink.name.toUpperCase() }: <a href={`${testLink.link}`}> { testLink.link }</a>
-        
-        </div>
-    })
-
     return (
       <div className="LinkDisplay">
         <span>
         { list }
         </span>
-        <button className='generate-links-button' onClick={ this.generateLink }>GENERATE LINKS</button>
-        { asslinks }
       </div>
         
       
