@@ -362,7 +362,62 @@ button.run:hover {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
-    height: 67vh; } }
+    height: 67vh; 
+  } 
+}
+.buttonContainer {
+  border: none;
+  display: flex;
+  width: 100%;
+}
+
+.submitButtonContainer {
+  width: 100%;
+}
+
+.submitButtonContainer button:first-child {
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  font-size: 30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer button:hover {
+  background: #3e8745;
+  cursor: pointer;
+}
+
+.buttonContainer .next {
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  font-size: 30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer .next:hover {
+  background: #3e8745;
+}
+
+.buttonContainer .run {
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  font-size: 30px;
+  background: #01313F;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer .run:hover {
+  background: #002028;
+}
+
 .popup-title-container {
   width: 97%;
   align-self: flex-start;
@@ -526,7 +581,9 @@ h1 {
   width: 100%; }
 
 .assessment-progress-submit-button button {
-  padding: 7px; }
+  padding: 7px;
+  color: white;
+}
 
 @media (max-width: 1060px) {
   .assessment-progress-container {
