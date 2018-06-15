@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .assessment-progress-title{
     text-align: center;
@@ -19,8 +19,7 @@
 }
 .assessment-progress-submit-button{
     text-align: center;
-    margin-top: 20px;
-    margin-left: -10px;
+    margin-top: 10px;
     width: 100%;
 }
 .assessment-progress-submit-button button {
@@ -41,8 +40,12 @@
         margin-bottom: 10px;
     }
     .assessment-progress-title{
-        margin-top: 10px;
+        margin-top: 3px;
         width: 350px;
+        text-align: left;
+    }
+    .assessment-progress-container{
+        flex-wrap: wrap;
     }
 }
 @media (max-width: 645px){
@@ -52,7 +55,5 @@
     .assessment-progress-submit-button{
         display: none;
     }
-    .assessment-progress-title{
-        width: 220px;
-    }
+
 }
