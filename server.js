@@ -30,6 +30,9 @@ app.use(session({
 mongoose.connect(process.env.CONNECTION_STRING)
     .then((res)=>{
         console.log(`db connected`);
+    })
+    .catch(error=>{
+        console.log(error)
     });
 
 //-----------endpoints----------//
