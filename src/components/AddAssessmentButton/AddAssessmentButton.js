@@ -11,6 +11,8 @@ class AddAssessmentButton extends Component {
         this.state = {
             add: true
         }
+        this.copied = this.copied.bind(this);
+
         const clipboard = new ClipboardJS('.btn');
         
         clipboard.on('success', function(e){
@@ -25,7 +27,9 @@ class AddAssessmentButton extends Component {
             console.error('Trigger', e.trigger);
         })
     }
-
+copied(){
+    alert(`copied!`)
+}
     render() {
         // Assessment links
         if (this.props.link) {
@@ -35,7 +39,7 @@ class AddAssessmentButton extends Component {
                     <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
                 </div>
                 <div className='assessment-link-container'>
-                <button className='btn' data-clipboard-target="#assessment-link-input"><img className="clipboard-button" src={clipboard}/></button>
+                <button className='btn' data-clipboard-target="#assessment-link-input" onClick={ this.copied }><img className="clipboard-button" src={clipboard}/></button>
                 <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link}/>
                 </div>
             </div>
