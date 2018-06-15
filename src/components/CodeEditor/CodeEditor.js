@@ -21,10 +21,9 @@ class CodeEditor extends Component {
     }
   }
   componentWillMount = () => {
-    const QID = this.props.qID
-    const keys = Object.keys(this.props.questions);
-    const last = `Q${Number(keys.pop())+1}`;
-    if(last===this.props.qID){
+    const length = this.props.questions.length;
+    const num = this.props.qID.split('')[1];
+    if(length === num){
       this.setState({
         last : true,
       })
@@ -35,34 +34,23 @@ class CodeEditor extends Component {
   }
   nextPage = (e) => {
     const history = this.props.history;
-    const QID = this.props.qID
-    const ASSID = this.props.assessmentID;
-    const qIDArr = QID.split('')
+    const qIDArr = this.props.qID.split('')
     const newQnum = Number(qIDArr[1])+1;
     const newQ = `Q${newQnum}`
-    history.push(`/wizard/1/${ASSID}/${newQ}`);
-    document.getElementById('blah2').style.border = 'none'
-    window.location.reload();
-    const keys = Object.keys(this.props.questions);
-    const last = `Q${Number(keys.pop())+1}`;
-    if(last===this.props.qID){
-      this.setState({
-        last : true,
-      })
-    }
+    history.push(`/wizard/1/${this.props.assessmentID}/${newQ}`);
   }
   postResults = (e) => {
     const QID = this.props.qID
-    const keys = Object.keys(this.props.questions);
-    const last = `Q${Number(keys.pop())+1}`;
-    if(last===this.props.qID){
+    const length = this.props.questions.length;
+    const num = Number(this.props.qID.split('')[1]);
+    if(num===length){
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
       .then(response => {
         if(response.value[QID].passed === true){
           this.setState({
             lastQ:true,
           })
-          document.getElementById('blah2').style.border = '2px solid green'          
+                    
 
         }else{
           console.log(`test didn't pass`);
@@ -75,7 +63,7 @@ class CodeEditor extends Component {
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
       .then(response => {
         if(response.value[QID].passed === true){
-          document.getElementById('blah2').style.border = '2px solid green'          
+         return 'worked'
         }else{
           this.setState({
             wrong:true,
@@ -89,22 +77,20 @@ class CodeEditor extends Component {
   }
 
   render() {
+    const length = this.props.questions.length;
+    const num = Number(this.props.qID.split('')[1]);
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
-    }else if(this.state.last){
-      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button><SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/></div>
-    }
-    else if(this.props.results[this.props.qID].passed === true){
+      button = <SubmitButton history ={this.props.history} buttonText = 'Submit'/>
+    }else if(this.props.results[this.props.qID].passed === true){
       button = <button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button>      
-    }
-    else{
-      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button><button id = 'skip' className = 'skip' onClick={(e)=> {this.nextPage(e)}}>Skip</button></div>
+    }else{
+      button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
     }
     return (
       <div className='codeEditor-container' id = 'codeEditor'>
         <AceEditor
-          style={{zIndex: 0, height: 'inherit', width: '98%' }}
+          style={{zIndex: 0, height: 'inherit', width: '100%' }}
           mode="javascript"
           theme="solarized_dark"
           name="blah2"
@@ -125,7 +111,9 @@ class CodeEditor extends Component {
           }}
         >
         </AceEditor>
+        <div className = 'buttonContainer'>
         {button}
+        </div>
       </div>
     );
   }

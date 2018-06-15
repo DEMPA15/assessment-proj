@@ -18,13 +18,13 @@
     cursor: pointer;
 }
 .assessment-progress-submit-button{
-    text-align: center;
-    margin-top: 20px;
-    margin-left: -10px;
-    width: 100%;
+    padding:8px;
+    width:300px;
+
 }
 .assessment-progress-submit-button button {
     padding: 7px;
+    color: white;
 }
 @media (max-width: 1060px){
     .assessment-progress-container{

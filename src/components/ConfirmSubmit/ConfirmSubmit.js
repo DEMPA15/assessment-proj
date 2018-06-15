@@ -47,7 +47,7 @@ class ConfirmSubmit extends Component {
               :
               'Not all tests have passed'
             }
-            <button className='cancel-button-red' onClick={()=>this.props.closePopup('hidden')} style={{maxHeight: 25, fontSize: '.6em'}}> X </button>
+            <div onClick={()=>this.props.closePopup('hidden')} style={{maxHeight: 25, fontSize: '.6em'}}> X </div>
           </div>
           <div className='confirmSubmit-content'>
           <div className='confirmSubmit-results-container'>

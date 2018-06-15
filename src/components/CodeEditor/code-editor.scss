@@ -1,41 +1,3 @@
-button.run{
-  width: 100%;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: bold;
-}
-button.run:hover{
-  cursor: pointer;
-  background-color:#09094A;
-  color:white;
-  border-color:#09094a;
-}
-button.skip{
-  width: 100%;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: bold;
-}
-button.skip:hover{
-  cursor: pointer;
-  background-color:#09094A;
-  color:white;
-  border-color:#09094a;
-}button.next{
-  width: 98%;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: bold;
-}
-button.next:hover{
-  cursor: pointer;
-  background-color:#09094A;
-  color:white;
-  border-color:#09094a;
-}
 .codeEditor-container{
    height: 80vh;
    display: flex;
@@ -48,6 +10,46 @@ button.next:hover{
   }
 }
 .buttonContainer{
+  border:none;
   display:flex;
-  width:98%;
+  width:100%;
+}
+.buttonContainer button:first-child{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer button:hover{
+  background: #3e8745;
+  cursor: pointer;
+}
+.buttonContainer .next{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer .next:hover{
+  background:#3e8745;
+}
+.buttonContainer .run{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #01313F;
+  border-radius: 0px;
+  width: 100%;
+}
+.buttonContainer .run:hover{
+  background:#002028;
 }

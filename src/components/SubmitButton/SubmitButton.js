@@ -18,7 +18,6 @@ class SubmitButton extends Component {
     this.setState({
       confirmSubmitPopup: value
     })
-    document.getElementById('blah2').style.border = 'none'
   }
 
   sendResults(){
@@ -46,7 +45,7 @@ class SubmitButton extends Component {
 
   render() {
     return (
-      <div>
+      <div style = {{width:'inherit'}}>
         <button className='submit-button-green' onClick={()=>this.editConfirmSubmitVisibility('visible')}> {this.props.buttonText} </button>
         <div className='popup'>
           <ConfirmSubmit visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editConfirmSubmitVisibility(value)} />
