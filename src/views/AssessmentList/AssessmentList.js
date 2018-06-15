@@ -76,9 +76,14 @@ class AssessmentList extends Component {
     this.props.removeAssessment(assessment)
   }
 
-  addAll(e) {
+  addAll() {
     this.props.removeAllAssessments();
-    this.props.addAssessment(this.state.assessments);
+    const allAssessments = this.state.assessments.map((assessment, i) => {return {
+      name: assessment.name,
+      id: assessment.id,
+      link: `http://localhost:8001/wizard/${this.props.user.email}/${assessment.id}/Q1`
+    }})
+    this.props.addAssessment(allAssessments);
   }
 
   removeAll(e) {
@@ -120,7 +125,7 @@ class AssessmentList extends Component {
         <div className='search-box' >
           <p>SEARCH FOR ASSESSMENTS</p><br />
           <div id='search-box-input-box' >
-            <i class="material-icons">
+            <i className="material-icons">
               search
             </i>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />

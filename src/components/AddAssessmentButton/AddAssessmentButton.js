@@ -13,12 +13,6 @@ class AddAssessmentButton extends Component {
     }
 
     render() {
-        const asslinks = this.props.assessments.map((testLink, i) => {
-            return <div key={i}>
-            <a href={`${testLink.link}`}> { testLink.link }</a>
-            
-            </div>
-        })
         if (!this.props.assessments.find(propsAssessment => propsAssessment.id === this.props.assessment.id)) {
             return (
             <div className='AddAssessmentButton' onClick={this.props.addAssessment} key={this.props.assessment.id} title={this.props.assessment.name} id={this.props.assessment.id}>
