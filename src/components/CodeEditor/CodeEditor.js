@@ -132,6 +132,7 @@ class CodeEditor extends Component {
           fontSize={14}
           showPrintMargin={true}
           showGutter={true}
+          wrapEnabled = {true}
           highlightActiveLine={true}
           value={this.props.code[this.props.qID]}
           focus={true}
