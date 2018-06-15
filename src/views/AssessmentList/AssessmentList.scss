@@ -13,6 +13,7 @@
         display: flex;
         text-align: left;
         flex-wrap: wrap;
+        justify-content: space-evenly;
     }
     
     .search-box {
@@ -102,5 +103,9 @@
     #search-box-input-box i:hover {
         cursor: default;
     }
+    #search-box-input-box input {
+        margin-right: 32px;
+    }
+
 }
 
