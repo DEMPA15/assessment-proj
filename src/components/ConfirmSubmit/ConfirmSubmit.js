@@ -80,11 +80,7 @@ class ConfirmSubmit extends Component {
               :
               'Not all tests have passed'
             }
-<<<<<<< HEAD
-            <div onClick={()=>this.props.closePopup('hidden')} style={{maxHeight: 25, fontSize: '.6em'}}> X </div>
-=======
             <div className='close-modal' onClick={()=>this.closePopup()} > X </div>
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
           </div>
           <div className='confirmSubmit-content'>
           <div className='confirmSubmit-results-container'>

@@ -214,11 +214,7 @@ button:focus {
     margin-top: 10px;
   }
 }
-<<<<<<< HEAD
-@media (max-width: 645px) {
-=======
 @media (max-width: 655px) {
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
   .Wizard .progressBar-container {
     flex-wrap: wrap;
     margin-top: 10px;
@@ -250,10 +246,6 @@ button:focus {
   align-items: center;
   justify-content: center;
 }
-<<<<<<< HEAD
-
-#search-box > p {
-=======
 .AssessmentList input {
   background-color: transparent;
   border: none;
@@ -274,7 +266,6 @@ button:focus {
   outline: none;
 }
 .AssessmentList .search-box > p {
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
   padding-right: 5px;
 }
 .AssessmentList i:hover {
@@ -372,8 +363,6 @@ button:focus {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
 .AddRemoveAll-invisible {
   visibility: hidden;
   display: flex;
@@ -381,23 +370,6 @@ button:focus {
   align-items: center;
 }
 
-button.run {
-  margin-top: 10px;
-  width: 60px;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: bold;
-}
-
-button.run:hover {
-  cursor: pointer;
-  background-color: #09094A;
-  color: white;
-  border-color: #09094a;
-}
-
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
 .codeEditor-container {
   height: 80vh;
   display: flex;
@@ -407,17 +379,20 @@ button.run:hover {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
-    height: 67vh;
+    height: 50vh;
   }
 }
-<<<<<<< HEAD
 .buttonContainer {
   border: none;
   display: flex;
   width: 100%;
 }
 
-.buttonContainer button:first-child {
+.submitButtonContainer {
+  width: 100%;
+}
+
+.submitButtonContainer button:first-child {
   border: none;
   color: white;
   padding: 10px 0px;
@@ -460,8 +435,6 @@ button.run:hover {
   background: #002028;
 }
 
-=======
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
 .popup-title-container {
   width: 97%;
   align-self: flex-start;
@@ -656,14 +629,9 @@ h1 {
 }
 
 .assessment-progress-submit-button {
-<<<<<<< HEAD
-  padding: 8px;
-  width: 300px;
-=======
   text-align: center;
   margin-top: 10px;
   width: 100%;
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
 }
 
 .assessment-progress-submit-button button {
@@ -693,13 +661,10 @@ h1 {
     width: 350px;
     text-align: left;
   }
-<<<<<<< HEAD
-=======
 
   .assessment-progress-container {
     flex-wrap: wrap;
   }
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
 }
 @media (max-width: 645px) {
   .questions-results-container {
@@ -709,13 +674,6 @@ h1 {
   .assessment-progress-submit-button {
     display: none;
   }
-<<<<<<< HEAD
-
-  .assessment-progress-title {
-    width: 220px;
-  }
-=======
->>>>>>> 9de6c620647b5d7947c3f9582e1f41a35b35afd6
 }
 .questionText-container {
   margin-top: 3px;

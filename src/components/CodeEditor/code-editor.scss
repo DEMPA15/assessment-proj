@@ -6,7 +6,7 @@
 }
 @media (max-width: 1060px){
   .codeEditor-container{
-    height: 67vh;
+    height: 50vh;
   }
 }
 .buttonContainer{
@@ -14,7 +14,10 @@
   display:flex;
   width:100%;
 }
-.buttonContainer button:first-child{
+.submitButtonContainer{
+  width:100%;
+}
+.submitButtonContainer button:first-child{
   border:none;
   color: white;
   padding:10px 0px;

@@ -81,11 +81,11 @@ class CodeEditor extends Component {
     const num = Number(this.props.qID.split('')[1]);
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history} buttonText = 'Submit'/>
+      button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
     }else if(this.props.results[this.props.qID].passed === true){
-      button = <button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button>      
+      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     }else{
-      button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
+      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
     return (
       <div className='codeEditor-container' id = 'codeEditor'>
@@ -111,9 +111,9 @@ class CodeEditor extends Component {
           }}
         >
         </AceEditor>
-        <div className = 'buttonContainer'>
+        
         {button}
-        </div>
+        
       </div>
     );
   }
