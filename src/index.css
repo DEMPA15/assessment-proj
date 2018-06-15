@@ -324,7 +324,11 @@ button:focus {
 }
 
 .AddAssessmentButton {
+<<<<<<< HEAD
+  margin-bottom: -25px;
+=======
   margin-bottom: 25px;
+>>>>>>> 94df280a9913cd7dea1cc392055b3257402076ab
   border: 1px solid #e3e3e3;
   border-radius: 3px;
   height: 150px;
@@ -554,18 +558,6 @@ h1 {
 .LinkDisplay {
   box-sizing: border-box;
   width: 100%;
-}
-.LinkDisplay .generate-links-button {
-  width: 100%;
-  font-size: 20px;
-  border: solid 1px #073857;
-  background: gray;
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-  padding: 10px 0px;
-  bottom: 0;
-  left: 0;
-  position: absolute;
 }
 
 .assessment-progress-container {
