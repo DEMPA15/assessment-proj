@@ -20,6 +20,12 @@ a {
 a:visited {
   text-decoration: none; }
 
+input:focus {
+  outline: none; }
+
+button:focus {
+  outline: none; }
+
 .section-title {
   font-size: 1.2em;
   letter-spacing: .03em; }
@@ -371,7 +377,6 @@ button.run:hover {
 
 .infoToSubmit input {
   border: none;
-  border-bottom: 1px solid grey;
   color: #e3e3e3;
   font-size: 1em;
   width: 140px;
@@ -380,9 +385,6 @@ button.run:hover {
   margin-left: 15px;
   text-align: center;
   background-color: transparent; }
-
-input:focus {
-  outline: none; }
 
 .confirmSubmit-button {
   margin: 5px;
