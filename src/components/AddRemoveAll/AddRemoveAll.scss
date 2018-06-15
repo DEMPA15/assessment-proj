@@ -1,13 +1,21 @@
-.add-remove-all {
+.AddRemoveAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        padding-right: 5px;
+    }
+    
+    :hover {
+        cursor: pointer;
+    }
+}
+
+.AddRemoveAll-invisible {
+    visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.add-remove-all i {
-    padding-right: 5px;
-}
-
-.add-remove-all:hover {
-    cursor: pointer;
-}

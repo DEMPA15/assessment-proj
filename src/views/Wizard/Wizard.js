@@ -61,13 +61,17 @@ componentDidMount(){
             <Header qID={qID} assessmentID={assessmentID}/>
             <div className='dashboard'>
               <div className='questions-results-container'>
-                <QuestionText qIndex={qIndex} qID={qID}/>
+               <div className='component-wrapper'>
+                <QuestionText qIndex={qIndex} qID={qID} />
+                </div>
+                <div className='component-wrapper' style={{marginTop: '15px'}}>
                 <TestProgress qID={qID}/>
+                </div>
               </div>
               <div className='editor-container'>
                 <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history}/>
               </div>
-              <div className='progressBar-container'>
+              <div className='progressBar-container  component-wrapper'>
                 <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
               </div>
             </div>
