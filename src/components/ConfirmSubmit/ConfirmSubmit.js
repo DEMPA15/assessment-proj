@@ -7,6 +7,8 @@ class ConfirmSubmit extends Component {
     super()
     this.state = {
       allPassed: true,
+      nameBorderColor: 'grey',
+      emailBorderColor: 'grey'
     }
   }
 
@@ -24,8 +26,39 @@ class ConfirmSubmit extends Component {
       this.props.sendResults()
     }
     else{
-      alert('Both your name and email are required')
+      if(!this.props.user.name){
+          this.setState({
+            nameBorderColor: 'red'
+          })
+      }
+      if(!this.props.user.email){
+        this.setState({
+          emailBorderColor: 'red'
+        })
+      }
     }
+  }
+  enterValue(e){
+    if(e.target.name === 'name'){
+      this.setState({
+        nameBorderColor: 'grey'
+      })
+      this.props.setName(e.target.value)
+    }
+    if(e.target.name === 'email'){
+      this.setState({
+        emailBorderColor: 'grey'
+      })
+      this.props.setEmail(e.target.value)
+    }
+  }
+  closePopup(){
+    this.setState({
+      allPassed: true,
+      nameBorderColor: 'grey',
+      emailBorderColor: 'grey'
+    })
+    this.props.closePopup('hidden')
   }
 
   render() {
@@ -47,7 +80,7 @@ class ConfirmSubmit extends Component {
               :
               'Not all tests have passed'
             }
-            <div className='close-modal' onClick={()=>this.props.closePopup('hidden')} > X </div>
+            <div className='close-modal' onClick={()=>this.closePopup()} > X </div>
           </div>
           <div className='confirmSubmit-content'>
           <div className='confirmSubmit-results-container'>
@@ -57,8 +90,8 @@ class ConfirmSubmit extends Component {
           <span className='section-title confirmSubmit-subtitle'>Enter your info to submit your answers:</span>
           <div className='infoToSubmit'>
             <div>
-              <input type='name' placeholder='NAME' onChange={(e)=>this.props.setName(e.target.value)} style={{borderColor:this.state.borderColor}}/>
-              <input type='email'  placeholder='EMAIL' onChange={(e)=>this.props.setEmail(e.target.value)} style={{borderColor:this.state.borderColor}}/>
+              <input required type='name' name='name' placeholder='NAME' onChange={(e)=>this.enterValue(e)} style={{borderBottom:`1px solid ${this.state.nameBorderColor}`}}/>
+              <input required type='email' name='email'  placeholder='EMAIL' onChange={(e)=>this.enterValue(e)} style={{borderBottom:`1px solid ${this.state.emailBorderColor}`}}/>
               <button className='submit-button-green confirmSubmit-button' onClick={()=>this.sendResults()}>
                 {
                   this.state.allPassed ? 'Submit Answers'

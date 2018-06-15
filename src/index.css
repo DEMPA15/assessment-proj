@@ -25,6 +25,14 @@ a:visited {
   text-decoration: none;
 }
 
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
 .section-title {
   font-size: 1.2em;
   letter-spacing: 0.03em;
@@ -216,7 +224,7 @@ a:visited {
   }
 }
 
-.assessments-page {
+.AssessmentList {
   text-align: center;
   background-color: #001012;
   background-repeat: repeat-y;
@@ -227,33 +235,47 @@ a:visited {
   -o-background-size: cover;
   background-size: cover;
 }
-
-.assessments-list {
+.AssessmentList .assessments-list {
   display: flex;
   text-align: left;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
-#search-box {
-  display: flex;
+.AssessmentList .search-box {
+  display: block;
   align-items: center;
   justify-content: center;
 }
-
-#search-box > p {
+.AssessmentList input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px #328cc1 solid;
+  caret-color: #328cc1;
+  color: #328cc1;
+  width: 200px;
+  height: 25px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 18.5px;
+}
+.AssessmentList input:focus {
+  width: 350px;
+}
+.AssessmentList input:focus {
+  outline: none;
+}
+.AssessmentList .search-box > p {
   padding-right: 5px;
 }
-
-.assessments-page i:hover {
+.AssessmentList i:hover {
   cursor: pointer;
 }
-
-.add-remove-all {
-  display: flex;
+.AssessmentList .add-remove-all {
+  display: block;
   padding-right: 5px;
 }
-
-.slide-up-container-false {
+.AssessmentList .slide-up-container-false {
   box-sizing: border-box;
   position: fixed;
   height: 45px;
@@ -265,8 +287,7 @@ a:visited {
   min-width: 320px;
   word-wrap: break-word;
 }
-
-.slide-up-container-true {
+.AssessmentList .slide-up-container-true {
   box-sizing: border-box;
   position: fixed;
   height: 75vh;
@@ -278,8 +299,7 @@ a:visited {
   min-width: 320px;
   word-wrap: break-word;
 }
-
-.slide-up-button {
+.AssessmentList .slide-up-button {
   width: 100%;
   font-size: 20px;
   padding: 10px 0px;
@@ -288,49 +308,66 @@ a:visited {
   color: white;
   border-radius: 4px 4px 0px 0px;
 }
+.AssessmentList #search-box-input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AssessmentList #search-box-input-box i {
+  padding-right: 5px;
+}
+.AssessmentList #search-box-input-box i:hover {
+  cursor: default;
+}
+.AssessmentList #search-box-input-box input {
+  margin-right: 32px;
+}
 
-.assessment-button {
+.AddAssessmentButton {
   margin-bottom: 25px;
   border: 1px solid #e3e3e3;
   border-radius: 3px;
   height: 150px;
-  width: 400px;
+  width: 300px;
   margin: auto;
   text-align: center;
   align-items: center;
 }
-
-.assessment-button-top {
+.AddAssessmentButton .assessment-button-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 5px;
 }
-
-.assessment-button-top p {
+.AddAssessmentButton .assessment-button-top p {
   padding-right: 5px;
 }
-
-.assessment-button:hover {
-  cursor: pointer;
-}
-
-.assessment-button i {
+.AddAssessmentButton i {
   padding-left: 5px;
 }
 
-.add-remove-all {
+.AddAssessmentButton:hover {
+  cursor: pointer;
+  background-color: #328cc1;
+}
+
+.AddRemoveAll {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.add-remove-all i {
+.AddRemoveAll i {
   padding-right: 5px;
 }
-
-.add-remove-all:hover {
+.AddRemoveAll :hover {
   cursor: pointer;
+}
+
+.AddRemoveAll-invisible {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button.run {
@@ -420,7 +457,6 @@ button.run:hover {
 
 .infoToSubmit input {
   border: none;
-  border-bottom: 1px solid grey;
   color: #e3e3e3;
   font-size: 1em;
   width: 140px;
@@ -429,10 +465,6 @@ button.run:hover {
   margin-left: 15px;
   text-align: center;
   background-color: transparent;
-}
-
-input:focus {
-  outline: none;
 }
 
 .confirmSubmit-button {
