@@ -86,6 +86,9 @@ class AssessmentList extends Component {
   }
 
   removeAll(e) {
+    this.setState(({
+      visible: false
+    }))
     this.props.removeAllAssessments();
   }
 
