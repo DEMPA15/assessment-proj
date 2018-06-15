@@ -28,7 +28,7 @@ removeAssessment(e) {
   render() {
     const list = this.props.assessments.map((assessment, i) => {
       return <div key={i}>
-                <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment}/>
+                <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment}  assessment={assessment} link={true} />
             </div>
     })
     return (

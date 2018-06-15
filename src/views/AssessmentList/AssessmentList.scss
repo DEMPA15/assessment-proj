@@ -96,6 +96,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 10px;
     }
     #search-box-input-box i {
         padding-right: 5px;
@@ -105,6 +106,9 @@
     }
     #search-box-input-box input {
         margin-right: 32px;
+    }
+    ::placeholder {
+        color: $main-blue;
     }
 
 }
