@@ -29,6 +29,12 @@ a {
 a:visited {
     text-decoration: none;
 }
+input:focus {
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
 
 @import './variables.scss';
 @import './shared.scss';
