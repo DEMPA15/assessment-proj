@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
 import AddRemoveAll from '../../components/AddRemoveAll/AddRemoveAll';
 import LoadingGif from '../../components/LoadingGif/LoadingGif'

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../redux/action-creators';
-import AddMinusButton from '../AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../AddAssessmentButton/AddAssessmentButton';
 
 
@@ -14,7 +12,6 @@ class LinkDisplay extends Component {
     }
     
     this.removeAssessment = this.removeAssessment.bind(this);
-    // this.slideOut = this.slideOut.bind(this);
   }
 
 // displays link from assessment list
@@ -27,11 +24,6 @@ removeAssessment(e) {
 
   this.props.removeAssessment(assessment)
 }
-// slideOut(){
-//   this.setState({
-//     slide: true
-//   })
-// }
 
   render() {
     const list = this.props.assessments.map((assessment, i) => {
