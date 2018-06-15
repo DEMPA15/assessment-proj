@@ -1,4 +1,4 @@
-import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, GENERATE_LINK, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS } from './constraints'
+import { SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){
@@ -43,12 +43,6 @@ export function setEmail(email){
      }
  }
 
-export function link(obj){
-    return {
-        type: GENERATE_LINK,
-        payload: obj
-    }
-}
 export function addAssessment(obj){
     return {
         type: ADD_ASSESSMENT,
