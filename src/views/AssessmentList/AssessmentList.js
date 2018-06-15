@@ -143,10 +143,21 @@ class AssessmentList extends Component {
           {assessments}
         </div>
         <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
-          <button className="slide-up-button" onClick={this.slideOut}>ASSESSMENT LIST</button>
-          {this.state.visible === true &&
-            <LinkDisplay />}
-
+            {
+              this.props.assessments.length === 1 &&
+              <button className="slide-up-button" onClick={this.slideOut}>
+                {this.props.assessments.length} ASSESSMENT LINK SELECTED
+              </button>
+            }
+             { 
+               this.props.assessments.length > 1 &&
+              <button className="slide-up-button" onClick={this.slideOut}>
+                {this.props.assessments.length} ASSESSMENT LINKS SELECTED
+              </button>
+             }
+             {this.state.visible === true &&
+               <LinkDisplay />}
+          
         </div>
 
       </div>

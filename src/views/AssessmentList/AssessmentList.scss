@@ -61,7 +61,7 @@
         box-sizing: border-box;
         position: fixed;
         height: 45px;
-        background: #021e22;
+        background: #001012;
         width: 40%;
         bottom: 0;
         left: 30%;
@@ -88,11 +88,12 @@
     .slide-up-button {
         width: 100%;
         font-size: 20px;
-        padding: 10px 0px;
         border: solid 1px #073857;
         background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518));
         color: white;
         border-radius: 4px 4px 0px 0px;
+        padding: 10px 0px;
+        min-height: 40px;
     }
     #search-box-input-box {
         display: flex;
