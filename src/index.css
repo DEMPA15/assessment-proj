@@ -312,6 +312,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 .AssessmentList #search-box-input-box i {
   padding-right: 5px;
@@ -322,13 +323,12 @@ button:focus {
 .AssessmentList #search-box-input-box input {
   margin-right: 32px;
 }
+.AssessmentList ::placeholder {
+  color: #328cc1;
+}
 
 .AddAssessmentButton {
-<<<<<<< HEAD
   margin-bottom: -25px;
-=======
-  margin-bottom: 25px;
->>>>>>> 94df280a9913cd7dea1cc392055b3257402076ab
   border: 1px solid #e3e3e3;
   border-radius: 3px;
   height: 150px;
@@ -343,7 +343,17 @@ button:focus {
   align-items: center;
   padding-right: 5px;
 }
+.AddAssessmentButton .assessment-button-top-removable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5px;
+  background-color: #328cc1;
+}
 .AddAssessmentButton .assessment-button-top p {
+  padding-right: 5px;
+}
+.AddAssessmentButton .assessment-button-top-removable p {
   padding-right: 5px;
 }
 .AddAssessmentButton i {

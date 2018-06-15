@@ -121,14 +121,19 @@ class AssessmentList extends Component {
     }
     else return (
       <div className='AssessmentList' >
-        <h1>Assessments</h1>
+        <div>
+          <div className='header-body'>
+            <div className='header-logo' />
+            <div className='header-title'>Assessments</div>
+          </div>
+          <span className="sexy_line"></span>
+        </div>
         <div className='search-box' >
-          <p>SEARCH FOR ASSESSMENTS</p><br />
           <div id='search-box-input-box' >
             <i className="material-icons">
               search
             </i>
-            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />
+            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
           </div>
         </div>
         <div className='add-remove-all' >

@@ -15,7 +15,18 @@
         padding-right: 5px;
     }
 
+    .assessment-button-top-removable {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 5px;
+        background-color: $main-blue;
+    }
+
     .assessment-button-top p {
+        padding-right: 5px;
+    }
+    .assessment-button-top-removable p {
         padding-right: 5px;
     }
     i {
