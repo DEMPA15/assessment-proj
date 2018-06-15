@@ -349,6 +349,9 @@ button:focus {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
+    height: 100%; } }
+@media (max-width: 759px) {
+  .codeEditor-container {
     height: 50vh; } }
 .buttonContainer {
   border: none;
