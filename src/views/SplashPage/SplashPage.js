@@ -10,7 +10,7 @@ class SplashPage extends Component {
 
   render() {
     return (
-      <div className="splash-main">
+      <div className="SplashPage">
         <img src={img} alt="code bar logo" className="splash-img"/>
        <h1>Code Bar</h1>
         <div className="splash-assessments-select">

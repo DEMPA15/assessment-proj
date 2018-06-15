@@ -76,11 +76,7 @@ a:visited {
   font-size: .8em;
   font-weight: bold; }
 
-<<<<<<< HEAD
-.cancel-button-red {
-=======
 .cancel-button-red:hover {
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
   cursor: pointer; }
 
 .icon-passed {
@@ -102,8 +98,6 @@ a:visited {
   height: 20px;
   width: 20px;
   margin-right: 5px; }
-<<<<<<< HEAD
-=======
 
 .component-wrapper {
   background-color: #021e22;
@@ -111,82 +105,47 @@ a:visited {
   border-radius: 5px;
   padding: 8px;
   margin: 5px; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
-.splash-main {
+.SplashPage {
   background: #073857;
   height: 100vh;
-<<<<<<< HEAD
   width: 100%;
   display: flex;
   flex-direction: column; }
-  .splash-main h1 {
+  .SplashPage h1 {
     text-align: center;
     color: white;
     margin: 0px;
     font-size: 40px; }
-
-.splash-img {
-  height: 150px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-  margin-bottom: 25px; }
-=======
-  width: 100%; }
-
-.backgroundImg {
-  background-image: url("./assets/dm-Logo-blue.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  padding-top: 80px; }
-
-.splash-main h1 {
-  text-align: center;
-  color: white;
-  margin: 0px;
-  padding-top: 50px;
-  font-size: 40px; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
-
-.splash-assessments-select {
-  margin: auto;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
-<<<<<<< HEAD
-  margin-top: 20px; }
-  .splash-assessments-select button {
-    height: 50px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    background: gray; }
-=======
-  background: white;
-  margin-top: 20px; }
-
-.splash-assessments-select button {
-  height: 50px;
-  font-size: 14px;
-  border: none;
-  background: #D9B310; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+  .SplashPage .splash-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    margin-bottom: 25px; }
+  .SplashPage .splash-assessments-select {
+    margin: auto;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-top: 20px; }
+    .SplashPage .splash-assessments-select button {
+      height: 50px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      background: gray; }
+    .SplashPage .splash-assessments-select button:focus {
+      outline: 0; }
+    .SplashPage .splash-assessments-select button:hover {
+      cursor: pointer; }
 
 .Wizard .wizard-body {
   background-image: url("./assets/Ellipse.png");
   color: #e3e3e3; }
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 .Wizard .dashboard {
   margin: 10px;
   margin-top: 40px;
@@ -201,57 +160,58 @@ a:visited {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
   min-width: 300px; }
 .Wizard .editor-container {
   width: 45%;
   margin: 5px;
   min-width: 400px; }
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 .Wizard .progressBar-container {
   width: 17%;
   max-height: 80vh;
   margin-left: 10px;
-<<<<<<< HEAD
   min-width: 200px; }
-=======
-
-  min-width: 200px; }
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 @media (max-width: 1060px) {
   .Wizard .progressBar-container {
     width: 90%;
     max-width: 713px;
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
-    margin-top: 10px;
-    position: fixed;
-    top: 80px; }
-  .Wizard .dashboard {
-    margin-top: 80px; } }
-@media (max-width: 645px) {
-  .Wizard .progressBar-container {
-    flex-wrap: wrap; }
-  .Wizard .dashboard {
-    margin-top: 120px; } }
-=======
     margin-top: 10px; } }
 @media (max-width: 655px) {
-
   .Wizard .progressBar-container {
     flex-wrap: wrap;
     margin-top: 10px; }
   .Wizard .questions-results-container {
     margin-bottom: 20px; } }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+
+.confirmation {
+  background: #073857;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  .confirmation h2 {
+    text-align: center;
+    color: white;
+    font-size: 40px; }
+  .confirmation p {
+    text-align: center;
+    color: white;
+    font-size: 20px; }
+  .confirmation .confirmation-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; }
+  .confirmation .confirmation-passed-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto; }
+  .confirmation .confirmation-text {
+    margin-top: 10px;
+    margin-bottom: 10px; }
 
 .assessments-page {
   text-align: center;
@@ -273,17 +233,9 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: center; }
-<<<<<<< HEAD
 
 #search-box > p {
   padding-right: 5px; }
-=======
-
-#search-box > p {
-
-  padding-right: 5px; }
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .assessments-page i:hover {
   cursor: pointer; }
@@ -301,13 +253,8 @@ a:visited {
   bottom: 0;
   left: 30%;
   transition: height 1s;
-<<<<<<< HEAD
-  min-width: 320px; }
-=======
-
-  min-width: 320px; }
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+  min-width: 320px;
+  word-wrap: break-word; }
 
 .slide-up-container-true {
   box-sizing: border-box;
@@ -318,25 +265,17 @@ a:visited {
   bottom: 0;
   left: 30%;
   transition: height 1s;
-  min-width: 320px; }
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+  min-width: 320px;
+  word-wrap: break-word; }
 
 .slide-up-button {
   width: 100%;
   font-size: 20px;
   padding: 10px 0px;
   border: solid 1px #073857;
-
-  background: #D9B310;
-  color: #328cc1;
+  background: gray;
+  color: white;
   border-radius: 4px 4px 0px 0px; }
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .assessment-button {
   margin-bottom: 25px;
@@ -396,13 +335,7 @@ button.run:hover {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
-<<<<<<< HEAD
-    height: 50vh; } }
-=======
-
     height: 67vh; } }
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 .popup-title-container {
   width: 97%;
   align-self: flex-start;
@@ -411,8 +344,6 @@ button.run:hover {
   justify-content: space-between;
   margin-left: 15px;
   margin-right: 15px; }
-<<<<<<< HEAD
-=======
 
 .close-modal {
   font-size: .9em;
@@ -420,7 +351,6 @@ button.run:hover {
 
 .close-modal:hover {
   cursor: pointer; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .confirmSubmit-content {
   display: flex;
@@ -464,15 +394,11 @@ button.run:hover {
   height: 30px;
   margin: 5px;
   margin-left: 15px;
-<<<<<<< HEAD
-  text-align: center; }
-=======
   text-align: center;
   background-color: transparent; }
 
 input:focus {
   outline: none; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .confirmSubmit-button {
   margin: 5px;
@@ -550,33 +476,25 @@ h1 {
 
 .LinkDisplay {
   box-sizing: border-box;
-  width: 100%;
-}
-.LinkDisplay .generate-links-button {
-  width: 100%;
-  font-size: 20px;
-  border: solid 1px #073857;
-  background: gray;
-  color: white;
-  border-radius: 4px 4px 0px 0px;
-<<<<<<< HEAD
-  padding: 10px 0px; }
-=======
-
-  padding: 10px 0px; }
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+  width: 100%; }
+  .LinkDisplay .generate-links-button {
+    width: 100%;
+    font-size: 20px;
+    border: solid 1px #073857;
+    background: gray;
+    color: white;
+    border-radius: 4px 4px 0px 0px;
+    padding: 10px 0px;
+    bottom: 0;
+    left: 0;
+    position: absolute; }
 
 .assessment-progress-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 20px;
-  margin-top: 10px; }
-<<<<<<< HEAD
-=======
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
+  margin-top: 5px; }
 
 .assessment-progress-title {
   text-align: center; }
@@ -592,9 +510,7 @@ h1 {
 
 .assessment-progress-submit-button {
   text-align: center;
-
-  margin-top: 20px;
-  margin-left: -10px;
+  margin-top: 10px;
   width: 100%; }
 
 .assessment-progress-submit-button button {
@@ -615,36 +531,20 @@ h1 {
     margin-bottom: 10px; }
 
   .assessment-progress-title {
-<<<<<<< HEAD
-    margin-top: 10px;
-    width: 350px; } }
-=======
     margin-top: 3px;
     width: 350px;
     text-align: left; }
 
   .assessment-progress-container {
     flex-wrap: wrap; } }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 @media (max-width: 645px) {
   .questions-results-container {
     flex-wrap: wrap; }
 
   .assessment-progress-submit-button {
-<<<<<<< HEAD
-    display: none; }
-=======
     display: none; } }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
-
-  .assessment-progress-title {
-    width: 220px; } }
 .questionText-container {
-<<<<<<< HEAD
-  margin-top: 10px; }
-=======
   margin-top: 3px; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .questionText-container p {
   margin-left: 20px; }
@@ -653,11 +553,7 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-<<<<<<< HEAD
-  margin-top: 20px; }
-=======
   margin-top: 3px; }
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
 
 .test-results-box {
   width: 90%;
@@ -685,11 +581,5 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: center; }
-<<<<<<< HEAD
 
 /*# sourceMappingURL=index.css.map */
-=======
-
-/*# sourceMappingURL=index.css.map */
-
->>>>>>> db464652562c62623649f3c2d20434233526b1ba
