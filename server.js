@@ -82,7 +82,6 @@ app.post(`/api/post-results`,  (req, res) => {
 
 });
 
-
 app.post(`/api/submit`, (req,res)=>{
 
     const questionText = []
