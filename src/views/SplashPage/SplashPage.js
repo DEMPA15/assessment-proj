@@ -8,8 +8,6 @@ class SplashPage extends Component {
     this.props.history.push('/email')
   }
 
-//background gray text white rounded corners
-
   render() {
     return (
       <div className="splash-main">
