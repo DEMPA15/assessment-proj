@@ -110,7 +110,8 @@ button:focus {
   border: 1px solid  #256991;
   border-radius: 5px;
   padding: 8px;
-  margin: 5px; }
+  margin: 5px;
+  width: 100%; }
 
 .SplashPage {
   background: #073857;
@@ -161,7 +162,7 @@ button:focus {
   flex-wrap: wrap; }
 .Wizard .questions-results-container {
   margin-left: 15px;
-  margin-right: 5px;
+  margin-right: 15px;
   width: 27%;
   display: flex;
   flex-direction: column;
@@ -340,20 +341,6 @@ button:focus {
   justify-content: center;
   align-items: center; }
 
-button.run {
-  margin-top: 10px;
-  width: 60px;
-  border: 2px solid black;
-  border-radius: 4px;
-  font-size: 1em;
-  font-weight: bold; }
-
-button.run:hover {
-  cursor: pointer;
-  background-color: #09094A;
-  color: white;
-  border-color: #09094a; }
-
 .codeEditor-container {
   height: 80vh;
   display: flex;
@@ -362,18 +349,14 @@ button.run:hover {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
-    height: 67vh; 
-  } 
-}
+    height: 50vh; } }
 .buttonContainer {
   border: none;
   display: flex;
-  width: 100%;
-}
+  width: 100%; }
 
 .submitButtonContainer {
-  width: 100%;
-}
+  width: 100%; }
 
 .submitButtonContainer button:first-child {
   border: none;
@@ -382,13 +365,11 @@ button.run:hover {
   font-size: 30px;
   background: #56B560;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer button:hover {
   background: #3e8745;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .buttonContainer .next {
   border: none;
@@ -397,12 +378,10 @@ button.run:hover {
   font-size: 30px;
   background: #56B560;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer .next:hover {
-  background: #3e8745;
-}
+  background: #3e8745; }
 
 .buttonContainer .run {
   border: none;
@@ -411,12 +390,10 @@ button.run:hover {
   font-size: 30px;
   background: #01313F;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer .run:hover {
-  background: #002028;
-}
+  background: #002028; }
 
 .popup-title-container {
   width: 97%;
@@ -582,8 +559,7 @@ h1 {
 
 .assessment-progress-submit-button button {
   padding: 7px;
-  color: white;
-}
+  color: white; }
 
 @media (max-width: 1060px) {
   .assessment-progress-container {
@@ -613,7 +589,8 @@ h1 {
   .assessment-progress-submit-button {
     display: none; } }
 .questionText-container {
-  margin-top: 3px; }
+  margin-top: 3px;
+  width: "inherit"; }
 
 .questionText-container p {
   margin-left: 20px; }
@@ -622,7 +599,8 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 3px; }
+  margin-top: 3px;
+  width: 100%; }
 
 .test-results-box {
   width: 90%;
