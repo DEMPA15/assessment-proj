@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import AddMinusButton from '../../components/AddMinusButton/AddMinusButton';
 import AddAssessmentButton from '../../components/AddAssessmentButton/AddAssessmentButton';
 import AddRemoveAll from '../../components/AddRemoveAll/AddRemoveAll';
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
@@ -59,9 +58,10 @@ class AssessmentList extends Component {
   addAssessment(e) {
     const name = e.target.title;
     const id = e.target.id;
+    const link = `http://localhost:8001/wizard/${this.props.user.email}/${id}/Q1`;
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
-      const assessment = [{ name, id }];
+      const assessment = [{ name, id, link }];
       this.props.addAssessment(assessment);
     }
   }
@@ -75,9 +75,14 @@ class AssessmentList extends Component {
     this.props.removeAssessment(assessment)
   }
 
-  addAll(e) {
+  addAll() {
     this.props.removeAllAssessments();
-    this.props.addAssessment(this.state.assessments);
+    const allAssessments = this.state.assessments.map((assessment, i) => {return {
+      name: assessment.name,
+      id: assessment.id,
+      link: `http://localhost:8001/wizard/${this.props.user.email}/${assessment.id}/Q1`
+    }})
+    this.props.addAssessment(allAssessments);
   }
 
   removeAll(e) {
@@ -119,7 +124,7 @@ class AssessmentList extends Component {
         <div className='search-box' >
           <p>SEARCH FOR ASSESSMENTS</p><br />
           <div id='search-box-input-box' >
-            <i class="material-icons">
+            <i className="material-icons">
               search
             </i>
             <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} />

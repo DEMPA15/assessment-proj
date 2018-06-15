@@ -32,6 +32,7 @@ class AddAssessmentButton extends Component {
                     <p title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                 </div>
                 <p title={this.props.assessment.name} id={this.props.assessment.id}>Description filler.</p>
+                <a>{this.props.assessment.link}</a>
             </div>
             )
         }

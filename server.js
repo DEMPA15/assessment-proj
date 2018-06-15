@@ -30,6 +30,9 @@ app.use(session({
 mongoose.connect(process.env.CONNECTION_STRING)
     .then((res)=>{
         console.log(`db connected`);
+    })
+    .catch(error=>{
+        console.log(error)
     });
 
 //-----------endpoints----------//
@@ -79,7 +82,6 @@ app.post(`/api/post-results`,  (req, res) => {
 
 
 });
-
 
 app.post(`/api/submit`, (req,res)=>{
 
@@ -138,7 +140,7 @@ app.post(`/api/submit`, (req,res)=>{
     });
 });
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8000
 app.listen(port, ()=>{
     console.log(`This server is listening on port ${port}`)
 })
