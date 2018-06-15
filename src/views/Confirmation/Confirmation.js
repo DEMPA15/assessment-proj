@@ -5,12 +5,14 @@ import passed from '../../assets/passed.png';
 
 class Confirmation extends Component {
 
+  //dump and clear redux to stop students from being able to 'go back'
+
   render() {
     return (
       <div className="confirmation">
       <img src={img} alt="code bar logo" className="confirmation-img"/>
       <div className="confirmation-text">
-        <h2>Congratulations {this.props.user.name},</h2><p>your assessment results have been successfully submitted.</p>
+        <h2>Congratulations {this.props.user.name},</h2><p>your assessment results have been successfully submitted. You may now closer browser</p>
         </div>
       <img src={passed} alt="code bar logo" className="confirmation-passed-img"/>
       </div>
