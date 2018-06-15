@@ -76,12 +76,8 @@ class AssessmentList extends Component {
   }
 
   addAll(e) {
-    const assessmentsToSend = this.state.assessments.map((assessment, i) => {
-      if (!this.props.assessments.find(propsAssessment => propsAssessment.id === assessment.id)) {
-        return assessment;
-      }
-    })
-    this.props.addAssessment(assessmentsToSend);
+    this.props.removeAllAssessments();
+    this.props.addAssessment(this.state.assessments);
   }
 
   removeAll(e) {

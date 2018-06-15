@@ -19,7 +19,7 @@ class ProgressBar extends Component {
     })
     return (
       <div className='progressBar-container'>
-        <span className='section-title assessment-progress-title'>Assessment Progress</span>
+        <span className='section-title assessment-progress-title'>Progress</span>
         <div className='assessment-progress-container'>
           {questions}
         </div>
