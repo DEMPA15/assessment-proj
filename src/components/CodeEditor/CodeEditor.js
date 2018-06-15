@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import brace from 'brace';
 import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
@@ -18,25 +17,41 @@ class CodeEditor extends Component {
     super(props);
     this.state={
       lastQ: false,
+      last:false,
     }
   }
-  
+  componentWillMount = () => {
+    const length = this.props.questions.length;
+    const num = this.props.qID.split('')[1];
+    if(length === num){
+      this.setState({
+        last : true,
+      })
+    }
+  }
   onChange = (newValue) => {
     this.props.enterCode({[this.props.qID]:newValue})
   }
+  nextPage = (e) => {
+    const history = this.props.history;
+    const qIDArr = this.props.qID.split('')
+    const newQnum = Number(qIDArr[1])+1;
+    const newQ = `Q${newQnum}`
+    history.push(`/wizard/1/${this.props.assessmentID}/${newQ}`);
+  }
   postResults = (e) => {
     const QID = this.props.qID
-    const ASSID = this.props.assessmentID;
-    const history = this.props.history;
-    const keys = Object.keys(this.props.questions);
-    const last = `Q${Number(keys.pop())+1}`;
-    if(last===this.props.qID){
+    const length = this.props.questions.length;
+    const num = Number(this.props.qID.split('')[1]);
+    if(num===length){
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
       .then(response => {
         if(response.value[QID].passed === true){
           this.setState({
             lastQ:true,
           })
+                    
+
         }else{
           console.log(`test didn't pass`);
         }
@@ -48,12 +63,11 @@ class CodeEditor extends Component {
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
       .then(response => {
         if(response.value[QID].passed === true){
-          const qIDArr = QID.split('')
-          const newQnum = Number(qIDArr[1])+1;
-          const newQ = `Q${newQnum}`
-          history.push(`/wizard/1/${ASSID}/${newQ}`);
+         return 'worked'
         }else{
-          console.log(`test didn't pass`);
+          this.setState({
+            wrong:true,
+          })
         }
       })
       .catch( err => {
@@ -61,19 +75,22 @@ class CodeEditor extends Component {
       })
     }
   }
- // gets qID and assessmentID from parent props
 
   render() {
+    const length = this.props.questions.length;
+    const num = Number(this.props.qID.split('')[1]);
     let button = ''
     if(this.state.lastQ){
-      button = <SubmitButton history ={this.props.history} buttonText = 'Submit' className = 'codeEditor-submit'/>
+      button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
+    }else if(this.props.results[this.props.qID].passed === true){
+      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     }else{
-      button = <button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button>
+      button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
     return (
-      <div className='codeEditor-container'>
+      <div className='codeEditor-container' id = 'codeEditor'>
         <AceEditor
-          style={{zIndex: 0, height: 'inherit', width: '98%' }}
+          style={{zIndex: 0, height: 'inherit', width: '100%' }}
           mode="javascript"
           theme="solarized_dark"
           name="blah2"
@@ -94,7 +111,9 @@ class CodeEditor extends Component {
           }}
         >
         </AceEditor>
+        
         {button}
+        
       </div>
     );
   }

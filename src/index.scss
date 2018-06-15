@@ -29,11 +29,18 @@ a {
 a:visited {
     text-decoration: none;
 }
+input:focus {
+    outline: none;
+}
+button:focus {
+    outline: none;
+}
 
 @import './variables.scss';
 @import './shared.scss';
 @import './views/SplashPage/SplashPage.scss';
 @import './views/Wizard/wizard.scss';
+@import './views/Confirmation/Confirmation.scss';
 @import './views/AssessmentList/AssessmentList.scss';
 @import './components/AddAssessmentButton/AddAssessmentButton.scss';
 @import './components/AddRemoveAll/AddRemoveAll.scss';
