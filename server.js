@@ -139,7 +139,7 @@ app.post(`/api/submit`, (req,res)=>{
     });
 });
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 8000
 app.listen(port, ()=>{
     console.log(`This server is listening on port ${port}`)
 })
