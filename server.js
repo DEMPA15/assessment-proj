@@ -88,11 +88,26 @@ app.post(`/api/submit`, (req,res)=>{
           return questionText.push(req.body[results]);
         }
     });
+    let questionResults = {
+    }
+    // Object.keys(questionText).map((results, i)=>{
+    //     questionResults.code.push(questionText[results].code)
+    //     questionResults.passed.push(questionText[results].passed)
+    // })
 
-    let passedQuestion = []
-    Object.keys(questionText).map(results => {
-        return passedQuestion.push(questionText.tests);
-    });
+    let code = []
+    Object.keys(questionText).map((results, i) => {
+        return code.push(`<p key=${i}>
+        Question ${i + 1}:
+        ${questionText[results].passed ? 'PASSED' : 'DID NOT PASS'}
+        <br/>
+        <br/>
+        Student Code:
+        <br/>
+        ${questionText[results].code}
+        </p><br/>`)
+
+    })
 
     //email will need
     // student name, code, test results
@@ -100,13 +115,11 @@ app.post(`/api/submit`, (req,res)=>{
 
     const output = `
     <h3>Below are the assessment results for ${req.body.studentName}</h3>
-    <p><b>Test Question</b></p>
-    <p>${questionText[0].tests[0].text}</p>
+    <p><b>Test Results</b></p>
     <p><b>${req.body.studentName}'s code</b></p>
-    <p>${questionText[0].code}</p>
-    <p>${questionText[0].passed ? 'passed!' : 'did not pass'}</p>
     <br/>
-    `;
+    <p>${code}</p>
+    <br/>`;
 
     let transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
