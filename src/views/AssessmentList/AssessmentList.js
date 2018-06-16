@@ -114,6 +114,7 @@ class AssessmentList extends Component {
       else if (upperCaseAssessmentName.includes(this.state.searchText.toUpperCase())) {
         return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
       }
+      return <div> </div>
     })
     if (assessments.length === 0) {
       assessments = 'No results found.'
