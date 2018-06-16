@@ -13,6 +13,8 @@ class AddMinusButton extends Component {
                 </div>
             );
         }
+
+        //Blue minus button
         else if (this.props.blue) {
             return <div className='add-minus-button offWhite'>
                 <i className="material-icons blue" title={this.props.title} id={this.props.id}>
