@@ -93,6 +93,7 @@ app.post(`/api/submit`, (req,res)=>{
 
     let passedQuestion = []
     Object.keys(questionText).map(results => {
+        if(questionText.hasOwnProperty(key))
         return passedQuestion.push(questionText.tests);
     });
 
