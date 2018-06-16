@@ -17,6 +17,10 @@
 .env.test.local
 .env.production.local
 
+index.css
+index.css/
+.src/index.css
+
 test.js
 index.css/
 src/index.css/
