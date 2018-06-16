@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 125px;
 
     i {
         padding-right: 5px;
@@ -12,10 +13,4 @@
     }
 }
 
-.AddRemoveAll-invisible {
-    visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
