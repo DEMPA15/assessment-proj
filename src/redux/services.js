@@ -16,6 +16,7 @@ const services = {
             .then(results=>{
                 return {
                     [results.data.qID]: {
+                        attempted: true,
                         passed: results.data.passed,
                         tests: results.data.tests
                     }
