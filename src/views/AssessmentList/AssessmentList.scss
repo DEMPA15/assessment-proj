@@ -7,7 +7,7 @@
         display: flex;
         text-align: left;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
     .add-remove-all {
@@ -106,7 +106,7 @@
         padding: 10px 0px;
         min-height: 40px;
     }
-    @media (max-width: 820) {
+    @media (max-width: 820px) {
         .add-remove-all {
             flex-direction: column;
         }
