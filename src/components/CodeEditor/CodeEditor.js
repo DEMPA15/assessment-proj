@@ -21,6 +21,7 @@ class CodeEditor extends Component {
       messageTxt:'',
       messageColor:'',
       loaded: true,
+      code:'',
     }
   }
   showMessage = () => {
@@ -29,7 +30,9 @@ class CodeEditor extends Component {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   onChange = (newValue) => {
-    this.props.enterCode({[this.props.qID]:newValue})
+    this.setState({
+      code: newValue,
+    })
   }
   nextPage = (e) => {
     const history = this.props.history;
@@ -43,7 +46,10 @@ class CodeEditor extends Component {
     newObj.attempted = true
     this.props.attempted({ [this.props.qID]: newObj })
   }
-  postResults = (e) => {
+  async postResults(e) {
+    
+    await this.props.enterCode({[this.props.qID]:this.state.code})
+
     this.setState({
       loaded:false,
     })
@@ -51,13 +57,20 @@ class CodeEditor extends Component {
     const QID = this.props.qID
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
-    if(this.props.code[this.props.qID] === ''){
+    
+    if(this.state.code === ''){
       this.setState({
         loaded: true,
         messageColor:'red',
         messageTxt: `Come on! It's empty!`,
       },this.showMessage())
-    }else if(num===length){
+    } else if(this.state.code.search('function') === -1){
+      this.setState({
+        loaded: true,
+        messageColor: 'red',
+        messageTxt: 'Please wrap your code in a function'
+      }, this.showMessage())
+    } else if(num===length){
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
       .then(response => {
         
@@ -122,7 +135,7 @@ class CodeEditor extends Component {
     }else if(this.state.lastQ){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
     }else if(this.props.results[this.props.qID].passed === true){
-      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
+      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button><button className = 're-run' onClick ={e=> {this.postResults(e)}}>Re-run</button></div>      
     }else{
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
@@ -140,7 +153,7 @@ class CodeEditor extends Component {
           showGutter={true}
           wrapEnabled = {true}
           highlightActiveLine={true}
-          value={this.props.code[this.props.qID]}
+          value={this.state.code}
           focus={true}
           setOptions={{
             enableBasicAutocompletion: false,
