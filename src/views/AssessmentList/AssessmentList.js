@@ -56,6 +56,9 @@ class AssessmentList extends Component {
   }
 
   addAssessment(e) {
+    this.setState({
+      visible: false
+    })
     const name = e.target.title;
     const id = e.target.id;
     const link = `http://localhost:8001/wizard/${this.props.user.email}/${id}/Q1`;
@@ -78,6 +81,9 @@ class AssessmentList extends Component {
   }
 
   addAll() {
+    this.setState({
+      visible: false
+    })
     this.props.removeAllAssessments();
     const allAssessments = this.state.assessments.map((assessment, i) => {return {
       name: assessment.name,
@@ -147,7 +153,7 @@ class AssessmentList extends Component {
         }
             {
               this.props.assessments.length === 1 &&
-                <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
+                <div className={`slide-up-container-${this.state.visible}`} >
                   <button className="slide-up-button" onClick={this.slideOut}>
                     {this.props.assessments.length} ASSESSMENT LINK SELECTED
                   </button>
@@ -156,7 +162,7 @@ class AssessmentList extends Component {
             }
              { 
                this.props.assessments.length > 1 &&
-                <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
+                <div className={`slide-up-container-${this.state.visible}`} >
                   <button className="slide-up-button" onClick={this.slideOut}>
                     {this.props.assessments.length} ASSESSMENT LINKS SELECTED
                   </button>
