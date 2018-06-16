@@ -10,8 +10,9 @@ class ProgressBar extends Component {
       return 'Question - ' + qID.split('').splice(1).join('')
     }
     const questions = Object.keys(this.props.results).map((question, i)=>{
+      let opacity = this.props.results[question].passed === null ? 0 : 1;
       return <div key={i} className='question-result-box'>
-                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} style={this.props.results[question].attempted ? {opacity:1}:{opacity:0}}/>
+                <div className={ this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} style={this.props.results[question].attempted ? {opacity:opacity}:{opacity:0}}/>
                 <Link to={`/wizard/${this.props.emailID}/${this.props.assessmentID}/${question}`}>  
                   <div className='question-link section-subtitle' style={question === this.props.qID ? {color: '#328cc1'}: {color:'#e3e3e3'}}>{idToTitle(question)} </div> 
                 </Link>
