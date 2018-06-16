@@ -18,7 +18,9 @@
 .env.production.local
 
 test.js
+index.css/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
