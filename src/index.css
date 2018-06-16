@@ -1,47 +1,38 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   border: none;
   margin: 0px;
   padding: 0px;
   background-color: #001012;
-  font-family: "Roboto", sans-serif;
-  background-image: url("./assets/Ellipse.png");
-}
+  font-family: 'Roboto', sans-serif;
+  background-image: url("./assets/Ellipse.png"); }
 
 h1 {
-  font-family: "Nunito", sans-serif;
-}
+  font-family: 'Nunito', sans-serif; }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
+  color: inherit; }
 
 a:visited {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 input:focus {
-  outline: none;
-}
+  outline: none; }
 
 button:focus {
-  outline: none;
-}
+  outline: none; }
 
 .section-title {
   font-size: 1.2em;
-  letter-spacing: 0.03em;
-}
+  letter-spacing: .03em; }
 
 .section-subtitle {
   font-size: 1em;
-  letter-spacing: 0.03em;
-}
+  letter-spacing: .03em; }
 
 .popup {
   position: fixed;
@@ -49,8 +40,7 @@ button:focus {
   bottom: 0;
   left: 0;
   right: 0;
-  pointer-events: none;
-}
+  pointer-events: none; }
 
 .popup-background {
   background-color: rgba(0, 0, 0, 0.6);
@@ -60,8 +50,7 @@ button:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  pointer-events: all;
-}
+  pointer-events: all; }
 
 .popup-content {
   height: 60%;
@@ -75,31 +64,26 @@ button:focus {
   flex-direction: column;
   padding: 10px;
   max-width: 580px;
-  min-width: 300px;
-}
+  min-width: 300px; }
 
 .submit-button-green {
   background-color: #56b560;
   border-radius: 4px;
-  font-size: 0.8em;
-  border: none;
-}
+  font-size: .8em;
+  border: none; }
 
 .submit-button-green:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .cancel-button-red {
   background-image: linear-gradient(65deg, #fa3224, #d82f23);
   border: 2px solid black;
   border-radius: 4px;
-  font-size: 0.8em;
-  font-weight: bold;
-}
+  font-size: .8em;
+  font-weight: bold; }
 
 .cancel-button-red:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .icon-passed {
   background-image: url("./assets/passed.png");
@@ -109,8 +93,7 @@ button:focus {
   border-radius: 10px;
   height: 20px;
   width: 20px;
-  margin-right: 5px;
-}
+  margin-right: 5px; }
 
 .icon-failed {
   background-image: url("./assets/failed.png");
@@ -120,74 +103,63 @@ button:focus {
   border-radius: 10px;
   height: 20px;
   width: 20px;
-  margin-right: 5px;
-}
+  margin-right: 5px; }
 
 .component-wrapper {
   background-color: #021e22;
-  border: 1px solid #256991;
+  border: 1px solid  #256991;
   border-radius: 5px;
   padding: 8px;
   margin: 5px;
-  width: 100%;
-}
+  width: 100%; }
 
 .SplashPage {
   background: #073857;
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-}
-.SplashPage h1 {
-  text-align: center;
-  color: white;
-  margin: 0px;
-  font-size: 40px;
-}
-.SplashPage .splash-img {
-  height: 150px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 80px;
-  margin-bottom: 25px;
-}
-.SplashPage .splash-assessments-select {
-  margin: auto;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  width: 150px;
-  margin-top: 20px;
-}
-.SplashPage .splash-assessments-select button {
-  height: 50px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  background: gray;
-}
-.SplashPage .splash-assessments-select button:focus {
-  outline: 0;
-}
-.SplashPage .splash-assessments-select button:hover {
-  cursor: pointer;
-}
+  flex-direction: column; }
+  .SplashPage h1 {
+    text-align: center;
+    color: white;
+    margin: 0px;
+    font-size: 40px; }
+  .SplashPage .splash-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    margin-bottom: 25px; }
+  .SplashPage .splash-assessments-select {
+    margin: auto;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-top: 20px; }
+    .SplashPage .splash-assessments-select button {
+      height: 50px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      background: gray; }
+    .SplashPage .splash-assessments-select button:focus {
+      outline: 0; }
+    .SplashPage .splash-assessments-select button:hover {
+      cursor: pointer; }
 
 .Wizard .wizard-body {
   background-image: url("./assets/Ellipse.png");
-  color: #e3e3e3;
-}
+  color: #e3e3e3; }
 .Wizard .dashboard {
   margin: 10px;
   margin-top: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
-}
+  flex-wrap: wrap; }
 .Wizard .questions-results-container {
   margin-left: 15px;
   margin-right: 15px;
@@ -195,72 +167,58 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-width: 300px;
-}
+  min-width: 300px; }
 .Wizard .editor-container {
   width: 45%;
   margin: 5px;
-  min-width: 400px;
-}
+  min-width: 400px; }
 .Wizard .progressBar-container {
   width: 17%;
   max-height: 80vh;
   margin-left: 10px;
-  min-width: 200px;
-}
+  min-width: 200px; }
 @media (max-width: 1060px) {
   .Wizard .progressBar-container {
     width: 90%;
     max-width: 713px;
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
-  }
-}
+    margin-top: 10px; } }
 @media (max-width: 655px) {
   .Wizard .progressBar-container {
     flex-wrap: wrap;
-    margin-top: 10px;
-  }
+    margin-top: 10px; }
   .Wizard .questions-results-container {
-    margin-bottom: 20px;
-  }
-}
+    margin-bottom: 20px; } }
 
 .confirmation {
   background: #073857;
   height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-}
-.confirmation h2 {
-  text-align: center;
-  color: white;
-  font-size: 40px;
-}
-.confirmation p {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-}
-.confirmation .confirmation-img {
-  height: 150px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-}
-.confirmation .confirmation-passed-img {
-  height: 150px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.confirmation .confirmation-text {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+  flex-direction: column; }
+  .confirmation h2 {
+    text-align: center;
+    color: white;
+    font-size: 40px; }
+  .confirmation p {
+    text-align: center;
+    color: white;
+    font-size: 20px; }
+  .confirmation .confirmation-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px; }
+  .confirmation .confirmation-passed-img {
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto; }
+  .confirmation .confirmation-text {
+    margin-top: 10px;
+    margin-bottom: 10px; }
 
 .AssessmentList {
   text-align: center;
@@ -400,40 +358,33 @@ button:focus {
   text-align: center;
   align-items: center;
   padding: 10px;
-  margin: 10px auto;
-}
+  margin: 10px auto; }
 
 .assessment-button-top-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 5px;
-}
+  padding-right: 5px; }
 
 .title-link {
-  color: #328cc1;
-}
+  color: #328cc1; }
 
 #assessment-link-input {
   width: 100%;
   border: none;
   background: transparent;
   color: white;
-  align-content: center;
-}
+  align-content: center; }
 
 .assessment-link-container {
-  display: flex;
-}
+  display: flex; }
 
 button.btn {
   background: transparent;
-  border: none;
-}
+  border: none; }
 
 .clipboard-button {
-  height: 25px;
-}
+  height: 25px; }
 
 .AddAssessmentButton {
   border: 1px solid #e3e3e3;
@@ -522,8 +473,7 @@ button.btn {
   height: 80vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 
 @media (max-width: 1060px) {
   .codeEditor-container {
@@ -538,12 +488,10 @@ button.btn {
 .buttonContainer {
   border: none;
   display: flex;
-  width: 100%;
-}
+  width: 100%; }
 
 .submitButtonContainer {
-  width: 100%;
-}
+  width: 100%; }
 
 .submitButtonContainer button:first-child {
   border: none;
@@ -552,13 +500,11 @@ button.btn {
   font-size: 30px;
   background: #56B560;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer button:hover {
   background: #3e8745;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .buttonContainer .next {
   border: none;
@@ -567,12 +513,10 @@ button.btn {
   font-size: 30px;
   background: #56B560;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer .next:hover {
-  background: #3e8745;
-}
+  background: #3e8745; }
 
 .buttonContainer .run {
   border: none;
@@ -581,12 +525,10 @@ button.btn {
   font-size: 30px;
   background: #01313F;
   border-radius: 0px;
-  width: 100%;
-}
+  width: 100%; }
 
 .buttonContainer .run:hover {
-  background: #002028;
-}
+  background: #002028; }
 
 #snackbar {
   visibility: hidden;
@@ -675,29 +617,24 @@ button.btn {
   flex-direction: row;
   justify-content: space-between;
   margin-left: 15px;
-  margin-right: 15px;
-}
+  margin-right: 15px; }
 
 .close-modal {
-  font-size: 0.9em;
-  font-weight: bold;
-}
+  font-size: .9em;
+  font-weight: bold; }
 
 .close-modal:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .confirmSubmit-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-}
+  height: 100%; }
 
 .confirmSubmit-subtitle {
   text-align: left;
-  margin-left: 10px;
-}
+  margin-left: 10px; }
 
 .confirmSubmit-results-container {
   height: 60%;
@@ -705,13 +642,11 @@ button.btn {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-}
+  justify-content: flex-start; }
 
 .infoToSubmit-container {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .infoToSubmit {
   display: flex;
@@ -722,8 +657,7 @@ button.btn {
   width: 100%;
   margin: 5px;
   margin-top: 20px;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .infoToSubmit input {
   border: none;
@@ -734,14 +668,12 @@ button.btn {
   margin: 5px;
   margin-left: 15px;
   text-align: center;
-  background-color: transparent;
-}
+  background-color: transparent; }
 
 .confirmSubmit-button {
   margin: 5px;
   width: 200px;
-  height: 30px;
-}
+  height: 30px; }
 
 .button-container {
   align-self: center;
@@ -749,8 +681,7 @@ button.btn {
   flex-direction: row;
   margin-top: 15px;
   width: 80%;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 .student-email {
   border: 1px solid #666666;
@@ -765,14 +696,12 @@ button.btn {
 }
 
 h1 {
-  color: #e3e3e3;
-}
+  color: #e3e3e3; }
 
 .student-email div > input {
   width: 75%;
   padding: 8px;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .student-email button {
   margin-top: 10px;
@@ -782,8 +711,7 @@ h1 {
   background: #666666;
   color: #e3e3e3;
   padding: 10px;
-  font-size: 15px;
-}
+  font-size: 15px; }
 
 .header-body {
   height: 70px;
@@ -791,8 +719,7 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #021e22;
-}
+  background-color: #021e22; }
 
 .sexy_line {
   display: block;
@@ -800,8 +727,7 @@ h1 {
   color: white;
   height: 1px;
   background: black;
-  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518));
-}
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)); }
 
 .header-logo {
   background-image: url("./assets/dm-Logo-blue.png");
@@ -811,15 +737,13 @@ h1 {
   height: 40px;
   width: 50px;
   margin-left: 55px;
-  margin-right: 15px;
-}
+  margin-right: 15px; }
 
 .header-title {
   color: #fff;
   font-size: 1.2em;
   margin-left: 5px;
-  letter-spacing: 0.07em;
-}
+  letter-spacing: .07em; }
 
 .LinkDisplay {
   box-sizing: border-box;
@@ -831,12 +755,10 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-left: 20px;
-  margin-top: 5px;
-}
+  margin-top: 5px; }
 
 .assessment-progress-title {
-  text-align: center;
-}
+  text-align: center; }
 
 .question-result-box {
   align-self: flex-start;
@@ -846,8 +768,7 @@ h1 {
 }
 
 .question-link:hover {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .assessment-progress-submit-button {
   text-align: center;
@@ -864,25 +785,21 @@ h1 {
 @media (max-width: 1060px) {
   .assessment-progress-container {
     width: 100%;
-    flex-direction: row;
-  }
+    flex-direction: row; }
 
   .question-result-box {
-    margin-left: 20px;
-  }
+    margin-left: 20px; }
 
   .assessment-progress-submit-button {
     align-self: flex-end;
     width: 300px;
     margin-top: 7px;
-    margin-bottom: 10px;
-  }
+    margin-bottom: 10px; }
 
   .assessment-progress-title {
     margin-top: 3px;
     width: 350px;
-    text-align: left;
-  }
+    text-align: left; }
 
   .assessment-progress-container {
     width: 100%;
@@ -902,34 +819,28 @@ h1 {
 }
 .questionText-container {
   margin-top: 3px;
-  width: "inherit";
-}
+  width: "inherit"; }
 
 .questionText-container p {
-  margin-left: 20px;
-}
+  margin-left: 20px; }
 
 .test-results-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 3px;
-  width: 100%;
-}
+  width: 100%; }
 
 .test-results-box {
   width: 90%;
-  margin: 5px;
-}
+  margin: 5px; }
 
 .test-results-title {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 .test-results-text {
-  margin-left: 30px;
-}
+  margin-left: 30px; }
 
 .loadingGif {
   background-image: url("./assets/loadingGif.gif");
@@ -937,8 +848,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   height: 100px;
-  width: 100px;
-}
+  width: 100px; }
 
 .loading-page {
   /* background-image:linear-gradient(65deg, #0e1230, rgb(8, 8, 77)); */
@@ -946,5 +856,6 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: center; }
+
+/*# sourceMappingURL=index.css.map */
