@@ -8,7 +8,6 @@ class LinkDisplay extends Component {
   constructor(props){
     super(props);
     this.state = {
-      generated: false,
     }
     
     this.removeAssessment = this.removeAssessment.bind(this);
