@@ -1,19 +1,13 @@
 .AssessmentList {
     text-align: center;
-    background-color: #001012;
-    background-repeat: repeat-y;
-    height: 100vh;
+    background-image: url('./assets/Ellipse.png');
     color: #e3e3e3;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
     .assessments-list {
         display: flex;
         text-align: left;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
     .add-remove-all {
@@ -43,10 +37,6 @@
 
     #search-box i:hover {
         cursor: default;
-    }
-
-    .search-box > p {
-        padding-right: 5px;
     }
     
     .search-input {
@@ -115,6 +105,11 @@
         border-radius: 4px 4px 0px 0px;
         padding: 10px 0px;
         min-height: 40px;
+    }
+    @media (max-width: 820px) {
+        .add-remove-all {
+            flex-direction: column;
+        }
     }
 }
 

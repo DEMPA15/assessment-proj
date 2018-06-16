@@ -56,6 +56,9 @@ class AssessmentList extends Component {
   }
 
   addAssessment(e) {
+    this.setState({
+      visible: false
+    })
     const name = e.target.title;
     const id = e.target.id;
     const link = `http://localhost:8001/wizard/${this.props.user.email}/${id}/Q1`;
@@ -71,11 +74,16 @@ class AssessmentList extends Component {
       name: e.target.title,
       id: e.target.id
     };
-
+    this.setState(({
+      visible: false
+    }))
     this.props.removeAssessment(assessment)
   }
 
   addAll() {
+    this.setState({
+      visible: false
+    })
     this.props.removeAllAssessments();
     const allAssessments = this.state.assessments.map((assessment, i) => {return {
       name: assessment.name,
@@ -86,9 +94,6 @@ class AssessmentList extends Component {
   }
 
   removeAll(e) {
-    this.setState(({
-      visible: false
-    }))
     this.props.removeAllAssessments();
   }
 
@@ -114,6 +119,7 @@ class AssessmentList extends Component {
       else if (upperCaseAssessmentName.includes(this.state.searchText.toUpperCase())) {
         return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
       }
+      return <div> </div>
     })
     if (assessments.length === 0) {
       assessments = 'No results found.'
@@ -143,25 +149,29 @@ class AssessmentList extends Component {
         <div className='assessments-list' >
           {assessments}
         </div>
-        <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
+        { this.props.assessments.length === 0 && 
+        <div className="slide-up-container-false"></div>
+        }
             {
               this.props.assessments.length === 1 &&
-              <button className="slide-up-button" onClick={this.slideOut}>
-                {this.props.assessments.length} ASSESSMENT LINK SELECTED
-              </button>
+                <div className={`slide-up-container-${this.state.visible}`} >
+                  <button className="slide-up-button" onClick={this.slideOut}>
+                    {this.props.assessments.length} ASSESSMENT LINK SELECTED
+                  </button>
+                    <LinkDisplay />
+                </div>
             }
              { 
                this.props.assessments.length > 1 &&
-              <button className="slide-up-button" onClick={this.slideOut}>
-                {this.props.assessments.length} ASSESSMENT LINKS SELECTED
-              </button>
+                <div className={`slide-up-container-${this.state.visible}`} >
+                  <button className="slide-up-button" onClick={this.slideOut}>
+                    {this.props.assessments.length} ASSESSMENT LINKS SELECTED
+                  </button>
+                    <LinkDisplay />
+              </div>
              }
-             {this.state.visible === true &&
-               <LinkDisplay />}
           
         </div>
-
-      </div>
     )
   }
 }
