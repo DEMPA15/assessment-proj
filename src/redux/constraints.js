@@ -12,3 +12,6 @@ export const POST_RESULTS = 'POST_RESULTS';
 export const SET_CODE = 'SET_CODE';
 export const ATTEMPTED = 'ATTEMPTED';
 export const CLEAR_DATA = 'CLEAR_DATA';
+export const CHANGED_ANSWER = 'CHANGED_ANSWER';
+
+

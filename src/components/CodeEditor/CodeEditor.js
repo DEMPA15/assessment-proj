@@ -30,9 +30,26 @@ class CodeEditor extends Component {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   onChange = (newValue) => {
-    this.setState({
-      code: newValue,
-    })
+    let tests = []
+      this.props.results[this.props.qID].tests.forEach(test=>{
+    tests.push({text: test.text, passed: null})})
+    let changedResult = {
+      [this.props.qID]:{
+        attempted: true,
+        passed: null,
+        tests: tests
+      }
+    }
+    if(this.props.results[this.props.qID].passed === true){
+      this.props.changedAnswer(changedResult);
+      this.setState({
+        code: newValue,
+      })
+    }else{
+      this.setState({
+        code: newValue,
+      })
+    }
   }
   nextPage = (e) => {
     const history = this.props.history;
@@ -134,14 +151,14 @@ class CodeEditor extends Component {
       button = <div className = 'codeLoadingGif'><p className = 'warning'>If you did not wrap the code in a function, this could take a while.</p></div>
     }else if(this.state.lastQ){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
-    }else if(this.props.results[this.props.qID].passed === true){
+    }else if(this.props.results[this.props.qID].passed === true && this.state.code == this.props.code[this.props.qID]){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button><button className = 're-run' onClick ={e=> {this.postResults(e)}}>Re-run</button></div>      
     }else{
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
     return (
       <div className='codeEditor-container' id = 'codeEditor'>
-        <AceEditor
+        <AceEditor 
           style={{zIndex: 0, height: 'inherit', width: '100%' }}
           mode="javascript"
           theme="solarized_dark"

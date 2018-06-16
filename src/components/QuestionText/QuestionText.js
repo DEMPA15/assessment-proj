@@ -7,7 +7,6 @@ import AceEditor from 'react-ace';
   
   
   render() {
-    debugger
     var questArr = this.props.questions[this.props.qIndex].qText.split('***');
     var questText = questArr[0];
     var questCode = questArr[1];
@@ -20,17 +19,17 @@ import AceEditor from 'react-ace';
       <div className="editor" style = {{height: 'auto'}}>
         <AceEditor
             style={{zIndex: 0, width: '100%' }}
-            height={'200px'}
+            height={'100px'}
             mode="javascript"
             theme="solarized_dark"
-            name="blah2"
+            name="blah"
             onLoad={this.onLoad}
             fontSize={14}
-            showPrintMargin={true}
-            showGutter={true}
-            highlightActiveLine={true}
+            showPrintMargin={false}
+            showGutter={false}
+            highlightActiveLine={false}
             value={questCode}
-            focus={true}
+            focus={false}
             readOnly={true}
             wrapEnabled={true}
             setOptions={{
