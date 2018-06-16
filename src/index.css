@@ -230,6 +230,7 @@ button:focus {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
   .AssessmentList .assessments-list {
     display: flex;
     text-align: left;
@@ -250,7 +251,8 @@ button:focus {
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease;
-    font-size: 18.5px; }
+    font-size: 18.5px; 
+  }
   .AssessmentList input:focus {
     width: 350px; }
   .AssessmentList input:focus {
@@ -469,14 +471,14 @@ button:focus {
   justify-content: space-between; }
 
 .student-email {
-  border: 1px solid #d9b310;
+  border: 1px solid #666666;
   background: #073857;
   height: 350px;
   box-sizing: border-box;
   width: 30px;
   min-width: 350px;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
   padding-top: 25px; }
 
 h1 {
@@ -492,8 +494,8 @@ h1 {
   width: 40%;
   border: solid 1px;
   border-radius: 5px;
-  background: #D9b310;
-  color: #328cc1;
+  background: #666666;
+  color: #e3e3e3;
   padding: 10px;
   font-size: 15px; }
 
@@ -531,7 +533,19 @@ h1 {
 
 .LinkDisplay {
   box-sizing: border-box;
-  width: 100%; }
+  width: 100%; 
+}
+  .LinkDisplay .generate-links-button {
+    width: 100%;
+    font-size: 20px;
+    border: solid 1px #073857;
+    background: gray;
+    color: white;
+    border-radius: 4px 4px 0px 0px;
+    padding: 10px 0px;
+    bottom: 0;
+    left: 0;
+    position: absolute; }
 
 .assessment-progress-container {
   display: flex;
