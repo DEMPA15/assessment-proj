@@ -12,12 +12,10 @@
 
     .add-remove-all {
         display: flex;
-        flex-wrap: wrap;
         padding-right: 5px;
         position: absolute;
         bottom: 0;
         left: 0;
-        z-index: 1;
     }
     
     i:hover {
@@ -107,6 +105,11 @@
         border-radius: 4px 4px 0px 0px;
         padding: 10px 0px;
         min-height: 40px;
+    }
+    @media (max-width: 820) {
+        .add-remove-all {
+            flex-direction: column;
+        }
     }
 }
 
