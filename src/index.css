@@ -364,8 +364,27 @@ button:focus {
   padding: 10px 0px;
   min-height: 40px;
 }
+.AssessmentList #search-box-input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.AssessmentList #search-box-input-box i {
+  padding-right: 5px;
+}
+.AssessmentList #search-box-input-box i:hover {
+  cursor: default;
+}
+.AssessmentList #search-box-input-box input {
+  margin-right: 32px;
+}
+.AssessmentList ::placeholder {
+  color: #328cc1;
+}
 
-.AddAssessmentButton, .AddAssessmentButton-removable {
+.AddAssessmentButton {
+  border: 1px solid #e3e3e3;
   border-radius: 3px;
   height: 150px;
   width: 300px;
@@ -435,18 +454,67 @@ button.btn {
   height: 25px;
 }
 
-.AddAssessmentButton {
-  border: 1px solid #e3e3e3;
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #073857;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
 }
 
-.AddAssessmentButton-removable {
-  border: 1px solid #328cc1;
-  color: #328cc1;
-}
-.AddAssessmentButton-removable .material-icons.blue {
-  color: #328cc1;
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
 .AddRemoveAll {
   display: flex;
   justify-content: center;
@@ -530,6 +598,86 @@ button.btn {
   background: #002028;
 }
 
+#snackbar {
+  visibility: hidden;
+  /* Hidden by default. Visible on click */
+  min-width: 250px;
+  /* Set a default minimum width */
+  background-color: #333;
+  /* Black background color */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  border-radius: 2px;
+  /* Rounded borders */
+  z-index: 1;
+  /* Add a z-index if needed */
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.codeLoadingGif {
+  background-image: url(/static/media/loadingGif.5dc7e0e3.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.warning {
+  width: 150px;
+  font-size: 17px;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
 .popup-title-container {
   width: 97%;
   align-self: flex-start;
