@@ -28,7 +28,7 @@ class AddAssessmentButton extends Component {
         })
     }
 copied(){
-    var x = document.getElementById("snackbar");
+    var x = document.getElementById("snackbar-copied");
     x.className = "show";
     setTimeout(function(){x.className = x.className.replace("show", "");}, 3000)
 }
@@ -43,7 +43,7 @@ copied(){
                 <div className='assessment-link-container'>
                 <button className='btn' data-clipboard-target="#assessment-link-input" onClick={ this.copied }><img className="clipboard-button" src={clipboard}/></button>
                 <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link}/>
-                <div id="snackbar">Copied!</div>
+                <div id="snackbar-copied">Copied!</div>
                 </div>
             </div>
         }
