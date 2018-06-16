@@ -17,7 +17,7 @@
 .env.test.local
 .env.production.local
 
-index.css
+index.css/
 test.js
 
 npm-debug.log*
