@@ -1,13 +1,7 @@
 .AssessmentList {
     text-align: center;
-    background-color: #001012;
-    background-repeat: repeat-y;
-    height: 100vh;
+    background-image: url('./assets/Ellipse.png');
     color: #e3e3e3;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 
     .assessments-list {
         display: flex;
