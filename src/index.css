@@ -313,16 +313,16 @@ button:focus {
   color: #328cc1;
   width: 50%;
   margin-right: 32px;
-  height: 25px;
+  height: 50px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  font-size: 18.5px;
+  font-size: 200%;
 }
-.AssessmentList input:focus {
+.AssessmentList .search-input:focus {
   width: 60%;
 }
-.AssessmentList input:focus {
+.AssessmentList .search-input:focus {
   outline: none;
 }
 .AssessmentList ::placeholder {
@@ -365,8 +365,7 @@ button:focus {
   min-height: 40px;
 }
 
-.AddAssessmentButton {
-  border: 1px solid #e3e3e3;
+.AddAssessmentButton, .AddAssessmentButton-removable {
   border-radius: 3px;
   height: 150px;
   width: 300px;
@@ -374,32 +373,22 @@ button:focus {
   text-align: center;
   align-items: center;
 }
-.AddAssessmentButton .assessment-button-top {
+.AddAssessmentButton .assessment-button-top, .AddAssessmentButton-removable .assessment-button-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 5px;
 }
-.AddAssessmentButton .assessment-button-top-removable {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 5px;
-  background-color: #328cc1;
-}
-.AddAssessmentButton .assessment-button-top p {
+.AddAssessmentButton .assessment-button-top p, .AddAssessmentButton-removable .assessment-button-top p {
   padding-right: 5px;
 }
-.AddAssessmentButton .assessment-button-top-removable p {
-  padding-right: 5px;
-}
-.AddAssessmentButton i {
+.AddAssessmentButton i, .AddAssessmentButton-removable i {
   padding-left: 5px;
 }
 
-.AddAssessmentButton:hover {
+.AddAssessmentButton:hover, .AddAssessmentButton-removable:hover {
   cursor: pointer;
-  background-color: #328cc1;
+  background-color: #073857;
 }
 
 .AddAssessmentButton-link {
@@ -444,6 +433,18 @@ button.btn {
 
 .clipboard-button {
   height: 25px;
+}
+
+.AddAssessmentButton {
+  border: 1px solid #e3e3e3;
+}
+
+.AddAssessmentButton-removable {
+  border: 1px solid #328cc1;
+  color: #328cc1;
+}
+.AddAssessmentButton-removable .material-icons.blue {
+  color: #328cc1;
 }
 
 .AddRemoveAll {

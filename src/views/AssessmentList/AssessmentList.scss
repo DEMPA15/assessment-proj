@@ -57,18 +57,18 @@
         color: $main-blue;
         width: 50%;
         margin-right: 32px;
-        height: 25px;
+        height: 50px;
         -webkit-transition: all .3s ease;
         -moz-transition: all .3s ease;
         transition: all .3s ease;
-        font-size: 18.5px;
+        font-size: 200%;
     }
 
-    input:focus {
+    .search-input:focus {
         width: 60%;
     }
 
-    input:focus {
+    .search-input:focus {
         outline: none;
     }
 

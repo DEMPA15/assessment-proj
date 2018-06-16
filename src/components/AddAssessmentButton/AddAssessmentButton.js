@@ -59,9 +59,9 @@ copied(){
         //Assessment can be removed
         else if (this.props.assessments.find(propsAssessment => propsAssessment.id === this.props.assessment.id)) {
             return (
-                <div className='AddAssessmentButton' onClick={this.props.removeAssessment} key={this.props.assessment.id} title={this.props.assessment.name} id={this.props.assessment.id}>
-                    <div className='assessment-button-top-removable' title={this.props.assessment.name} id={this.props.assessment.id}>
-                        <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
+                <div className='AddAssessmentButton-removable' onClick={this.props.removeAssessment} key={this.props.assessment.id} title={this.props.assessment.name} id={this.props.assessment.id}>
+                    <div className='assessment-button-top' title={this.props.assessment.name} id={this.props.assessment.id}>
+                        <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} blue={true}/>
                         <p title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                     </div>
                     <p title={this.props.assessment.name} id={this.props.assessment.id}>Description filler.</p>
