@@ -364,27 +364,8 @@ button:focus {
   padding: 10px 0px;
   min-height: 40px;
 }
-.AssessmentList #search-box-input-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.AssessmentList #search-box-input-box i {
-  padding-right: 5px;
-}
-.AssessmentList #search-box-input-box i:hover {
-  cursor: default;
-}
-.AssessmentList #search-box-input-box input {
-  margin-right: 32px;
-}
-.AssessmentList ::placeholder {
-  color: #328cc1;
-}
 
-.AddAssessmentButton {
-  border: 1px solid #e3e3e3;
+.AddAssessmentButton, .AddAssessmentButton-removable {
   border-radius: 3px;
   height: 150px;
   width: 300px;
@@ -452,6 +433,15 @@ button.btn {
 
 .clipboard-button {
   height: 25px;
+}
+
+.AddAssessmentButton {
+  border: 1px solid #e3e3e3;
+}
+
+.AddAssessmentButton-removable {
+  border: 1px solid #328cc1;
+  color: #328cc1;
 }
 
 #snackbar {
