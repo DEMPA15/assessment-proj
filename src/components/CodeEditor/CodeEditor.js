@@ -36,7 +36,7 @@ class CodeEditor extends Component {
     const qIDArr = this.props.qID.split('')
     const newQnum = Number(qIDArr[1])+1;
     const newQ = `Q${newQnum}`
-    history.push(`/wizard/1/${this.props.assessmentID}/${newQ}`);
+    history.push(`/wizard/${this.props.emailID}/${this.props.assessmentID}/${newQ}`);
   }
   attemptedQuestion(){
     let newObj = {...this.props.results[this.props.qID]}
