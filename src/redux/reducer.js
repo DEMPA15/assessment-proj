@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS} from './constraints'
+import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA} from './constraints'
 
 
 const userInfo = {
@@ -14,7 +14,7 @@ function user(state = userInfo, action ){
         case SET_EMAIL:
             return Object.assign({}, state, action.payload)
         default:
-            return state; 
+            return state;
     }
 }
 
@@ -25,7 +25,9 @@ function questions(state = [], action ){
         case `${GET_QUESTIONS}_FULFILLED`:
             return state = [...state, ...action.payload]
         case `${GET_QUESTIONS}_REJECTED`:
-             return [`Questions not set`];
+            return [`Questions not set`];
+        case CLEAR_DATA:
+            return [];
         default:
             return state;
     }
@@ -41,6 +43,8 @@ function results(state = {}, action ){
             return Object.assign({}, state, action.payload)
         case `${POST_RESULTS}_REJECTED`:
              return state
+        case CLEAR_DATA:
+             return [];
         default:
             return state
     }
@@ -54,6 +58,8 @@ function assessments(state = [], action){
             return state.filter(assessment => assessment.id !== action.payload.id);
         case REMOVE_ALL_ASSESSMENTS:
             return [];
+        case CLEAR_DATA:
+            return [];
         default:
             return state;
     }
@@ -65,7 +71,9 @@ function code(state={}, action){
             return Object.assign({}, state, action.payload)
         case ENTER_CODE:
             return Object.assign({}, state, action.payload)
-        default: 
+        case CLEAR_DATA:
+            return [];
+        default:
             return state
     }
 }
