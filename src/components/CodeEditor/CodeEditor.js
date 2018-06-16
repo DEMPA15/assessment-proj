@@ -3,6 +3,7 @@ import brace from 'brace';
 import 'brace/theme/solarized_dark'
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
+import LoadingGif from '../LoadingGif/LoadingGif';
 
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
@@ -17,17 +18,15 @@ class CodeEditor extends Component {
     super(props);
     this.state={
       lastQ: false,
-      last:false,
+      messageTxt:'',
+      messageColor:'',
+      loaded: true,
     }
   }
-  componentWillMount = () => {
-    const length = this.props.questions.length;
-    const num = this.props.qID.split('')[1];
-    if(length === num){
-      this.setState({
-        last : true,
-      })
-    }
+  showMessage = () => {
+    let x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   onChange = (newValue) => {
     this.props.enterCode({[this.props.qID]:newValue})
@@ -45,39 +44,70 @@ class CodeEditor extends Component {
     this.props.attempted({ [this.props.qID]: newObj })
   }
   postResults = (e) => {
+    this.setState({
+      loaded:false,
+    })
     this.attemptedQuestion()
-    
     const QID = this.props.qID
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
-    if(num===length){
+    if(this.props.code[this.props.qID] === ''){
+      this.setState({
+        loaded: true,
+        messageColor:'red',
+        messageTxt: `Come on! It's empty!`,
+      },this.showMessage())
+    }else if(num===length){
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
       .then(response => {
+        
         if(response.value[QID].passed === true){
           this.setState({
+            loaded: true,
             lastQ:true,
-          })
-                    
-
+            messageTxt:'Passed!',
+            messageColor:'green'
+          },this.showMessage())
         }else{
-          console.log(`test didn't pass`);
+          this.setState({
+            loaded: true,
+            messageTxt:'Did not pass!',
+            messageColor:'red'
+          },this.showMessage())
         }
       })
       .catch( err => {
+        this.setState({
+          loaded: true,
+          messageTxt:'Looks like you might have inputted invalid JS!',
+          messageColor: 'red',
+        },this.showMessage())
         console.log('something broke')
       })
     }else{
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)     
       .then(response => {
         if(response.value[QID].passed === true){
-         return 'worked'
+          this.setState({
+            loaded: true,
+            messageTxt:'Passed!',
+            messageColor:'green'
+          },this.showMessage())
         }else{
           this.setState({
-            wrong:true,
-          })
+            loaded: true,
+            messageTxt:'Did not pass!',
+            messageColor:'red'
+          },this.showMessage())
+          
         }
       })
       .catch( err => {
+        this.setState({
+          loaded: true,
+          messageTxt:'Looks like you might have inputted invalid JS!',
+          messageColor: 'red',
+        },this.showMessage())
         console.log('something broke')
       })
     }
@@ -87,7 +117,9 @@ class CodeEditor extends Component {
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
     let button = ''
-    if(this.state.lastQ){
+    if(this.state.loaded === false){
+      button = <div className = 'codeLoadingGif'><p className = 'warning'>If you did not wrap the code in a function, this could take a while.</p></div>
+    }else if(this.state.lastQ){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
     }else if(this.props.results[this.props.qID].passed === true){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
@@ -106,6 +138,7 @@ class CodeEditor extends Component {
           fontSize={14}
           showPrintMargin={true}
           showGutter={true}
+          wrapEnabled = {true}
           highlightActiveLine={true}
           value={this.props.code[this.props.qID]}
           focus={true}
@@ -120,7 +153,7 @@ class CodeEditor extends Component {
         </AceEditor>
         
         {button}
-        
+        <div id="snackbar" style = {{backgroundColor: this.state.messageColor}}>{this.state.messageTxt}</div> 
       </div>
     );
   }

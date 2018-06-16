@@ -64,22 +64,20 @@ app.get(`/api/questions/:assessmentID`, (req, res) => {
 
 app.post(`/api/post-results`,  (req, res) => {
     const { data, assessmentID, qID } = req.body;
-    Assessments.findOne({_id: assessmentID}, async (err, assessment)=>{
-        let assessmentName = assessment.name
-        const path = './test.js';
+        Assessments.findOne({_id: assessmentID}, async (err, assessment)=>{
+            let assessmentName = assessment.name
+            const path = './test.js';
 
-        await writeFileAsync(path, data)
+            await writeFileAsync(path, data)
 
-        testRunner(path, assessmentName, qID)
-        .then(result => {
-            res.send(result);
+            testRunner(path, assessmentName, qID)
+            .then(result => {
+                res.send(result);
+            })
+            .catch(err => {
+                console.log(err)
+            })
         })
-        .catch(err => {
-            console.log(err)
-        })
-    })
-
-
 });
 
 app.post(`/api/submit`, (req,res)=>{

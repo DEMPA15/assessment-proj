@@ -28,7 +28,9 @@ class AddAssessmentButton extends Component {
         })
     }
 copied(){
-    alert(`copied!`)
+    var x = document.getElementById("snackbar-copied");
+    x.className = "show";
+    setTimeout(function(){x.className = x.className.replace("show", "");}, 3000)
 }
     render() {
         // Assessment links
@@ -41,6 +43,7 @@ copied(){
                 <div className='assessment-link-container'>
                 <button className='btn' data-clipboard-target="#assessment-link-input" onClick={ this.copied }><img className="clipboard-button" src={clipboard}/></button>
                 <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link}/>
+                <div id="snackbar-copied">Copied!</div>
                 </div>
             </div>
         }
@@ -59,9 +62,9 @@ copied(){
         //Assessment can be removed
         else if (this.props.assessments.find(propsAssessment => propsAssessment.id === this.props.assessment.id)) {
             return (
-                <div className='AddAssessmentButton' onClick={this.props.removeAssessment} key={this.props.assessment.id} title={this.props.assessment.name} id={this.props.assessment.id}>
-                    <div className='assessment-button-top-removable' title={this.props.assessment.name} id={this.props.assessment.id}>
-                        <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
+                <div className='AddAssessmentButton-removable' onClick={this.props.removeAssessment} key={this.props.assessment.id} title={this.props.assessment.name} id={this.props.assessment.id}>
+                    <div className='assessment-button-top' title={this.props.assessment.name} id={this.props.assessment.id}>
+                        <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} blue={true}/>
                         <p title={this.props.assessment.name} id={this.props.assessment.id}> {this.props.assessment.name.toUpperCase()}</p>
                     </div>
                     <p title={this.props.assessment.name} id={this.props.assessment.id}>Description filler.</p>
