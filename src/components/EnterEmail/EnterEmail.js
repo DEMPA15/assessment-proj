@@ -33,7 +33,7 @@ class EnterEmail extends Component {
         <div className = "student-email">
           <div>
             <h1> Enter Email </h1>
-            <h4> Whatever Josh wants it to say here </h4>
+            <h4> Test Results Will Be Sent To This Email </h4>
           </div>
           <div>
             <input type="text" placeholder="email" value={this.state.email} onChange={this.handleChange} onKeyPress={this._handleKeyPress}/>
