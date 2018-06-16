@@ -71,7 +71,9 @@ class AssessmentList extends Component {
       name: e.target.title,
       id: e.target.id
     };
-
+    this.setState(({
+      visible: false
+    }))
     this.props.removeAssessment(assessment)
   }
 
