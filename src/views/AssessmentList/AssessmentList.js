@@ -86,6 +86,9 @@ class AssessmentList extends Component {
   }
 
   removeAll(e) {
+    this.setState(({
+      visible: false
+    }))
     this.props.removeAllAssessments();
   }
 
@@ -131,7 +134,7 @@ class AssessmentList extends Component {
             <i className="material-icons">
               search
             </i>
-            <input type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
+            <input className='search-input' type="text" name='searchText' value={this.state.searchText} onChange={this.handleChange} placeholder='Search'/>
           </div>
         <div className='add-remove-all' >
           <AddRemoveAll add={true} addAll={this.addAll} allAssessments={this.state.assessments} />
@@ -141,10 +144,21 @@ class AssessmentList extends Component {
           {assessments}
         </div>
         <div className={`slide-up-container-${this.state.visible}`} ref={this.state.visible} >
-          <button className="slide-up-button" onClick={this.slideOut}>ASSESSMENT LIST</button>
-          {this.state.visible === true &&
-            <LinkDisplay />}
-
+            {
+              this.props.assessments.length === 1 &&
+              <button className="slide-up-button" onClick={this.slideOut}>
+                {this.props.assessments.length} ASSESSMENT LINK SELECTED
+              </button>
+            }
+             { 
+               this.props.assessments.length > 1 &&
+              <button className="slide-up-button" onClick={this.slideOut}>
+                {this.props.assessments.length} ASSESSMENT LINKS SELECTED
+              </button>
+             }
+             {this.state.visible === true &&
+               <LinkDisplay />}
+          
         </div>
 
       </div>
