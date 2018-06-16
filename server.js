@@ -84,11 +84,16 @@ app.post(`/api/post-results`,  (req, res) => {
 
 app.post(`/api/submit`, (req,res)=>{
 
-    const questionText = []
+    let questionText = []
     Object.keys(req.body).map(results => {
         if (results[0]=== 'Q') {
           return questionText.push(req.body[results]);
         }
+    });
+
+    let passedQuestion = []
+    Object.keys(questionText).map(results => {
+        return passedQuestion.push(questionText.tests);
     });
 
     //email will need

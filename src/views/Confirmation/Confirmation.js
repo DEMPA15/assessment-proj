@@ -15,7 +15,7 @@ class Confirmation extends Component {
       <div className="confirmation">
       <img src={img} alt="code bar logo" className="confirmation-img"/>
       <div className="confirmation-text">
-        <h2>Congratulations {this.props.user.name},</h2><p>your assessment results have been successfully submitted. You may now close your browser</p>
+        <h2>Congratulations {this.props.user.name},</h2><p>Your assessment results have been successfully submitted, you may now close your browser.</p>
         </div>
       <img src={passed} alt="code bar logo" className="confirmation-passed-img"/>
       </div>
