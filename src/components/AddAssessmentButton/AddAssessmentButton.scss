@@ -1,5 +1,4 @@
-.AddAssessmentButton {
-    border: 1px solid #e3e3e3;
+.AddAssessmentButton, .AddAssessmentButton-removable {
     border-radius: 3px;
     height: 150px;
     width: 300px;
@@ -14,28 +13,18 @@
         padding-right: 5px;
     }
 
-    .assessment-button-top-removable {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 5px;
-        background-color: $main-blue;
-    }
-
     .assessment-button-top p {
         padding-right: 5px;
     }
-    .assessment-button-top-removable p {
-        padding-right: 5px;
-    }
+
     i {
         padding-left: 5px;
     }
 }
 
-.AddAssessmentButton:hover {
+.AddAssessmentButton:hover, .AddAssessmentButton-removable:hover {
     cursor: pointer;
-    background-color: $main-blue;
+    background-color: $dark-blue;
 }
 .AddAssessmentButton-link {
     margin-bottom: -25px;
@@ -73,4 +62,51 @@ button.btn {
 }
 .clipboard-button {
     height: 25px;
+}
+
+.AddAssessmentButton {
+    border: 1px solid $off-white;
+}
+
+.AddAssessmentButton-removable {
+    border: 1px solid $main-blue;
+    color: $main-blue;
+}
+#snackbar-copied {
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: $dark-blue; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 2px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%;
+    bottom: 30px; 
+}
+#snackbar-copied.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
