@@ -239,7 +239,7 @@ button:focus {
     display: block;
     align-items: center;
     justify-content: center; }
-  .AssessmentList input {
+  .AssessmentList .search-input {
     background-color: transparent;
     border: none;
     border-bottom: 1px #328cc1 solid;
@@ -266,50 +266,55 @@ button:focus {
     box-sizing: border-box;
     position: fixed;
     height: 45px;
-    background: #073857;
+    background: #001012;
     width: 40%;
     bottom: 0;
     left: 30%;
     transition: height 1s;
     min-width: 320px;
-    word-wrap: break-word; }
+    word-wrap: break-word;
+    border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid; }
   .AssessmentList .slide-up-container-true {
     box-sizing: border-box;
     position: fixed;
     height: 75vh;
-    background: #073857;
+    background: #021e22;
     width: 40%;
     bottom: 0;
     left: 30%;
     transition: height 1s;
     min-width: 320px;
-    word-wrap: break-word; }
+    word-wrap: break-word;
+    border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid; }
   .AssessmentList .slide-up-button {
     width: 100%;
     font-size: 20px;
-    padding: 10px 0px;
     border: solid 1px #073857;
-    background: gray;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518));
     color: white;
-    border-radius: 4px 4px 0px 0px; }
+    border-radius: 4px 4px 0px 0px;
+    padding: 10px 0px;
+    min-height: 40px; }
   .AssessmentList #search-box-input-box {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    margin-top: 10px; }
   .AssessmentList #search-box-input-box i {
     padding-right: 5px; }
   .AssessmentList #search-box-input-box i:hover {
     cursor: default; }
   .AssessmentList #search-box-input-box input {
     margin-right: 32px; }
+  .AssessmentList ::placeholder {
+    color: #328cc1; }
 
 .AddAssessmentButton {
-  margin-bottom: -25px;
   border: 1px solid #e3e3e3;
   border-radius: 3px;
   height: 150px;
   width: 300px;
-  margin: auto;
+  margin: 10px auto;
   text-align: center;
   align-items: center; }
   .AddAssessmentButton .assessment-button-top {
@@ -317,7 +322,15 @@ button:focus {
     justify-content: space-between;
     align-items: center;
     padding-right: 5px; }
+  .AddAssessmentButton .assessment-button-top-removable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5px;
+    background-color: #328cc1; }
   .AddAssessmentButton .assessment-button-top p {
+    padding-right: 5px; }
+  .AddAssessmentButton .assessment-button-top-removable p {
     padding-right: 5px; }
   .AddAssessmentButton i {
     padding-left: 5px; }
@@ -325,6 +338,43 @@ button:focus {
 .AddAssessmentButton:hover {
   cursor: pointer;
   background-color: #328cc1; }
+
+.AddAssessmentButton-link {
+  margin-bottom: -25px;
+  border: #328cc1 1px solid;
+  border-radius: 3px;
+  height: 10%;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px auto; }
+
+.assessment-button-top-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5px; }
+
+.title-link {
+  color: #328cc1; }
+
+#assessment-link-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  align-content: center; }
+
+.assessment-link-container {
+  display: flex; }
+
+button.btn {
+  background: transparent;
+  border: none; }
+
+.clipboard-button {
+  height: 25px; }
 
 .AddRemoveAll {
   display: flex;
@@ -348,6 +398,9 @@ button:focus {
   align-items: center; }
 
 @media (max-width: 1060px) {
+  .codeEditor-container {
+    height: 100%; } }
+@media (max-width: 759px) {
   .codeEditor-container {
     height: 50vh; } }
 .buttonContainer {
@@ -468,6 +521,13 @@ button:focus {
   width: 80%;
   justify-content: space-between; }
 
+.email-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .student-email {
   border: 1px solid #666666;
   background: #073857;
@@ -481,6 +541,9 @@ button:focus {
 
 h1 {
   color: #e3e3e3; }
+
+h4 {
+  color: #65584d; }
 
 .student-email div > input {
   width: 75%;
@@ -547,19 +610,20 @@ h1 {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
-  margin-top: 5px; }
+  margin-top: 25px; }
 
 .question-link:hover {
   cursor: pointer; }
 
 .assessment-progress-submit-button {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 30px;
   width: 100%; }
 
 .assessment-progress-submit-button button {
   padding: 7px;
-  color: white; }
+  color: #e3e3e3;
+  font-size: .9em; }
 
 @media (max-width: 1060px) {
   .assessment-progress-container {
@@ -581,13 +645,16 @@ h1 {
     text-align: left; }
 
   .assessment-progress-container {
-    flex-wrap: wrap; } }
-@media (max-width: 645px) {
-  .questions-results-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap; }
 
   .assessment-progress-submit-button {
     display: none; } }
+@media (max-width: 645px) {
+  .questions-results-container {
+    flex-wrap: wrap; } }
 .questionText-container {
   margin-top: 3px;
   width: "inherit"; }
