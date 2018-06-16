@@ -47,7 +47,34 @@ import AceEditor from 'react-ace';
       <div className="questionText-container"> 
           <div className='section-title'>Question {this.props.qID.split('')[1]} </div> 
             <p> {questText} </p>
+<<<<<<< HEAD
             { component }
+=======
+             <div className="editor">
+              <AceEditor
+                  style={{zIndex: 0, height:'100px', width: '95%', margin: '10px' }}
+                  mode="javascript"
+                  theme="solarized_dark"
+                  name="blah2"
+                  onLoad={this.onLoad}
+                  fontSize={14}
+                  showPrintMargin={true}
+                  showGutter={true}
+                  highlightActiveLine={true}
+                  value={questCode}
+                  focus={true}
+                  readOnly={true}
+                  wrapEnabled={true}
+                  setOptions={{
+                    enableBasicAutocompletion: false,
+                    enableLiveAutocompletion: false,
+                    enableSnippets: true,
+                    showLineNumbers: true,
+                    tabSize: 2,
+                  }}>
+                </AceEditor>
+              </div>
+>>>>>>> cab489b491b25343ac9bb3b1cb383be85ee2400f
       </div>  
     );
   }
