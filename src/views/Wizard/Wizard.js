@@ -69,7 +69,7 @@ componentDidMount(){
                 </div>
               </div>
               <div className='editor-container'>
-                <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history}/>
+                <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history} emailID = {emailID}/>
               </div>
               <div className='progressBar-container  component-wrapper'>
                 <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
