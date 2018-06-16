@@ -10,4 +10,5 @@ export const SET_NAME = 'SET_NAME';
 export const ENTER_CODE = 'ENTER_CODE';
 export const POST_RESULTS = 'POST_RESULTS';
 export const SET_CODE = 'SET_CODE';
-export const ATTEMPTED = 'ATTEMPTED'
+export const ATTEMPTED = 'ATTEMPTED';
+export const CLEAR_DATA = 'CLEAR_DATA';
