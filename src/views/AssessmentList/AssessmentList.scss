@@ -15,11 +15,38 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
+
+    .add-remove-all {
+        display: flex;
+        padding-right: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
     
-    .search-box {
-        display: block;
+    i:hover {
+        cursor: pointer;
+    }
+
+    //search box
+    #search-box {
+        display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    #search-box i {
+        padding-right: 5px;
+    }
+
+    #search-box i:hover {
+        cursor: default;
+    }
+
+    .search-box > p {
+        padding-right: 5px;
     }
     
     .search-input {
@@ -28,35 +55,29 @@
         border-bottom: 1px $main-blue solid;
         caret-color: $main-blue;
         color: $main-blue;
-        width: 200px;
-        height: 25px;
+        width: 50%;
+        margin-right: 32px;
+        height: 50px;
         -webkit-transition: all .3s ease;
         -moz-transition: all .3s ease;
         transition: all .3s ease;
-        font-size: 18.5px;
+        font-size: 200%;
     }
 
-    input:focus {
-        width: 350px;
+    .search-input:focus {
+        width: 60%;
     }
 
-    input:focus {
+    .search-input:focus {
         outline: none;
     }
 
-    .search-box > p {
-        padding-right: 5px;
+    ::placeholder {
+        color: $main-blue;
     }
     
-    i:hover {
-        cursor: pointer;
-    }
-    
-    .add-remove-all {
-        display: block;
-        padding-right: 5px;
-    }
-    
+    //slide
+
     .slide-up-container-false {
         box-sizing: border-box;
         position: fixed;
@@ -95,24 +116,5 @@
         padding: 10px 0px;
         min-height: 40px;
     }
-    #search-box-input-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-    }
-    #search-box-input-box i {
-        padding-right: 5px;
-    }
-    #search-box-input-box i:hover {
-        cursor: default;
-    }
-    #search-box-input-box input {
-        margin-right: 32px;
-    }
-    ::placeholder {
-        color: $main-blue;
-    }
-
 }
 

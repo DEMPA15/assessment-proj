@@ -11,7 +11,6 @@ const services = {
     postResults: (code, assessmentID, qID)=>{
         const beginModule = 'module.exports = ';
         const data = beginModule + code;
-        
         return axios.post('/api/post-results', { data, assessmentID, qID })
             .then(results=>{
                 return {
@@ -21,6 +20,9 @@ const services = {
                         tests: results.data.tests
                     }
                 }
+            })
+            .catch(err => {
+                console.error(err);
             })
     },
 }
