@@ -10,7 +10,7 @@ class AddRemoveAll extends Component {
         if (this.props.add){
             return (
                 <div className='AddRemoveAll' onClick={this.props.addAll}>
-                    <AddMinusButton add={true} /><p>Add all assessments</p>
+                    <AddMinusButton add={true} /><p>Add all</p>
                 </div>
             )
         }
@@ -18,7 +18,7 @@ class AddRemoveAll extends Component {
         else if (!this.props.add) {
             return (
             <div className='AddRemoveAll' onClick={this.props.removeAll}>
-                <AddMinusButton /><p>Remove all assessments</p>
+                <AddMinusButton /><p>Remove all</p>
             </div>
             )
         }

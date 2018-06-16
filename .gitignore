@@ -18,7 +18,10 @@
 .env.production.local
 
 test.js
+<<<<<<< HEAD
 index.css
+=======
+>>>>>>> 3634c7b7e3761b405d1e8b7875883810f168aa66
 index.css/
 
 npm-debug.log*
