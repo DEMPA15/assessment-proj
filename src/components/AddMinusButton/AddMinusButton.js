@@ -2,26 +2,8 @@ import React, { Component } from 'react';
 
 
 class AddMinusButton extends Component {
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         add: true
-    //     }
-    // }
-
-    // onClick() {
-    //     if (this.state.add) {
-    //         this.setState({
-    //             add: false
-    //         })
-    //     }
-    //     else this.setState({
-    //         add: true
-    //     })
-    // }
-
     render() {
+        // Add button
         if (this.props.add) {
             return (
                 <div className='add-minus-button'>
@@ -31,6 +13,7 @@ class AddMinusButton extends Component {
                 </div>
             );
         }
+        // Minus button
         else return (
             <div className='add-minus-button'>
                 <i className="material-icons" title={this.props.title} id={this.props.id}>

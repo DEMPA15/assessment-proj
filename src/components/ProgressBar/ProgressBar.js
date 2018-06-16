@@ -11,9 +11,9 @@ class ProgressBar extends Component {
     }
     const questions = Object.keys(this.props.results).map((question, i)=>{
       return <div key={i} className='question-result-box'>
-                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
+                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} style={this.props.results[question].attempted ? {opacity:1}:{opacity:0}}/>
                 <Link to={`/wizard/${this.props.emailID}/${this.props.assessmentID}/${question}`}>  
-                  <div className='question-link section-subtitle'>{idToTitle(question)} </div> 
+                  <div className='question-link section-subtitle' style={question === this.props.qID ? {color: '#328cc1'}: {color:'#e3e3e3'}}>{idToTitle(question)} </div> 
                 </Link>
             </div>
     })

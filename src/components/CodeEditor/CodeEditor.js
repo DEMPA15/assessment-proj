@@ -38,10 +38,16 @@ class CodeEditor extends Component {
     const newQ = `Q${newQnum}`
     history.push(`/wizard/1/${this.props.assessmentID}/${newQ}`);
   }
+  attemptedQuestion(){
+    let newObj = {...this.props.results[this.props.qID]}
+    newObj.attempted = true
+    this.props.attempted({ [this.props.qID]: newObj })
+  }
   postResults = (e) => {
     this.setState({
       loaded:false,
     })
+    this.attemptedQuestion()
     const QID = this.props.qID
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
