@@ -8,13 +8,15 @@ module.exports = [{
     {
         text: 'doorKeys should be an array',
         assertion: function () {
-            expect(this.subject()).to.be.an('array');
+            const doors = {red: "cedar", blue: "stone", green: "pine", brown: "mahogany"}
+            expect(this.subject(doors)).to.be.an('array');
         }
     },
     {
         text: 'doorKeys should contain correct values',
         assertion: function () {
-            expect(this.subject()).include("red", "blue", "green", "brown");
+            const doors = {red: "cedar", blue: "stone", green: "pine", brown: "mahogany"}
+            expect(this.subject(doors)).include("red", "blue", "green", "brown");
         }
     },
 ]
