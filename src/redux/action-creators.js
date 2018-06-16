@@ -1,10 +1,17 @@
-import { ATTEMPTED, SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA } from './constraints'
+import { ATTEMPTED, SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA, CHANGED_ANSWER } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){
     return {
         type: GET_QUESTIONS,
         payload: services.getQuestions(assessmentID)
+    }
+}
+
+export function changedAnswer(payload){
+    return {
+        type: CHANGED_ANSWER,
+        payload: payload
     }
 }
 

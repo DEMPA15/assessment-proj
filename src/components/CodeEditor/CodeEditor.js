@@ -21,6 +21,7 @@ class CodeEditor extends Component {
       messageTxt:'',
       messageColor:'',
       loaded: true,
+      code:'',
     }
   }
   showMessage = () => {
@@ -29,7 +30,26 @@ class CodeEditor extends Component {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
   onChange = (newValue) => {
-    this.props.enterCode({[this.props.qID]:newValue})
+    let tests = []
+      this.props.results[this.props.qID].tests.forEach(test=>{
+    tests.push({text: test.text, passed: null})})
+    let changedResult = {
+      [this.props.qID]:{
+        attempted: true,
+        passed: null,
+        tests: tests
+      }
+    }
+    if(this.props.results[this.props.qID].passed === true){
+      this.props.changedAnswer(changedResult);
+      this.setState({
+        code: newValue,
+      })
+    }else{
+      this.setState({
+        code: newValue,
+      })
+    }
   }
   nextPage = (e) => {
     const history = this.props.history;
@@ -43,7 +63,10 @@ class CodeEditor extends Component {
     newObj.attempted = true
     this.props.attempted({ [this.props.qID]: newObj })
   }
-  postResults = (e) => {
+  async postResults(e) {
+    
+    await this.props.enterCode({[this.props.qID]:this.state.code})
+
     this.setState({
       loaded:false,
     })
@@ -51,13 +74,20 @@ class CodeEditor extends Component {
     const QID = this.props.qID
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
-    if(this.props.code[this.props.qID] === ''){
+    
+    if(this.state.code === ''){
       this.setState({
         loaded: true,
         messageColor:'red',
         messageTxt: `Come on! It's empty!`,
       },this.showMessage())
-    }else if(num===length){
+    } else if(this.state.code.search('function') === -1){
+      this.setState({
+        loaded: true,
+        messageColor: 'red',
+        messageTxt: 'Please wrap your code in a function'
+      }, this.showMessage())
+    } else if(num===length){
       this.props.postResults(this.props.code[this.props.qID], this.props.assessmentID, this.props.qID)    
       .then(response => {
         
@@ -121,14 +151,14 @@ class CodeEditor extends Component {
       button = <div className = 'codeLoadingGif'><p className = 'warning'>If you did not wrap the code in a function, this could take a while.</p></div>
     }else if(this.state.lastQ){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
-    }else if(this.props.results[this.props.qID].passed === true){
-      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
+    }else if(this.props.results[this.props.qID].passed === true && this.state.code == this.props.code[this.props.qID]){
+      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button><button className = 're-run' onClick ={e=> {this.postResults(e)}}>Re-run</button></div>      
     }else{
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
     return (
       <div className='codeEditor-container' id = 'codeEditor'>
-        <AceEditor
+        <AceEditor 
           style={{zIndex: 0, height: 'inherit', width: '100%' }}
           mode="javascript"
           theme="solarized_dark"
@@ -140,7 +170,7 @@ class CodeEditor extends Component {
           showGutter={true}
           wrapEnabled = {true}
           highlightActiveLine={true}
-          value={this.props.code[this.props.qID]}
+          value={this.state.code}
           focus={true}
           setOptions={{
             enableBasicAutocompletion: false,
