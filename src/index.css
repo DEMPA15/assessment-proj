@@ -367,82 +367,6 @@ button:focus {
 .AssessmentList ::placeholder {
   color: #328cc1;
 }
-  background-size: cover; }
-
-  .AssessmentList .assessments-list {
-    display: flex;
-    text-align: left;
-    flex-wrap: wrap;
-    justify-content: space-evenly; }
-  .AssessmentList .search-box {
-    display: block;
-    align-items: center;
-    justify-content: center; }
-  .AssessmentList input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px #328cc1 solid;
-    caret-color: #328cc1;
-    color: #328cc1;
-    width: 200px;
-    height: 25px;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    transition: all .3s ease;
-    font-size: 18.5px; 
-  }
-  .AssessmentList input:focus {
-    width: 350px; }
-  .AssessmentList input:focus {
-    outline: none; }
-  .AssessmentList .search-box > p {
-    padding-right: 5px; }
-  .AssessmentList i:hover {
-    cursor: pointer; }
-  .AssessmentList .add-remove-all {
-    display: block;
-    padding-right: 5px; }
-  .AssessmentList .slide-up-container-false {
-    box-sizing: border-box;
-    position: fixed;
-    height: 45px;
-    background: #073857;
-    width: 40%;
-    bottom: 0;
-    left: 30%;
-    transition: height 1s;
-    min-width: 320px;
-    word-wrap: break-word; }
-  .AssessmentList .slide-up-container-true {
-    box-sizing: border-box;
-    position: fixed;
-    height: 75vh;
-    background: #073857;
-    width: 40%;
-    bottom: 0;
-    left: 30%;
-    transition: height 1s;
-    min-width: 320px;
-    word-wrap: break-word; }
-  .AssessmentList .slide-up-button {
-    width: 100%;
-    font-size: 20px;
-    padding: 10px 0px;
-    border: solid 1px #073857;
-    background: gray;
-    color: white;
-    border-radius: 4px 4px 0px 0px; }
-  .AssessmentList #search-box-input-box {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .AssessmentList #search-box-input-box i {
-    padding-right: 5px; }
-  .AssessmentList #search-box-input-box i:hover {
-    cursor: default; }
-  .AssessmentList #search-box-input-box input {
-    margin-right: 32px; }
-
 
 .AddAssessmentButton {
   border: 1px solid #e3e3e3;
@@ -553,15 +477,14 @@ button.btn {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
-    height: 100%; } }
+    height: 100%;
+  }
+}
 @media (max-width: 759px) {
   .codeEditor-container {
-    height: 50vh; } }
-
     height: 50vh;
   }
 }
-
 .buttonContainer {
   border: none;
   display: flex;
@@ -620,6 +543,8 @@ button.btn {
   /* Hidden by default. Visible on click */
   min-width: 250px;
   /* Set a default minimum width */
+  margin-left: -125px;
+  /* Divide value of min-width by 2 */
   background-color: #333;
   /* Black background color */
   color: #fff;
@@ -628,8 +553,16 @@ button.btn {
   /* Centered text */
   border-radius: 2px;
   /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
   z-index: 1;
   /* Add a z-index if needed */
+  left: 20%;
+  /* Center the snackbar */
+  bottom: 30px;
+  /* 30px from the bottom */
 }
 
 #snackbar.show {
@@ -643,7 +576,7 @@ button.btn {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100px;
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: left;
@@ -651,7 +584,7 @@ button.btn {
 }
 
 .warning {
-  width: 150px;
+  width: 300px;
   font-size: 17px;
 }
 
@@ -787,14 +720,9 @@ button.btn {
   width: 30px;
   min-width: 350px;
   text-align: center;
-
-  margin: auto;
+  margin: 0 auto;
   padding-top: 25px;
 }
-
-  margin: 0 auto;
-  padding-top: 25px; }
-
 
 h1 {
   color: #e3e3e3;
@@ -855,24 +783,8 @@ h1 {
 
 .LinkDisplay {
   box-sizing: border-box;
-
   width: 100%;
 }
-
-  width: 100%; 
-}
-  .LinkDisplay .generate-links-button {
-    width: 100%;
-    font-size: 20px;
-    border: solid 1px #073857;
-    background: gray;
-    color: white;
-    border-radius: 4px 4px 0px 0px;
-    padding: 10px 0px;
-    bottom: 0;
-    left: 0;
-    position: absolute; }
-
 
 .assessment-progress-container {
   display: flex;
@@ -890,12 +802,8 @@ h1 {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
-
-  margin-top: 25px; }
-
-  margin-top: 5px;
+  margin-top: 25px;
 }
-
 
 .question-link:hover {
   cursor: pointer;
@@ -903,24 +811,15 @@ h1 {
 
 .assessment-progress-submit-button {
   text-align: center;
-
   margin-top: 30px;
-  width: 100%; }
-
-.assessment-progress-submit-button button {
-  padding: 7px;
-  color: #e3e3e3;
-  font-size: .9em; }
-
-  margin-top: 10px;
   width: 100%;
 }
 
 .assessment-progress-submit-button button {
   padding: 7px;
-  color: white;
+  color: #e3e3e3;
+  font-size: 0.9em;
 }
-
 
 @media (max-width: 1060px) {
   .assessment-progress-container {
@@ -946,23 +845,9 @@ h1 {
   }
 
   .assessment-progress-container {
-
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; }
-
-  .assessment-progress-submit-button {
-    display: none; } }
-@media (max-width: 645px) {
-  .questions-results-container {
-    flex-wrap: wrap; } }
-
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 645px) {
-  .questions-results-container {
     flex-wrap: wrap;
   }
 
@@ -970,7 +855,11 @@ h1 {
     display: none;
   }
 }
-
+@media (max-width: 645px) {
+  .questions-results-container {
+    flex-wrap: wrap;
+  }
+}
 .questionText-container {
   margin-top: 3px;
   width: "inherit";
