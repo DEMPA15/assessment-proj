@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA} from './constraints'
+import { ATTEMPTED, GET_QUESTIONS, SET_RESULTS, SET_EMAIL, SET_NAME, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA} from './constraints'
 
 
 const userInfo = {
@@ -43,8 +43,10 @@ function results(state = {}, action ){
             return Object.assign({}, state, action.payload)
         case `${POST_RESULTS}_REJECTED`:
              return state
+        case ATTEMPTED:
+            return Object.assign({}, state, action.payload)
         case CLEAR_DATA:
-             return [];
+            return {};
         default:
             return state
     }

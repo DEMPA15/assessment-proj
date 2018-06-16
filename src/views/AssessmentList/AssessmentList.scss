@@ -22,7 +22,7 @@
         justify-content: center;
     }
     
-    input {
+    .search-input {
         background-color: transparent;
         border: none;
         border-bottom: 1px $main-blue solid;
@@ -61,41 +61,45 @@
         box-sizing: border-box;
         position: fixed;
         height: 45px;
-        background: #073857;
+        background: #001012;
         width: 40%;
         bottom: 0;
         left: 30%;
         transition: height 1s;
         min-width: 320px;
         word-wrap: break-word;
+        border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid;
     }
     
     .slide-up-container-true {
         box-sizing: border-box;
         position: fixed;
         height: 75vh;
-        background: #073857;
+        background: #021e22;
         width: 40%;
         bottom: 0;
         left: 30%;
         transition: height 1s;
         min-width: 320px;
         word-wrap: break-word;
+        border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid;
     }
     
     .slide-up-button {
         width: 100%;
         font-size: 20px;
-        padding: 10px 0px;
         border: solid 1px #073857;
-        background: gray;
+        background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518));
         color: white;
         border-radius: 4px 4px 0px 0px;
+        padding: 10px 0px;
+        min-height: 40px;
     }
     #search-box-input-box {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 10px;
     }
     #search-box-input-box i {
         padding-right: 5px;
@@ -105,6 +109,9 @@
     }
     #search-box-input-box input {
         margin-right: 32px;
+    }
+    ::placeholder {
+        color: $main-blue;
     }
 
 }
