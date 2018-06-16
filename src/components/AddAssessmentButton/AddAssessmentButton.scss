@@ -72,7 +72,7 @@ button.btn {
     border: 1px solid $main-blue;
     color: $main-blue;
 }
-#snackbar {
+#snackbar-copied {
     visibility: hidden; 
     min-width: 250px; 
     margin-left: -125px; 
@@ -86,7 +86,7 @@ button.btn {
     left: 50%;
     bottom: 30px; 
 }
-#snackbar.show {
+#snackbar-copied.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
