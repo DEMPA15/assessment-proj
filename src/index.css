@@ -367,7 +367,6 @@ button:focus {
 .AssessmentList ::placeholder {
   color: #328cc1;
 }
-=======
   background-size: cover; }
 
   .AssessmentList .assessments-list {
@@ -554,9 +553,15 @@ button.btn {
 
 @media (max-width: 1060px) {
   .codeEditor-container {
+    height: 100%; } }
+@media (max-width: 759px) {
+  .codeEditor-container {
+    height: 50vh; } }
+
     height: 50vh;
   }
 }
+
 .buttonContainer {
   border: none;
   display: flex;
@@ -805,8 +810,12 @@ h1 {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
+
+  margin-top: 25px; }
+
   margin-top: 5px;
 }
+
 
 .question-link:hover {
   cursor: pointer;
@@ -814,6 +823,15 @@ h1 {
 
 .assessment-progress-submit-button {
   text-align: center;
+
+  margin-top: 30px;
+  width: 100%; }
+
+.assessment-progress-submit-button button {
+  padding: 7px;
+  color: #e3e3e3;
+  font-size: .9em; }
+
   margin-top: 10px;
   width: 100%;
 }
@@ -822,6 +840,7 @@ h1 {
   padding: 7px;
   color: white;
 }
+
 
 @media (max-width: 1060px) {
   .assessment-progress-container {
@@ -847,6 +866,18 @@ h1 {
   }
 
   .assessment-progress-container {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+
+  .assessment-progress-submit-button {
+    display: none; } }
+@media (max-width: 645px) {
+  .questions-results-container {
+    flex-wrap: wrap; } }
+
     flex-wrap: wrap;
   }
 }
@@ -859,6 +890,7 @@ h1 {
     display: none;
   }
 }
+
 .questionText-container {
   margin-top: 3px;
   width: "inherit";
