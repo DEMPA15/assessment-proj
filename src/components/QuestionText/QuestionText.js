@@ -17,7 +17,7 @@ import AceEditor from 'react-ace';
             <p> {questText} </p>
              <div className="editor">
               <AceEditor
-                  style={{zIndex: 0, height:'100px', width: '100%' }}
+                  style={{zIndex: 0, height:'100px', width: '95%', margin: '10px' }}
                   mode="javascript"
                   theme="solarized_dark"
                   name="blah2"
