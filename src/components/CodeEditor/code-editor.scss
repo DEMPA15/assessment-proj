@@ -61,6 +61,18 @@
 .buttonContainer .run:hover{
   background:#002028;
 }
+.buttonContainer .re-run{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #01313F;
+  border-radius: 0px;
+  width: 20%;
+}
+.buttonContainer .re-run:hover{
+  background:#002028;
+}
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
   min-width: 250px; /* Set a default minimum width */
