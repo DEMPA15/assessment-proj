@@ -1,3 +1,11 @@
+.email-container {
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .student-email {
     border: 1px solid #666666;
     background: #073857;
@@ -7,14 +15,16 @@
     min-width: 350px;
     text-align: center;
     margin: 0 auto;
-    padding-top: 25px;
-
-    
-
+    padding-top: 25px;   
 }
+
  h1 {
      color: #e3e3e3;
  }
+
+ h4 {
+    color: #65584d;
+}
 
 .student-email div >input {
     width: 75%;
