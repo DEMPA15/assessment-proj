@@ -21,7 +21,7 @@ class CodeEditor extends Component {
       messageTxt:'',
       messageColor:'',
       loaded: true,
-      code:'',
+      status:false,
     }
   }
   showMessage = () => {
@@ -43,11 +43,11 @@ class CodeEditor extends Component {
     if(this.props.results[this.props.qID].passed === true){
       this.props.changedAnswer(changedResult);
       this.setState({
-        code: newValue,
+        [this.props.qID]: newValue,
       })
     }else{
       this.setState({
-        code: newValue,
+        [this.props.qID]: newValue,
       })
     }
   }
@@ -56,6 +56,10 @@ class CodeEditor extends Component {
     const qIDArr = this.props.qID.split('')
     const newQnum = Number(qIDArr[1])+1;
     const newQ = `Q${newQnum}`
+    this.setState({
+      code:'',
+      status:false,
+    })
     history.push(`/wizard/${this.props.emailID}/${this.props.assessmentID}/${newQ}`);
   }
   attemptedQuestion(){
@@ -65,7 +69,7 @@ class CodeEditor extends Component {
   }
   async postResults(e) {
     
-    await this.props.enterCode({[this.props.qID]:this.state.code})
+    await this.props.enterCode({[this.props.qID]:this.state[this.props.qID]})
 
     this.setState({
       loaded:false,
@@ -75,13 +79,13 @@ class CodeEditor extends Component {
     const length = this.props.questions.length;
     const num = Number(this.props.qID.split('')[1]);
     
-    if(this.state.code === ''){
+    if(this.state[this.props.qID] === ''){
       this.setState({
         loaded: true,
         messageColor:'red',
         messageTxt: `Come on! It's empty!`,
       },this.showMessage())
-    } else if(this.state.code.search('function') === -1){
+    } else if(this.state[this.props.qID].search('function') === -1){
       this.setState({
         loaded: true,
         messageColor: 'red',
@@ -96,7 +100,8 @@ class CodeEditor extends Component {
             loaded: true,
             lastQ:true,
             messageTxt:'Passed!',
-            messageColor:'green'
+            messageColor:'green',
+            status: true,
           },this.showMessage())
         }else{
           this.setState({
@@ -121,7 +126,8 @@ class CodeEditor extends Component {
           this.setState({
             loaded: true,
             messageTxt:'Passed!',
-            messageColor:'green'
+            messageColor:'green',
+            status:true,
           },this.showMessage())
         }else{
           this.setState({
@@ -151,7 +157,7 @@ class CodeEditor extends Component {
       button = <div className = 'codeLoadingGif'><p className = 'warning'>If you did not wrap the code in a function, this could take a while.</p></div>
     }else if(this.state.lastQ){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
-    }else if(this.props.results[this.props.qID].passed === true && this.state.code == this.props.code[this.props.qID]){
+    }else if(this.props.results[this.props.qID].passed === true && this.state[this.props.qID] == this.props.code[this.props.qID]){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button><button className = 're-run' onClick ={e=> {this.postResults(e)}}>Re-run</button></div>      
     }else{
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
@@ -170,8 +176,9 @@ class CodeEditor extends Component {
           showGutter={true}
           wrapEnabled = {true}
           highlightActiveLine={true}
-          value={this.state.code}
+          value={this.state[this.props.qID]}
           focus={true}
+          readOnly={this.state.status}
           setOptions={{
             enableBasicAutocompletion: false,
             enableLiveAutocompletion: false,
