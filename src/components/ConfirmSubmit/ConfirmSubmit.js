@@ -8,7 +8,8 @@ class ConfirmSubmit extends Component {
     this.state = {
       allPassed: true,
       nameBorderColor: 'grey',
-      emailBorderColor: 'grey'
+      emailBorderColor: 'grey',
+      clicked: false
     }
   }
 
@@ -23,6 +24,9 @@ class ConfirmSubmit extends Component {
   }
   sendResults(){
     if(this.props.user.name && this.props.user.email){
+      this.setState({
+        clicked:true
+      })
       this.props.sendResults()
     }
     else{
@@ -43,7 +47,6 @@ class ConfirmSubmit extends Component {
       this.setState({
         nameBorderColor: 'grey'
       })
-      let upperCaseName
       this.props.setName(e.target.value)
     }
     if(e.target.name === 'email'){
@@ -95,10 +98,13 @@ class ConfirmSubmit extends Component {
               <input required type='email' name='email'  placeholder='EMAIL' onChange={(e)=>this.enterValue(e)} style={{borderBottom:`1px solid ${this.state.emailBorderColor}`}}/>
               <button className='submit-button-green confirmSubmit-button' onClick={()=>this.sendResults()}>
                 {
-                  this.state.allPassed ? 'Submit Answers'
+                  this.state.clicked ? '... sending'
                   :
-                  'Submit Answers Anyway'
+                    this.state.allPassed ? 'Submit Answers'
+                    :
+                    'Submit Answers Anyway'
                 }
+
             </button>
             </div>
 
