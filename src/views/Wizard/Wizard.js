@@ -5,6 +5,7 @@ import QuestionText from '../../components/QuestionText/QuestionText'
 import TestProgress from '../../components/TestProgress/TestProgress'
 import LoadingGif from '../../components/LoadingGif/LoadingGif'
 import Header from '../../components/Header/Header'
+import WelcomePopup from '../../components/WelcomePopup/WelcomePopup'
 
 import { connect } from 'react-redux';
 import { getQuestions, setResults, setCode } from '../../redux/action-creators'
@@ -14,7 +15,8 @@ class Wizard extends Component {
   constructor(){
     super()
     this.state = {
-      loading: true
+      loading: true,
+      welcomePopup: 'visible'
     }
   }
 
@@ -39,6 +41,12 @@ componentDidMount(){
     .catch(error=>{
       console.log(error)
     })
+}
+
+editWelcomePopupVisibility(value){
+  this.setState({
+    confirmSubmitPopup: value
+  })
 }
 
   render() {
@@ -73,6 +81,9 @@ componentDidMount(){
               </div>
               <div className='progressBar-container  component-wrapper'>
                 <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
+              </div>
+              <div className='popup'>
+                <WelcomePopup visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editWelcomePopupVisibility(value)}/>/>
               </div>
             </div>
           </div>
