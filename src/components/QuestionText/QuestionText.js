@@ -18,8 +18,8 @@ import AceEditor from 'react-ace';
       component = 
       <div className="editor" style = {{height: 'auto'}}>
         <AceEditor
-            style={{zIndex: 0, width: '100%' }}
-            height={'100px'}
+            style={{zIndex: 0, width: '96%', margin: '8px' }}
+            height={'20vh'}
             mode="javascript"
             theme="solarized_dark"
             name="blah"
