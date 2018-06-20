@@ -71,8 +71,8 @@ class ConfirmSubmit extends Component {
     }
     const questions = Object.keys(this.props.results).map((question, i)=>{
       return <div key={i} className='question-result-box'>
-                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />  
-                  <div className='section-subtitle'>{idToTitle(question)} </div> 
+                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
+                  <div className='section-subtitle'>{idToTitle(question)} </div>
             </div>
     })
     return (
@@ -102,12 +102,12 @@ class ConfirmSubmit extends Component {
                   :
                     this.state.allPassed ? 'Submit Answers'
                     :
-                    'Submit Answers Anyway' 
+                    'Submit Answers Anyway'
                 }
-                
+
             </button>
             </div>
-           
+
           </div>
           </div>
           </div>
@@ -121,4 +121,4 @@ function mapStateToProps ({ questions, results, code, user }) {
   return { questions, results, code, user };
   }
 
-export default connect(mapStateToProps , {setName, setEmail, postResults} )(ConfirmSubmit); 
+export default connect(mapStateToProps , {setName, setEmail, postResults} )(ConfirmSubmit);
