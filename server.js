@@ -82,63 +82,69 @@ app.post(`/api/post-results`,  (req, res) => {
 
 app.post(`/api/submit`, (req,res)=>{
 
-    let questionText = []
-    Object.keys(req.body).map(results => {
-        if (results[0]=== 'Q') {
-          return questionText.push(req.body[results]);
-        }
-    });
+const capitalizedName = req.body.studentName.toLowerCase().split(' ').map(function(word) {
+      return (word.charAt(0).toUpperCase() + word.slice(1));
+    }).join(' ');
 
-    let passedQuestion = []
-    Object.keys(questionText).map(results => {
-        return passedQuestion.push(questionText.tests);
-    });
+let questionText = []
+Object.keys(req.body).map(results => {
+    if (results[0]=== 'Q') {
+        return questionText.push(req.body[results]);
+    }
+});
 
-    //email will need
-    // student name, code, test results
-    //mentor email
+let code = []
+Object.keys(questionText).map((results, i) => {
+    return code.push(`<p key=${i}>
+    Question ${i + 1}:
+    ${questionText[results].passed ? 'PASSED' : 'DID NOT PASS'}
+    <br/>
+    <br/>
+    Student Code:
+    <br/>
+    ${questionText[results].code}
+    </p><br/>`)
+
+})
 
     const output = `
-    <h3>Below are the assessment results for ${req.body.studentName}</h3>
-    <p><b>Test Question</b></p>
-    <p>${questionText[0].tests[0].text}</p>
-    <p><b>${req.body.studentName}'s code</b></p>
-    <p>${questionText[0].code}</p>
-    <p>${questionText[0].passed ? 'passed!' : 'did not pass'}</p>
+    <h3>Below are the assessment results for ${capitalizedName}</h3>
+    <p><b>${capitalizedName}'s code</b></p>
     <br/>
-    `;
+    <p>${code}</p>
+    <br/>`
 
     let transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: {
-          user: 'wpr152018@gmail.com',
-          pass: 'wpr15-a-password'
-      },
-      tls:{
-      rejectUnauthorized: false
-      }
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: 'wpr152018@gmail.com',
+            pass: 'wpr15-a-password'
+        },
+        tls:{
+        rejectUnauthorized: false
+        }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-      from: '"Group Project" <wpr152018@gmail.com>',
-      to: `${req.body.instructorEmail}`,
-      subject: `Assessment results for ${req.body.studentName}`,
-      text: 'Hello can you hear me?',
-      html: output
+        from: '"Code Bar" <wpr152018@gmail.com>',
+        to: `${req.body.instructorEmail}`,
+        subject: `Assessment results for ${capitalizedName}`,
+        text: 'Hello can you hear me?',
+        html: output
     };
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          return console.log(error);
-      }
-      console.log('Message sent: %s', info.messageId);
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-      res.send({'message sent':true})
+        res.send({'message sent':true})
     });
 });
 
