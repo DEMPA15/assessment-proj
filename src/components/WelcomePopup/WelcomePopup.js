@@ -26,10 +26,10 @@ class WelcomePopup extends Component {
             return 'Question - ' + qID.split('').splice(1).join('')
         }
         return (
-            <div className='popup-background' style={{ visibility: this.props.visibility }}>
-                <div className='popup-content'>
+            <div className='popup-background' id='WelcomePopup-background'  style={{ visibility: this.props.visibility }}>
+                <div className='WelcomePopup'>
                     <div className='section-title popup-title-container'>
-                        Welcome to { this.props.wizardAssessment }!
+                        Welcome to the { this.props.wizardAssessment } Assessment!
                         <div className='close-modal' onClick={() => this.closePopup()} > X </div>
                     </div>
                     <div className='WelcomePopup-content'>
@@ -38,10 +38,10 @@ class WelcomePopup extends Component {
                         </p>
                         <ol>
                             <li>
-                                <b>Don’t refresh or close the browser!</b> If you do, you’ll lose all your code. If you do need to stop the test for any reason, save your code on your local machine so you can access it later.
+                                <span className='bolded-text'>Don’t refresh or close the browser!</span> If you do, you’ll lose all your code. If you do need to stop the test for any reason, save your code on your local machine so you can access it later.
                             </li><br />
                             <li>
-                                <b>Wrap your code in a function!</b> Otherwise, the system will be unable to read your code and may crash.
+                                <span className='bolded-text' >Wrap your code in a function!</span> Otherwise, the system will be unable to read your code and may crash.
                             </li>
                         </ol>
                         <p>Good luck!</p>

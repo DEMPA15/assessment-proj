@@ -91,6 +91,6 @@ function code(state={}, action){
     }
 }
 //combine reducers to send to index.js
-const reducer = combineReducers({user, questions, results, assessments, code});
+const reducer = combineReducers({user, questions, results, assessments, wizardAssessment, code});
 
 export default reducer;
