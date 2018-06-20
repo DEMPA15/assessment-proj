@@ -1,0 +1,31 @@
+.ready-button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.ready-button{
+    margin: 5px;
+    width: 200x;
+    height: 30px;
+}
+
+.WelcomePopup-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.WelcomePopup-subtitle{
+    text-align: left;
+    margin-left: 10px;
+}
+.WelcomePopup-results-container{
+    height: 60%;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
