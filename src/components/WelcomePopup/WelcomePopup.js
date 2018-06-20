@@ -22,9 +22,6 @@ class WelcomePopup extends Component {
     }
 
     render() {
-        const idToTitle = (qID) => {
-            return 'Question - ' + qID.split('').splice(1).join('')
-        }
         return (
             <div className='popup-background' id='WelcomePopup-background'  style={{ visibility: this.props.visibility }}>
                 <div className='WelcomePopup'>
