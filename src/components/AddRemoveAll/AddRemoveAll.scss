@@ -1,0 +1,16 @@
+.AddRemoveAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 125px;
+
+    i {
+        padding-right: 5px;
+    }
+    
+    :hover {
+        cursor: pointer;
+    }
+}
+
+

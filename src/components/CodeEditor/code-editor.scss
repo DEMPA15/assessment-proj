@@ -1,0 +1,131 @@
+.codeEditor-container{
+   height: 80vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+@media (max-width: 1060px){
+  .codeEditor-container{
+    height: 100%;
+  }
+}
+@media (max-width: 759px){
+  .codeEditor-container{
+    height: 50vh;
+  }
+}
+.buttonContainer{
+  border:none;
+  display:flex;
+  width:100%;
+}
+.submitButtonContainer{
+  width:100%;
+}
+.submitButtonContainer button:first-child{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer button:hover{
+  background: #3e8745;
+  cursor: pointer;
+}
+.buttonContainer .next{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #56B560;
+  border-radius: 0px;
+  width: 100%;
+}
+
+.buttonContainer .next:hover{
+  background:#3e8745;
+}
+.buttonContainer .run{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #01313F;
+  border-radius: 0px;
+  width: 100%;
+}
+.buttonContainer .run:hover{
+  background:#002028;
+}
+.buttonContainer .re-run{
+  border:none;
+  color: white;
+  padding:10px 0px;
+  font-size:  30px;
+  background: #01313F;
+  border-radius: 0px;
+  width: 20%;
+}
+.buttonContainer .re-run:hover{
+  background:#002028;
+}
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 20%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+#snackbar.show {
+  visibility: visible;
+
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+.codeLoadingGif{
+  background-image: url(/static/media/loadingGif.5dc7e0e3.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.warning{
+  width:300px;
+  font-size: 17px;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

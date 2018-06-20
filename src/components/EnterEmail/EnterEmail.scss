@@ -1,0 +1,45 @@
+.email-container {
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-email {
+    border: 1px solid #666666;
+    background: #073857;
+    height: 350px;
+    box-sizing: border-box;
+    width: 30px;
+    min-width: 350px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 25px;   
+}
+
+ h1 {
+     color: #e3e3e3;
+ }
+
+ h4 {
+    color: #65584d;
+}
+
+.student-email div >input {
+    width: 75%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.student-email button {
+    margin-top: 10px;
+    width:40%;
+    border: solid 1px;
+    border-radius: 5px;
+    background: #666666;
+    color : #e3e3e3;
+    padding: 10px;
+    font-size: 15px;
+
+}
