@@ -8,7 +8,8 @@ class ConfirmSubmit extends Component {
     this.state = {
       allPassed: true,
       nameBorderColor: 'grey',
-      emailBorderColor: 'grey'
+      emailBorderColor: 'grey',
+      clicked: false
     }
   }
 
@@ -23,6 +24,9 @@ class ConfirmSubmit extends Component {
   }
   sendResults(){
     if(this.props.user.name && this.props.user.email){
+      this.setState({
+        clicked:true
+      })
       this.props.sendResults()
     }
     else{
@@ -67,8 +71,8 @@ class ConfirmSubmit extends Component {
     }
     const questions = Object.keys(this.props.results).map((question, i)=>{
       return <div key={i} className='question-result-box'>
-                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />  
-                  <div className='section-subtitle'>{idToTitle(question)} </div> 
+                <div className={this.props.results[question].passed ? 'icon-passed' : 'icon-failed'} />
+                  <div className='section-subtitle'>{idToTitle(question)} </div>
             </div>
     })
     return (
@@ -94,13 +98,16 @@ class ConfirmSubmit extends Component {
               <input required type='email' name='email'  placeholder='EMAIL' onChange={(e)=>this.enterValue(e)} style={{borderBottom:`1px solid ${this.state.emailBorderColor}`}}/>
               <button className='submit-button-green confirmSubmit-button' onClick={()=>this.sendResults()}>
                 {
-                  this.state.allPassed ? 'Submit Answers'
+                  this.state.clicked ? '... sending'
                   :
-                  'Submit Answers Anyway'
-                } 
+                    this.state.allPassed ? 'Submit Answers'
+                    :
+                    'Submit Answers Anyway'
+                }
+
             </button>
             </div>
-           
+
           </div>
           </div>
           </div>
@@ -114,4 +121,4 @@ function mapStateToProps ({ questions, results, code, user }) {
   return { questions, results, code, user };
   }
 
-export default connect(mapStateToProps , {setName, setEmail, postResults} )(ConfirmSubmit); 
+export default connect(mapStateToProps , {setName, setEmail, postResults} )(ConfirmSubmit);
