@@ -61,7 +61,7 @@ class AssessmentList extends Component {
     })
     const name = e.target.title;
     const id = e.target.id;
-    const link = `http://localhost:8001/wizard/${this.props.user.email}/${id}/Q1`;
+    const link = `wizard/${this.props.user.email}/${id}/Q1`;
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
       const assessment = [{ name, id, link }];
@@ -88,7 +88,7 @@ class AssessmentList extends Component {
     const allAssessments = this.state.assessments.map((assessment, i) => {return {
       name: assessment.name,
       id: assessment.id,
-      link: `http://localhost:8001/wizard/${this.props.user.email}/${assessment.id}/Q1`
+      link: `wizard/${this.props.user.email}/${assessment.id}/Q1`
     }})
     this.props.addAssessment(allAssessments);
   }
@@ -119,7 +119,7 @@ class AssessmentList extends Component {
       else if (upperCaseAssessmentName.includes(this.state.searchText.toUpperCase())) {
         return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
       }
-      return <div> </div>
+      return <div key={i} > </div>
     })
     if (assessments.length === 0) {
       assessments = 'No results found.'

@@ -1,4 +1,4 @@
-import { ATTEMPTED, SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, CLEAR_DATA, CHANGED_ANSWER } from './constraints'
+import { ATTEMPTED, SET_RESULTS, GET_QUESTIONS, SET_NAME, SET_EMAIL, ENTER_CODE, POST_RESULTS, SET_CODE, ADD_ASSESSMENT, REMOVE_ASSESSMENT, REMOVE_ALL_ASSESSMENTS, SET_WIZARD_ASSESSMENT, CLEAR_DATA, CHANGED_ANSWER } from './constraints'
 import services from './services'
 
 export function getQuestions(assessmentID){
@@ -68,6 +68,14 @@ export function removeAllAssessments() {
         payload: '',
     }
 }
+
+export function setWizardAssessment(assessmentName) {
+    return {
+        type: SET_WIZARD_ASSESSMENT,
+        payload: assessmentName,
+    }
+}
+
 export function postResults(code, assessmentID, qID){
     return {
         type: POST_RESULTS,
