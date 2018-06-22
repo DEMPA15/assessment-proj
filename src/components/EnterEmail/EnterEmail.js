@@ -44,7 +44,7 @@ class EnterEmail extends Component {
             <h4> Test Results Will Be Sent To This Email </h4>
           </div>
           <div>
-            <input type="email" placeholder="Email" value={this.state.email} onChange={this.handleChange}/>
+            <input type="email" autoFocus placeholder="Email"  value={this.state.email} onChange={this.handleChange}/>
           </div>
           <div>
             <button type= "submit">Submit</button>
