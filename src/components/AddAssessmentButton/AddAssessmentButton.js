@@ -42,7 +42,7 @@ class AddAssessmentButton extends Component {
                 </div>
                 <div className='assessment-link-container'>
                     <button className='btn' data-clipboard-target="#assessment-link-input" onClick={this.copied}><img className="clipboard-button" src={clipboard} /></button>
-                    <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link} />
+                    <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessments.link} />
                     <div id="snackbar-copied">Copied!</div>
                 </div>
             </div>
