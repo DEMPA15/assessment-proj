@@ -3,7 +3,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
-const nodemailer = require('nodemailer');
 const Assessments = require(`./server/dbModels.js`)
 const mongoose = require('mongoose')
 const fs = require('fs');
