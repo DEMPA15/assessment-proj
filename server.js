@@ -10,6 +10,8 @@ const fs = require('fs');
 const util = require('util')
 const testRunner = require('./server/mocha/finalRunner')
 const writeFileAsync = util.promisify(fs.writeFile)
+const path = require('path');
+
 
 require('dotenv').config();
 
@@ -34,6 +36,9 @@ mongoose.connect(process.env.CONNECTION_STRING)
     .catch(error=>{
         console.log(error)
     });
+
+app.use(express.static(path.join(__dirname, 'build')));
+
 
 //-----------endpoints----------//
 app.post(`/api/link/:email/:assessmentID`, (req, res) => {
