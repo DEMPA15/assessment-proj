@@ -6,17 +6,11 @@ const session = require('express-session');
 const Assessments = require(`./server/dbModels.js`)
 const mongoose = require('mongoose')
 const fs = require('fs');
-<<<<<<< HEAD
 const util = require('util')
 const testRunner = require('./server/mocha/finalRunner')
 const writeFileAsync = util.promisify(fs.writeFile)
 const path = require('path');
 
-=======
-const util = require('util');
-const testRunner = require('./server/mocha/finalRunner');
-const writeFileAsync = util.promisify(fs.writeFile);
->>>>>>> c6f7ff779dba2f58785e27d63ccafa06dbddb248
 
 require('dotenv').config();
 
