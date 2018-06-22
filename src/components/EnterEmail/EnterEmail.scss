@@ -27,9 +27,17 @@
 }
 
 .student-email div >input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px $main-blue solid;
+    color: $main-blue;
+    caret-color: $main-blue;
     width: 75%;
-    padding: 8px;
     box-sizing: border-box;
+    font-size: 150%;
+}
+::placeholder {
+    color: $main-blue;
 }
 
 .student-email button {
