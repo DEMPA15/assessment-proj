@@ -18,7 +18,6 @@ class CodeEditor extends Component {
       messageTxt:'',
       messageColor:'',
       loaded: true,
-      
     }
   }
 
@@ -155,11 +154,11 @@ class CodeEditor extends Component {
     let button = ''
 
     if (this.state.loaded === false){
-      button = <div className = 'codeLoadingGif'><p className = 'warning'>If you did not wrap the code in a function, this could take a while.</p></div>
-    } else if (this.state.lastQ){
+      button = <div className = 'codeLoadingGif'></div>
+    } else if (this.state.lastQ && this.state[this.props.qID] == this.props.code[this.props.qID] && this.props.results[this.props.qID].passed === true){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
     } else if (this.props.results[this.props.qID].passed === true && this.state[this.props.qID] == this.props.code[this.props.qID]){
-      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button><button className = 're-run' onClick ={e=> {this.postResults(e)}}>Re-run</button></div>      
+      button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     } else {
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>
     }
