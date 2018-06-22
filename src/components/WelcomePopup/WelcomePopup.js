@@ -38,7 +38,7 @@ class WelcomePopup extends Component {
                                 <span className='bolded-text'>Don’t refresh or close the browser!</span> If you do, you’ll lose all your code. If you do need to stop the test for any reason, save your code on your local machine so you can access it later.
                             </li><br />
                             <li>
-                                <span className='bolded-text' >Wrap your code in a function!</span> Otherwise, the system will be unable to read your code and may crash.
+                                <span className='bolded-text' >Wrap your code in a non-arrow function!</span> Otherwise, the test suite will be unable to read your code.
                             </li>
                         </ol>
                         <p>Good luck!</p>
