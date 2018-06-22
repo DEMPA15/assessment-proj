@@ -8,9 +8,10 @@ class TestProgress extends Component {
       return 'Test - ' + (testIndex + 1)
     }
     const tests = this.props.results[this.props.qID].tests.map((test, i)=>{
+      let opacity = test.passed === null ? 0 : 1;
       return <div key={i} className='test-results-box'>
                 <div className='test-results-title section-subtitle'>
-                  <div className={test.passed ? 'icon-passed' : 'icon-failed'} style={this.props.results[this.props.qID].attempted ? {opacity:1}:{opacity:0}}/>
+                  <div className={test.passed ? 'icon-passed' : 'icon-failed'} style={this.props.results[this.props.qID].attempted ? {opacity:opacity}:{opacity:0}}/>
                   <div>{indexToTitle(i)} </div> 
                 </div> 
                 <div className='test-results-text'>{test.text} </div>

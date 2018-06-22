@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { setWizardAssessment } from '../../redux/action-creators';
+import { bindActionCreators } from 'redux';
 
 
 class Header extends Component {
@@ -18,6 +21,7 @@ class Header extends Component {
                 this.setState({
                     assessmentName: assessmentName
                 })
+                this.props.setWizardAssessment(assessmentName);
             })
     }
 
@@ -35,4 +39,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({setWizardAssessment}, dispatch);
+  }
+
+export default connect (state => state, mapDispatchToProps)(Header);
