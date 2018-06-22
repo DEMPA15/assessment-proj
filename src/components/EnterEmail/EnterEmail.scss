@@ -43,11 +43,13 @@
 .student-email button {
     margin-top: 10px;
     width:40%;
-    border: solid 1px;
+    height: 30px;
+    border: none;
     border-radius: 5px;
     background: #666666;
     color : #e3e3e3;
-    padding: 10px;
+    padding: 5px;
     font-size: 15px;
+    cursor: pointer;
 
 }
