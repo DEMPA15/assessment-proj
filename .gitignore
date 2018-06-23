@@ -17,13 +17,21 @@
 .env.test.local
 .env.production.local
 
-index.css
-index.css/
-.src/index.css
+*.min.css
+*.css
+*.css.map
+src/index.css.map
+
+.sass-cache
+*.css.map
+*.sass.map
+*.scss.map
+.vscode
+bin/
 
 test.js
+index.css
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
