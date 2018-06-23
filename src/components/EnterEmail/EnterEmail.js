@@ -17,12 +17,15 @@ class EnterEmail extends Component {
           this.setState({
           email: event.target.value
           });
+          if (this.state.email){
+            return document.getElementById('email-input').style.borderBottom = "1px #328cc1 solid";
+          }
       }
-  
+
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.email === "") {
-      alert('Please enter valid email')
+    if (!this.state.email) {
+      return document.getElementById('email-input').style.borderBottom = "1px red solid";
     } else {
     this.setEmail();
   };
@@ -44,7 +47,7 @@ class EnterEmail extends Component {
             <h4> Test Results Will Be Sent To This Email </h4>
           </div>
           <div>
-            <input type="email" autoFocus placeholder="Email"  value={this.state.email} onChange={this.handleChange}/>
+            <input id='email-input' type="email" autoFocus placeholder="Email"  value={this.state.email} onChange={this.handleChange}/>
           </div>
           <div>
             <button type= "submit">Submit</button>
