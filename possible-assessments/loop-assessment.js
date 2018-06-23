@@ -73,6 +73,8 @@ console.log(evenOrOdd());
 
 // 4. Write a function that takes in an array containing arrays full of numbers. For each array of numbers within that array, find the average. Then return the sum of all the averages, rounded down to the nearest integer.
 
+// https://www.codewars.com/kata/sum-of-array-averages/train/javascript
+
 // test 1 - it's a function
 
 // test 2 - returns a number
