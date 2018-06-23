@@ -1,7 +1,7 @@
 # Code Bar
 
 
-Code Bar is a coding assessment tool. It's primary use is for students to take their assessments online and have their results sent to their instructors.
+Code Bar is a coding assessment tool. Its primary use is for students to take assessments online and have the results emailed to their instructor.
 Instructors generate a link that they can send to their students. Students take the assessment and the results are sent to their instructor.
 
 ## Getting Started
