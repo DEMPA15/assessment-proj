@@ -12,6 +12,14 @@ Run `git clone https://github.com/DEMPA15/assessment-proj.git`
 
 Run `npm i`
 
+
+## Screenshots
+
+Instructor Assessment Links
+
+Assessments
+
+
 ## Tech/Frameworks Used
 
 * React
