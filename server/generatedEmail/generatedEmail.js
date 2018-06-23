@@ -15,11 +15,14 @@ module.exports = {
         }
     });
 
+    const passed = "<span style='color:green'>PASSED</span>";
+    const failed = "<span style='color:red'>DID NOT PASS</span>";
+
     let code = []
     Object.keys(questionText).map((results, i) => {
         return code.push(`<div key=${i}>
         Question ${i + 1}:
-        ${questionText[results].passed ? 'PASSED' : 'DID NOT PASS'}
+        ${questionText[results].passed ? passed : failed }
         <br/>
         <br/>
         Student Code:
