@@ -17,6 +17,8 @@ Run `npm i`
 
 Instructor Assessment Links
 
+<img src="https://github.com/DEMPA15/assessment-proj/blob/readme/.github/assets/assessmentList.png" />
+
 Assessments
 
 
