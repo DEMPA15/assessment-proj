@@ -30,20 +30,8 @@ src/index.css.map
 bin/
 
 test.js
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 index.css
-=======
->>>>>>> 3634c7b7e3761b405d1e8b7875883810f168aa66
-index.css/
->>>>>>> 9f7b0be2135d92c5083d0fa744d99ea01cafb628
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 9f7b0be2135d92c5083d0fa744d99ea01cafb628
