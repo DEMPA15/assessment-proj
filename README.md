@@ -8,26 +8,19 @@ Instructors generate a link that they can send to their students. Students take 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-`Run "git clone https://github.com/DEMPA15/assessment-proj.git"`
+Run `git clone https://github.com/DEMPA15/assessment-proj.git`
 
-`Run "npm i"`
+Run `npm i`
 
 ## Tech/Frameworks Used
 
-React
-
-Redux
-
-MongoDB
-
-Mongoose
-
-Mocha with TestSuite
-
-Chai
-
-Nodemailer
-
-AceEditor
+*React
+*Redux
+*MongoDB
+*Mongoose
+*Mocha with TestSuite
+*Chai
+*Nodemailer
+*AceEditor
 
 
