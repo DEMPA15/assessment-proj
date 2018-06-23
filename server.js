@@ -84,6 +84,13 @@ app.post(`/api/post-results`, (req, res) => {
 app.post(`/api/submit`, generatedEmail.emailSend);
 
 app.use(express.static(path.join(__dirname, '/build')));
+
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {
+        root: path.join(__dirname, "build")
+      })
+  })
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
