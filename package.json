@@ -1,8 +1,11 @@
 {
-  "name": "assessment-proj",
+  "name": "code_bar",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
+
+  "engines": {
+    "node": "8.11.3"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -33,21 +36,9 @@
     "toastr": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DEMPA15/assessment-proj.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DEMPA15/assessment-proj/issues"
-  },
-  "homepage": "https://github.com/DEMPA15/assessment-proj#readme"
+  }
 }
