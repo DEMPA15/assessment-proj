@@ -61,7 +61,7 @@ class AssessmentList extends Component {
     })
     const name = e.target.title;
     const id = e.target.id;
-    const link = `wizard/${this.props.user.email}/${id}/Q1`;
+    const link = `${window.location.origin}/wizard/${this.props.user.email}/${id}/Q1`;;
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
       const assessment = [{ name, id, link }];
@@ -88,7 +88,7 @@ class AssessmentList extends Component {
     const allAssessments = this.state.assessments.map((assessment, i) => {return {
       name: assessment.name,
       id: assessment.id,
-      link: `wizard/${this.props.user.email}/${assessment.id}/Q1`
+      link: `${window.location.origin}/wizard/${this.props.user.email}/${assessment.id}/Q1`
     }})
     this.props.addAssessment(allAssessments);
   }
