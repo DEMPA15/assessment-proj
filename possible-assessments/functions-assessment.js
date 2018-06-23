@@ -77,9 +77,48 @@ function gooseFilter(birds) {
 
 console.log(gooseFilter(birds));
 
-// 4. Write a function that takes in two parameters: "audioLength", a string with the total time of an audio file in the form of "hh:mm:ss", and playSpeed, a number between 0.5 and 3.0. The function should return a string in the form "hh:mm:ss" that is "audioLength" played at a differen playSpeed.
+// 4. Write a function that takes in an array of integers and returns the sum of all unique integers in the array.
+
+// https://www.codewars.com/kata/unique-sum/train/javascript
+
+// test 1 - it's a function
+
+// test 2 - returns a number
+
+// test 3 - returns the correct answer
+
+const arrayToTest = [ -1, -1, 5, 2, -7] 
+
+function uniqueSum(lst) {
+    if (lst.length === 0) {
+        return null;
+    }
+    else {
+        const arrayToCheck = []
+        let sum = 0;
+        for (let i = 0; i < lst.length; i++) {
+            if (!arrayToCheck.includes(lst[i])) {
+                arrayToCheck.push(lst[i]);
+                sum += lst[i];
+            }
+        }
+        return sum;
+    }
+}
+
+console.log(uniqueSum(arrayToTest));
+console.log(uniqueSum([]));
+
+
+// 5. Write a function that takes in two parameters: "audioLength", a string with the total time of an audio file in the form of "hh:mm:ss", and playSpeed, a number between 0.5 and 3.0. The function should return a string in the form "hh:mm:ss" that is "audioLength" played at a differen playSpeed.
 
 // https://www.codewars.com/kata/podcast-speed-listening-calculator/train/javascript
+
+// test 1 - it's a function
+
+// test 2 - returns a string in the correct format
+
+// test 3 - returns the correct answer
 
 function speedListen(audioLength, playSpeed) {
 
