@@ -18,8 +18,28 @@ console.log(numberArray(0));
 console.log(numberArray(3));
 console.log(numberArray(10));
 
+// 2. Write a function that takes in a string and returns a string with each character of the input string repeated once. For example, inputting "string" will return "ssttrriinngg".
 
-// 2. Write a function with a for loop that will iterate from 0 to 15. For each iteration, it will check if the current iteration number is odd or even, and display a message to the console.
+// https://www.codewars.com/kata/double-char/train/javascript
+
+// test 1 - it's a function
+
+// test 2 - returns a string
+
+// test 3 - returns a string with each character repeated once
+
+function doubleChar(str) {
+    let result = ''
+    for (let i = 0; i < str.length; i ++) {
+        result += str[i] + str[i];
+    }
+    return result
+  }
+
+console.log(doubleChar('string'));
+
+
+// 3. Write a function with a for loop that will iterate from 0 to 15. For each iteration, it will check if the current iteration number is odd or even, and display a message to the console.
 
 // Sample Output : 
 // "0 is even" 
@@ -51,7 +71,40 @@ function evenOrOdd() {
 
 console.log(evenOrOdd());
 
-// 3. Write a function that iterates through an array of "student" objects, and adds a "grade" property based on that's student's "percentage" property. Return an array with each object having a name, percentage, and grade properties.
+// 4. Write a function that takes in an array containing arrays full of numbers. For each array of numbers within that array, find the average. Then return the sum of all the averages, rounded down to the nearest integer.
+
+// https://www.codewars.com/kata/sum-of-array-averages/train/javascript
+
+// test 1 - it's a function
+
+// test 2 - returns a number
+
+// test 3 - returns the correct number
+
+
+const sampleArray = [[3, 4, 1, 3, 5, 1, 4], [21, 54, 33, 21, 77]]
+
+function sumAverage(arr) {
+    function getSum(total, num) {
+        return total + num;
+    }
+    const averagesToAdd = arr.map((arrayOfNums, i) => {
+        let sum = 0;
+        arrayOfNums.forEach((num, i) => {
+            sum += num;
+        })
+        const average = sum / arrayOfNums.length;
+        return average;
+    })
+    const result = Math.floor(averagesToAdd.reduce(getSum));
+    return result;
+  }
+
+console.log(sumAverage(sampleArray));
+
+
+
+// 5. Write a function that iterates through an array of "student" objects, and adds a "grade" property based on that's student's "percentage" property. Return an array with each object having a name, percentage, and grade properties.
 
 // https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercise-6.php
 

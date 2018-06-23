@@ -35,9 +35,9 @@ class AssessmentList extends Component {
   //needs a search bar
 
   componentDidMount() {
-    // if (!this.props.user.email) {
-    //   this.props.history.push('/email');
-    // }
+    if (!this.props.user.email) {
+      this.props.history.push('/email');
+    }
     axios.get(`/api/assessments`)
       .then((res) => {
         this.setState({
@@ -122,7 +122,7 @@ class AssessmentList extends Component {
       return <div key={i} > </div>
     })
     if (assessments.length === 0) {
-      assessments = 'No results found.'
+      assessments = <div>No results found.</div> 
     }
     if (this.state.loading) {
       return <LoadingGif />
