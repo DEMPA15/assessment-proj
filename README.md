@@ -12,15 +12,22 @@ These instructions will get you a copy of the project up and running on your loc
 
 `Run "npm i"`
 
-###Tech/Frameworks Used
+##Tech/Frameworks Used
 
 React
+
 Redux
+
 MongoDB
+
 Mongoose
+
 Mocha with TestSuite
+
 Chai
+
 Nodemailer
+
 AceEditor
 
 
