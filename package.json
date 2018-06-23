@@ -2,7 +2,10 @@
   "name": "code_bar",
   "version": "0.1.0",
   "private": true,
-  "proxy":"http://localhost:8000",
+
+  "engines": {
+    "node": "8.11.3"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -33,8 +36,7 @@
     "toastr": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
