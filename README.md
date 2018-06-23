@@ -21,6 +21,7 @@ Instructor Assessment Links
 
 Assessments
 
+<img src="https://github.com/DEMPA15/assessment-proj/blob/readme/.github/assets/assessment.png" />
 
 ## Tech/Frameworks Used
 
