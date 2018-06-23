@@ -14,13 +14,13 @@ Run `npm i`
 
 ## Tech/Frameworks Used
 
-*React
-*Redux
-*MongoDB
-*Mongoose
-*Mocha with TestSuite
-*Chai
-*Nodemailer
-*AceEditor
+* React
+* Redux
+* MongoDB
+* Mongoose
+* Mocha with TestSuite
+* Chai
+* Nodemailer
+* AceEditor
 
 
