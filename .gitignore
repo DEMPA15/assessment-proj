@@ -26,6 +26,7 @@ src/index.css.map
 *.css.map
 *.sass.map
 *.scss.map
+.vscode
 
 test.js
 
