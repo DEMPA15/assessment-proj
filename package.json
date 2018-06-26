@@ -2,7 +2,6 @@
   "name": "code_bar",
   "version": "0.1.0",
   "private": true,
-
   "engines": {
     "node": "8.11.3"
   },
