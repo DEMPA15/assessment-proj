@@ -51,6 +51,7 @@ function weirdMath(a, b) {
 
 console.log(weirdMath(1, 2));
 console.log(weirdMath(3, 12));
+console.log(weirdMath(-47, 13));
 console.log(weirdMath('weird', 'math'));
 console.log(weirdMath(47, "Don't work please"));
 
@@ -66,7 +67,7 @@ console.log(weirdMath(47, "Don't work please"));
 // test 3 - the returned array includes all the non-geese from the input array
 
 const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
-const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"];
 
 function gooseFilter(birds) {
     const newArray = birds.filter(bird => {
@@ -89,17 +90,17 @@ console.log(gooseFilter(birds));
 
 const arrayToTest = [ -1, -1, 5, 2, -7] 
 
-function uniqueSum(lst) {
-    if (lst.length === 0) {
+function uniqueSum(arr) {
+    if (arr.length === 0) {
         return null;
     }
     else {
         const arrayToCheck = []
         let sum = 0;
-        for (let i = 0; i < lst.length; i++) {
-            if (!arrayToCheck.includes(lst[i])) {
-                arrayToCheck.push(lst[i]);
-                sum += lst[i];
+        for (let i = 0; i < arr.length; i++) {
+            if (!arrayToCheck.includes(arr[i])) {
+                arrayToCheck.push(arr[i]);
+                sum += arr[i];
             }
         }
         return sum;
@@ -107,6 +108,9 @@ function uniqueSum(lst) {
 }
 
 console.log(uniqueSum(arrayToTest));
+console.log(uniqueSum([24, -47, 33, 33, 24, 33, -99]));
+console.log(uniqueSum([1, 1, 2, 3, 5, 8, 13]));
+console.log(uniqueSum([99, 88, 99, 88, -47, 200, 99, 88, 77]));
 console.log(uniqueSum([]));
 
 
