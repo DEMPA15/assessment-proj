@@ -12,7 +12,7 @@ import AceEditor from 'react-ace';
     var questCode = questArr[1];
     // let size = document.getElementsByClassName('ace_gutter-cell').style.height;
     let component = ''
-    if(questCode ===''|| questCode == undefined){
+    if(questCode ===''|| questCode === undefined){
       component = <div/>
     } else {
       component = 
