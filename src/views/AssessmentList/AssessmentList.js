@@ -26,18 +26,15 @@ class AssessmentList extends Component {
     this.removeAll = this.removeAll.bind(this);
     this.slideOut = this.slideOut.bind(this);
   }
-  //check state.user.name if == null make email popup visible
 
   // gets all assessments from db and maps through them to create a list of assessments. 
   // When clicked it generates a link and makes the popup visible...
   // posts email and assessment id to server to get generated link
 
-  //needs a search bar
-
   componentDidMount() {
-    // if (!this.props.user.email) {
-    //   this.props.history.push('/email');
-    // }
+    if (!this.props.user.email) {
+      this.props.history.push('/email');
+    }
     axios.get(`/api/assessments`)
       .then((res) => {
         this.setState({
@@ -61,7 +58,7 @@ class AssessmentList extends Component {
     })
     const name = e.target.title;
     const id = e.target.id;
-    const link = `${window.location.origin}/wizard/${this.props.user.email}/${id}/Q1`;;
+    const link = `${window.location.origin}/wizard/${this.props.user.email}/${id}/Q1`;
 
     if (!this.props.assessments.find(propsAssessment => propsAssessment.id === id)) {
       const assessment = [{ name, id, link }];
@@ -111,19 +108,20 @@ class AssessmentList extends Component {
   }
 
   render() {
-    let assessments = this.state.assessments.map((assessment, i) => {
+    let assessments = [];
+    this.state.assessments.forEach((assessment, i) => {
       const upperCaseAssessmentName = assessment.name.toUpperCase();
       if (this.state.searchText === '') {
-        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
+        assessments.push(<AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />) 
       }
       else if (upperCaseAssessmentName.includes(this.state.searchText.toUpperCase())) {
-        return <AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />
+        assessments.push(<AddAssessmentButton addAssessment={this.addAssessment} removeAssessment={this.removeAssessment} assessment={assessment} key={i} />) 
       }
-      return <div key={i} > </div>
     })
     if (assessments.length === 0) {
-      assessments = 'No results found.'
+      assessments = <div id='no-results' >No results found.</div>
     }
+    console.log(assessments)
     if (this.state.loading) {
       return <LoadingGif />
     }
