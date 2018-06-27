@@ -1,11 +1,11 @@
 const expect = require('chai').expect
 
 module.exports = [{
-        test: 'Returns an array',
+        text: 'Returns an array',
         assertion: function() {
             const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
             const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"];
-            expect(this.subject(birds).to.be.an('array'));
+            expect(this.subject(birds, geese)).to.be.an('array');
         }
     },
     
@@ -14,7 +14,7 @@ module.exports = [{
         assertion: function() {
             const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
             const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"];
-            expect(this.subject(birds)).to.not.include("African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher");
+            expect(this.subject(birds, geese)).to.not.include("African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher");
         }
     },
     {
@@ -22,7 +22,7 @@ module.exports = [{
         assertion: function() {
             const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
             const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"];
-            expect(this.subject(birds)).to.include("Mallard", "Hook Bill", "Crested", "Blue Swedish")
+            expect(this.subject(birds, geese)).to.include("Mallard", "Hook Bill", "Crested", "Blue Swedish")
 		}
     },
 ] 

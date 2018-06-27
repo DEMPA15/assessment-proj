@@ -39,7 +39,7 @@
     "start": "node server.js",
     "build": "react-scripts build",
     "develop": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
+    "test": "mocha",
     "eject": "react-scripts eject"
   }
 }

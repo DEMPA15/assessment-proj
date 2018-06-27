@@ -56,7 +56,7 @@ console.log(weirdMath('weird', 'math'));
 console.log(weirdMath(47, "Don't work please"));
 
 
-// 3. Write a function that takes in an array of strings and returns a filtered array containing the same elements but with any string in the 'geese' array removed.
+// 3. Write a function that takes in two arrays of strings, one called 'birds' and one called 'geese', and returns a filtered array containing the same elements of the 'birds' array but with any string in the 'geese' array removed.
 
 // https://www.codewars.com/kata/filter-out-the-geese/train/javascript
 
@@ -69,14 +69,14 @@ console.log(weirdMath(47, "Don't work please"));
 const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
 const birds = ["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"];
 
-function gooseFilter(birds) {
+function gooseFilter(birds, geese) {
     const newArray = birds.filter(bird => {
         return !geese.includes(bird);
     })
     return newArray;
 }
 
-console.log(gooseFilter(birds));
+console.log(gooseFilter(birds, geese));
 
 // 4. Write a function that takes in an array of integers and returns the sum of all unique integers in the array.
 
