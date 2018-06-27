@@ -2,7 +2,6 @@
   "name": "code_bar",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000/",
   "engines": {
     "node": "8.11.3"
   },
@@ -40,6 +39,7 @@
     "build": "react-scripts build",
     "develop": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   }
 }
