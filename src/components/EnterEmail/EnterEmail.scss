@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .student-email {
@@ -26,20 +27,34 @@
     color: #65584d;
 }
 
+#email-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px $main-blue solid;
+    color: $main-blue;
+    caret-color: $main-blue;
+     color: #65584d;
+ }
+
 .student-email div >input {
     width: 75%;
-    padding: 8px;
     box-sizing: border-box;
+    font-size: 150%;
+}
+::placeholder {
+    color: $main-blue;
 }
 
 .student-email button {
     margin-top: 10px;
     width:40%;
-    border: solid 1px;
+    height: 30px;
+    border: none;
     border-radius: 5px;
     background: #666666;
     color : #e3e3e3;
-    padding: 10px;
+    padding: 5px;
     font-size: 15px;
+    cursor: pointer;
 
 }

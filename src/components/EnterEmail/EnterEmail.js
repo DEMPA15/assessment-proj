@@ -7,42 +7,54 @@ class EnterEmail extends Component {
     this.state = {
       email: ""
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.setEmail = this.setEmail.bind(this);
+   this.handleChange = this.handleChange.bind(this);
+   this.handleSubmit = this.handleSubmit.bind(this);
+   this.setEmail = this.setEmail.bind(this);
     
   }
 
-  handleChange(event) {
-    this.setState({
-      email: event.target.value
-    });
-  }
+   handleChange(event) {
+          this.setState({
+          email: event.target.value
+          });
+          if (this.state.email){
+            return document.getElementById('email-input').style.borderBottom = "1px #328cc1 solid";
+          }
+      }
 
-  setEmail(){
+  handleSubmit(event) {
+    event.preventDefault();
+    if (!this.state.email) {
+      return document.getElementById('email-input').style.borderBottom = "1px red solid";
+    } else {
+    this.setEmail();
+  };
+}
+
+  setEmail() {
     this.props.setEmail(this.state.email)
     this.props.history.push('/assessments')
+
   }
-  _handleKeyPress = (event) => {
-    if (event.key ==='Enter') {
-      {this.setEmail()};
-    }
-  }
+
   render() {
     return (
       <div className = "email-container">
         <div className = "student-email">
+        <form onSubmit = {this.handleSubmit}>
           <div>
             <h1> Enter Email </h1>
             <h4> Test Results Will Be Sent To This Email </h4>
           </div>
           <div>
-            <input type="text" placeholder="email" value={this.state.email} onChange={this.handleChange} onKeyPress={this._handleKeyPress}/>
+            <input id='email-input' type="email" autoFocus placeholder="Email"  value={this.state.email} onChange={this.handleChange}/>
           </div>
           <div>
-            <button onClick = {this.setEmail}>Submit</button>
+            <button type= "submit">Submit</button>
           </div>
-      </div> 
+      </form> 
       </div>
+    </div>  
     );
   }
 }
