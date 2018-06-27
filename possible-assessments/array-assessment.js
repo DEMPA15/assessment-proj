@@ -8,8 +8,6 @@
 
 // test 2 - returns true if the input is an array
 
-// test 3 - returns false if the input is not an array.
-
 function checkArray(input) {
     if (input.constructor === Array) {
         return true;
@@ -118,7 +116,7 @@ const crazyDeepArray = [1, [2, 6, [3, 7, [4, 8, [5, 9]]]]];
 
 const flatten = (array, shallow, results) => {
     if (!results) {
-         results = []; 
+         results = [];
         }
 
     if (shallow) {
@@ -128,7 +126,7 @@ const flatten = (array, shallow, results) => {
     for (let i = 0; i < array.length; i++) {
         if (array[i].constructor == Array) {
             flatten(array[i], shallow, results);
-        } 
+        }
         else {
             results.push(array[i]);
         }
