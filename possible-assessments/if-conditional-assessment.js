@@ -1,4 +1,5 @@
-// 1. Write a function that accept two integers as arguments and and logs the larger to the console.
+// 1. Write a function that accept two integers as arguments 
+// and and logs the larger to the console.
 
 // https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercise-1.php
 
@@ -66,7 +67,10 @@ console.log(productOfThree(thirdThree));
 console.log(productOfThree(fourthThree));
 console.log(productOfThree(fifthThree));
 
-// 3. Write a function that takes a string as an argument. Return an array containing the indexes of each capitalized letter. If there are no capitalized letters, return a string that says "There are no capitalized letters".
+// 3. Write a function that takes a string as an argument. 
+// Return an array containing the indexes of each capitalized letter. 
+// If there are no capitalized letters, 
+// return a string that says "There are no capitalized letters".
 
 // https://www.codewars.com/kata/find-the-capitals-1/train/javascript
 
@@ -94,7 +98,7 @@ function findCapitals(word) {
         return "There are no capitalized letters";
     }
 }
-
+ console.log(findCapitals('HeLlo'))
 console.log(findCapitals('GilRoY'));
 console.log(findCapitals(''));
 console.log(findCapitals('no caps'));
@@ -135,7 +139,11 @@ console.log(largestNumber(numbersUnderZero));
 console.log(largestNumber(highToLow));
 console.log(largestNumber(lowToHigh));
 
-// 5. Write a function that takes in an array of integers and returns an array with all the even integers on the left of all the odd integers, with the even integers in ascending order and the odd integers in descending order. For example, [-10, 1, 4, 6, 5] should become [-10, 4, 6, 5, 1]. The input array will not include a zero. 
+// 5. Write a function that takes in an array of integers and 
+// returns an array with all the even integers on the left of all the odd integers, 
+// with the even integers in ascending order and the odd integers in descending order. 
+// For example, [-10, 1, 4, 6, 5] should become [-10, 4, 6, 5, 1]. 
+// The input array will not include a zero. 
 
 // https://www.codewars.com/kata/sort-out-the-men-from-boys-1/train/javascript
 
