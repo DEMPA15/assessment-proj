@@ -1,32 +1,23 @@
 const expect = require('chai').expect
 
 module.exports = [{
-        text: 'canYouHearMe should return a string',
-        assertion: function(){
-            function hello(){
-                return "hI"
-            }
-			expect(this.subject('hi', hello)).to.be.a('string');
-		}
-    },
-    {
-        text: 'canYouHearMe should call hello 10 times',
-        assertion: function () {
-			function hello(){
-                return "hI"
-            }
-            expect(this.subject('', hello)).to.equal("hIhIhIhIhIhIhIhIhIhI")
-		
-		}
-    },
-    {
-        text: 'canYouHearMe should add result of hello() invoked 10 times to param',
-        assertion: function () {
-			function hello(){
-                return "hI"
-            }
-            expect(this.subject('um ', hello)).to.equal("um hIhIhIhIhIhIhIhIhIhI")
-		
-		}
-    }
-] 
+    text: 'Should be a function',
+    assertion: function(){
+    expect(this.subject).to.be.a('function');
+  }
+  },
+  {
+    text: 'Should return the correct array',
+    assertion: function () {
+      const result = this.subject('hello')
+      expect(result).to.be.a('string')
+    }		
+  },
+  {
+    text: 'Should return a string with each character repeated once',
+    assertion: function () {
+      const result = this.subject('ryan')
+      expect(result).to.equal('rryyaann')
+    }		
+  }
+]
