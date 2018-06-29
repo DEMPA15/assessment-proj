@@ -95,7 +95,7 @@ console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b",  ""]))
 console.log(checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]))
 console.log(checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"]))
 
-// 5. Write a JavaScript program to remove duplicate items from an input array (ignore case sensitivity).
+// 5. Write a function that takes in an array and returns an array without any duplicate elements, ignoring case sensitivity.
 
 // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-14.php
 
