@@ -1,21 +1,17 @@
 const expect = require('chai').expect
 
 module.exports = [{
-        text: 'accessByBracketNotation should be correct',
-        assertion: function () {
-            var duck = {
-                name: "Stefan",
-                pond: "Hyde Park Serpentine",
-                bites: true,
-                fluffiness: 100
-            }
-            expect(this.subject(duck)).to.equal(true);
+        text: 'Should return an object',
+        assertion: function (){
+            let obj = { name : "David Rayy", sclass : "VI", rollno : 12}
+            expect(this.subject(obj)).to.be.an('object')
         }
     },
     {
-        text: 'accessByBracketNotation should use bracket notation',
-        assertion: function () {
-            expect(this.subject.toString()).to.include("duck['bites']");
+        text: 'Object should not contain the rollno property',
+        assertion: function (){
+            let obj = { name : "David Rayy", sclass : "VI", rollno : 12}
+            expect(this.subject(obj)).to.not.have.property('rollno')
         }
-    }
-]
+    },
+] 
