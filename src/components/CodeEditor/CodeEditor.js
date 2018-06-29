@@ -174,8 +174,8 @@ class CodeEditor extends Component {
           value={this.state[this.props.qID]}
           focus={true}
           setOptions={{
-            enableBasicAutocompletion: false,
-            enableLiveAutocompletion: false,
+            enableBasicAutocompletion: true,
+            enableLiveAutocompletion: true,
             enableSnippets: true,
             showLineNumbers: true,
             tabSize: 2,
