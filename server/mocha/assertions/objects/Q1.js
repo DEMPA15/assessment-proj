@@ -1,21 +1,19 @@
 const expect = require('chai').expect
 
 module.exports = [{
-        text: 'accessByDotNotation should be correct',
-        assertion: function () {
-            var duck = {
-                name: "Stefan",
-                pond: "Hyde Park Serpentine",
-                bites: true,
-                fluffiness: 100
-            }
-            expect(this.subject(duck)).to.equal("Stefan");
+        text: 'Should return an array',
+        assertion: function (){
+            let obj = {1: 'hi', 2: 'hey', 3: 'bye'}
+            expect (this.subject(obj)).to.be.an("array")
         }
     },
     {
-        text: 'accessByDotNotation should use dot notation',
-        assertion: function () {
-            expect(this.subject.toString()).to.include('duck.name');
+        text: 'Array should contain all keys of the passed in object',
+        assertion: function (){
+            let obj = {1: 'hi', 2: 'hey', 3: 'bye'}
+            let otherObj = {one: 1, two: 2, three: 3, four:4}
+            expect(this.subject(obj)).include('1', '2', '3')
+            expect(this.subject(otherObj)).include('one', 'two', 'three', 'four')
         }
-    }
+    },
 ] 

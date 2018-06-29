@@ -41,7 +41,7 @@ class AddAssessmentButton extends Component {
                     <AddMinusButton title={this.props.assessment.name} id={this.props.assessment.id} />
                 </div>
                 <div className='assessment-link-container'>
-                    <button className='btn' data-clipboard-target="#assessment-link-input" onClick={this.copied}><img className="clipboard-button" src={clipboard} /></button>
+                    <button className='btn' data-clipboard-target="#assessment-link-input" onClick={this.copied}><img alt='' className="clipboard-button" src={clipboard} /></button>
                     <input id='assessment-link-input' readOnly="readOnly" value={this.props.assessment.link} />
                     <div id="snackbar-copied">Copied!</div>
                 </div>
