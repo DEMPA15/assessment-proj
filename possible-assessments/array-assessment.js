@@ -139,3 +139,26 @@ const flatten = (array, shallow, results) => {
 console.log(flatten(shallowArray));
 console.log(flatten(slightlyDeepArray));
 console.log(flatten(crazyDeepArray));
+
+
+
+// Real 2. Write a function that takes in an array of integers and returns an array that matches this format: [youngest age, oldest age, difference beteen the youngest and oldest age].
+
+// https://www.codewars.com/kata/find-the-difference-in-age-between-oldest-and-youngest-family-members/train/javascript
+
+// 1. Returns an array
+
+// 2. Returns an array with the correct order of youngest age, oldest age, and the difference between youngest and oldest ages.
+
+const numbersToTest = [6, 99, -2, 14, 56];
+
+function differenceInNumbers (ages) {
+
+    let max = Math.max(...ages),
+        min = Math.min(...ages)
+        diff = max - min
+        
+    return [min, max, diff]
+}
+
+console.log(differenceInNumbers(numbersToTest));
