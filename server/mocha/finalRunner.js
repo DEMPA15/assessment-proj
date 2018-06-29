@@ -46,7 +46,6 @@ module.exports = function testRunner(path, assessmentName, qID) {
         })
   
         runner.runTests(testSuite, function(failures){
-          console.log(results)
           resolve(results);
   
           process.exitCode = failures ? -1 : 0;

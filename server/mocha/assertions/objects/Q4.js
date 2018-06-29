@@ -1,40 +1,73 @@
 const expect = require('chai').expect
 
 module.exports = [{
-    text: 'keyAccessor should exist',
-    assertion: function () {
-      expect(this.subject.toString()).includes('keyAccessor');
+        text: 'Should return an array',
+        assertion: function(){
+            const books = [
+                 {
+                  title: 'The Road Ahead',
+                  author: 'Bill Gates',
+                  readingStatus: true
+                 },
+                 {
+                  title: 'Mistborn',
+                  author: 'Brandon Sanderson',
+                  readingStatus: true
+                 },
+                 {
+                  title: 'Mockingjay',
+                  author: 'Suzanne Collins',
+                  readingStatus: false
+                 }
+                ]
+          expect(this.subject(books)).to.be.an('array');
+        }
+    },
+    {
+        text: 'Each array element should contain a book title and author',
+        assertion: function () {
+            const books = [
+                {
+                 title: 'The Road Ahead',
+                 author: 'Bill Gates',
+                 readingStatus: true
+                },
+                {
+                 title: 'Mistborn',
+                 author: 'Brandon Sanderson',
+                 readingStatus: false
+                },
+                {
+                 title: 'Mockingjay',
+                 author: 'Suzanne Collins',
+                 readingStatus: false
+                }
+               ]
+            expect(this.subject(books)[0]).include('Mistborn by Brandon Sanderson');
+            expect(this.subject(books)[1]).include('Mockingjay by Suzanne Collins');
+          }
+    },
+    {
+        text: 'Should contain all of the correct values',
+        assertion: function() {
+            const books = [
+                {
+                 title: 'The Road Ahead',
+                 author: 'Bill Gates',
+                 readingStatus: true
+                },
+                {
+                 title: 'Mistborn',
+                 author: 'Brandon Sanderson',
+                 readingStatus: false
+                },
+                {
+                 title: 'Mockingjay',
+                 author: 'Suzanne Collins',
+                 readingStatus: false
+                }
+               ]
+            expect(this.subject(books)).include('Mistborn by Brandon Sanderson', 'Mockingjay by Suzanne Collins')
+        }
     }
-  },
-  {
-    text: 'keyAccessor should return an array of objects',
-    assertion: function () {
-      var names = ["anne", "brandon", "charles", "diana"]
-
-      var people = {
-        anne: {
-          city: "New York",
-          age: 23
-        },
-        brandon: {
-          city: "London",
-          age: 28
-        },
-        charles: {
-          city: "Seattle",
-          age: 33
-        },
-        diana: {
-          city: "Los Angeles",
-          age: 20
-        },
-      }
-      var returned = this.subject(names, people)
-      var correct = returned[0].city === "New York" &&
-        returned[1].city === "London" &&
-        returned[2].city === "Seattle" &&
-        returned[3].city === "Los Angeles"
-      expect(correct).to.equal(true);
-    }
-  },
-]
+] 

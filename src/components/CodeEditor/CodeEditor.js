@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import * as Actions from '../../redux/action-creators'
 import { connect } from 'react-redux';
-import brace from 'brace';
-import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
-import { debug } from 'util';
-
 import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import 'brace/theme/solarized_dark'
@@ -149,15 +145,13 @@ class CodeEditor extends Component {
   }
 
   render() {
-    const length = this.props.questions.length;
-    const num = Number(this.props.qID.split('')[1]);
     let button = ''
 
     if (this.state.loaded === false){
       button = <div className = 'codeLoadingGif'></div>
-    } else if (this.state.lastQ && this.state[this.props.qID] == this.props.code[this.props.qID] && this.props.results[this.props.qID].passed === true){
+    } else if (this.state.lastQ && this.state[this.props.qID] === this.props.code[this.props.qID] && this.props.results[this.props.qID].passed === true){
       button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
-    } else if (this.props.results[this.props.qID].passed === true && this.state[this.props.qID] == this.props.code[this.props.qID]){
+    } else if (this.props.results[this.props.qID].passed === true && this.state[this.props.qID] === this.props.code[this.props.qID]){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     } else {
       button = <div className = 'buttonContainer'><button id = 'run' className ='run' onClick={(e)=> {this.postResults(e)}}>Run</button></div>

@@ -2,6 +2,10 @@
   "name": "code_bar",
   "version": "0.1.0",
   "private": true,
+<<<<<<< HEAD
+=======
+  "proxy": "http://localhost:8000",
+>>>>>>> e48c11e8b89dd580fc2c26d772b86404d06fdbaf
   "engines": {
     "node": "8.11.3"
   },
@@ -37,6 +41,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "develop": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
