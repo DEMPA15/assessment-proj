@@ -1,32 +1,18 @@
-const expect =  require('chai').expect
-
-// 1. Write a JavaScript function to check whether an `input` is an array or not. Return true if the input is an array, and return false if the input is not an array.
-
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-1.php
-
-// test 1 - returns true if the input is an array
-
-// function checkArray(input) {
-//   if (input.constructor === Array) {
-//       return true;
-//   }
-//   else return false;
-// }
+const expect = require('chai').expect
 
 module.exports = [{
-  text: 'arrayCheck should be a function',
+  text: 'reverseMe should exist',
   assertion: function () {
-  expect(this.subject.toString()).includes('arrayCheck');
-}
+    expect(this.subject.toString()).includes('reverseMe');
+    }
   },
   {
-    text: 'arrayCheck should return true if an array is passed into the function',
+    text: 'reverseMe should reverse an array',
     assertion: function () {
-
-      const answer = this.subject([1,2,3])
-      expect(answer).to.be.true;
-      expect(this.subject.toString()).includes('arrayCheck');
-
+      const arr = [1,2,3]
+      expect(this.subject(arr)[0]).to.equal(3)
+      expect(this.subject(arr)[1]).to.equal(2)
+      expect(this.subject(arr)[2]).to.equal(1)
+      }
     }
-  }
 ]

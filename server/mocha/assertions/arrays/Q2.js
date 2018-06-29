@@ -10,27 +10,28 @@ const expect = require('chai').expect
 
 // test 3 - make sure it returns a copy of the inputed array
 
-const arrayToClone = [1, 2, 3, 4, 5, 6]
+// const arrayToClone = [1, 2, 3, 4, 5, 6]
 
-function cloneArray(input) {
-    const newArray = input.slice();
-    return newArray;
-}
+// function cloneArray(input) {
+//     const newArray = input.slice();
+//     return newArray;
+// }
 
-console.log(cloneArray(arrayToClone));
+// console.log(cloneArray(arrayToClone));
 
 module.exports = [{
-  text: 'arrayCopier should exist',
+  text: 'reverseMe should exist',
   assertion: function () {
-    expect(this.subject.toString()).includes('arrayCopier');
+    expect(this.subject.toString()).includes('reverseMe');
     }
   },
   {
-    text: 'arrayCopier should return a new array',
+    text: 'reverseMe should reverse an array',
     assertion: function () {
       const arr = [1,2,3]
-      const newArr = [1,2,3]
-    expect(arr).to.eql(arr).but.not.equal(newArr);
+      expect(this.subject(arr)[0]).to.equal(3)
+      expect(this.subject(arr)[1]).to.equal(2)
+      expect(this.subject(arr)[2]).to.equal(1)
+      }
     }
-  }
 ]

@@ -1,43 +1,25 @@
-// Arrays
+// 2. Write a function that takes in an array of integers and returns an array that matches this format: [youngest age, oldest age, difference beteen the youngest and oldest age].
 
-// 1. Write a JavaScript function to check whether an `input` is an array or not. Return true if the input is an array, and return false if the input is not an array.
+// https://www.codewars.com/kata/find-the-difference-in-age-between-oldest-and-youngest-family-members/train/javascript
 
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-1.php
+// 1. Returns an array
 
-// test 1 - make sure that it's function
+// 2. Returns an array with the correct order of youngest age, oldest age, and the difference between youngest and oldest ages.
 
-// test 2 - returns true if the input is an array
+const numbersToTest = [6, 99, -2, 14, 56];
 
-function checkArray(input) {
-    if (input.constructor === Array) {
-        return true;
-    }
-    else return false;
+function differenceInNumbers (ages) {
+
+    let max = Math.max(...ages),
+        min = Math.min(...ages)
+        diff = max - min
+
+    return [min, max, diff]
 }
 
-console.log(checkArray(1));
-console.log(checkArray([1]));
+console.log(differenceInNumbers(numbersToTest));
 
-// 2. Write a JavaScript function to clone an inputed array.
-
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-2.php
-
-// test 1 - make sure it's a function
-
-// test 2 - make sure it doesn't just return the same array
-
-// test 3 - make sure it returns a copy of the inputed array
-
-const arrayToClone = [1, 2, 3, 4, 5, 6]
-
-function cloneArray(input) {
-    const newArray = input.slice();
-    return newArray;
-}
-
-console.log(cloneArray(arrayToClone));
-
-// 3. Write a JavaScript program that takes in an array, and returns an array with the inputed array items in alphanumeric order. The input array will include either only strings or only numbers.
+// 3. Write a function that takes in an array, and returns an array with the input array items in alphanumeric order. The input array will include either only strings or only numbers.
 
 // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-7.php
 
@@ -66,7 +48,7 @@ console.log(returnSortedArray(alphabeticArray));
 
 console.log(returnSortedArray(numericArray));
 
-// 4. Write a JavaScript program to remove duplicate items from an input array (ignore case sensitivity).
+// 5. Write a JavaScript program to remove duplicate items from an input array (ignore case sensitivity).
 
 // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-14.php
 
@@ -101,39 +83,3 @@ function removeDuplicates(input) {
 console.log(removeDuplicates(duplicateArray));
 
 console.log(removeDuplicates(duplicateNumericArray));
-
-// 5. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened a single level.
-
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-21.php
-
-// test 1 - make sure it's a function
-
-// test 2 - make sure it returns a flattened array with the same values
-
-const shallowArray = [1, 2, 3, 4, 5]
-const slightlyDeepArray = [1, [2, 3, 4, 5]];
-const crazyDeepArray = [1, [2, 6, [3, 7, [4, 8, [5, 9]]]]];
-
-const flatten = (array, shallow, results) => {
-    if (!results) {
-         results = [];
-        }
-
-    if (shallow) {
-        return results.concat(...array);
-    }
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].constructor == Array) {
-            flatten(array[i], shallow, results);
-        }
-        else {
-            results.push(array[i]);
-        }
-    }
-    return results;
-};
-
-console.log(flatten(shallowArray));
-console.log(flatten(slightlyDeepArray));
-console.log(flatten(crazyDeepArray));
