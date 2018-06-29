@@ -29,7 +29,10 @@ console.log(displayLarger(1, 2));
 console.log(displayLarger(6, 4));
 console.log(displayLarger(2, 2));
 
-// 2. Write a function that takes in an array of three numbers with a conditional statement to find the sign (positive or negative) of the product of those numbers. Log either "The sign is +" or "The sign is -".
+// 2. Write a function that takes in an array of three 
+// numbers with a conditional statement to find the sign 
+//(positive or negative) of the product of those numbers. 
+// Log either "The sign is +" or "The sign is -".
 
 // https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercise-2.php
 
@@ -104,7 +107,8 @@ console.log(findCapitals(''));
 console.log(findCapitals('no caps'));
 console.log(findCapitals('ALL CAPS'));
 
-// 4. Write a function that takes in an array of numbers and returns the highest number.
+// 4. Write a function that takes in an array of numbers 
+// and returns the highest number.
 
 // https://www.w3resource.com/javascript-exercises/javascript-conditional-statements-and-loops-exercise-3.php
 
