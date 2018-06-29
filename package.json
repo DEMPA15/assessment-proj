@@ -6,6 +6,7 @@
   "engines": {
     "node": "8.11.3"
   },
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
