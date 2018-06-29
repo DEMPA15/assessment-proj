@@ -70,7 +70,7 @@ function removeDuplicates(input) {
     for (let i = 0; i < len; i++) {
         let item = arr[i];
         if (typeof item === 'string') {
-
+            
         }
         if (seen[item] !== 1) {
             seen[item] = 1;
