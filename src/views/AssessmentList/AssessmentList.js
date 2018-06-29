@@ -144,8 +144,10 @@ class AssessmentList extends Component {
           <AddRemoveAll add={true} addAll={this.addAll} allAssessments={this.state.assessments} />
           <AddRemoveAll removeAll={this.removeAll} allAssessments={this.state.assessments} />
         </div>
+        <div className='assessments-list-container'>
         <div className='assessments-list' >
           {assessments}
+        </div>
         </div>
         { this.props.assessments.length === 0 && 
         <div className="slide-up-container-false"></div>
