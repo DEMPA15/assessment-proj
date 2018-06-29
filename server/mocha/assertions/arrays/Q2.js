@@ -1,37 +1,32 @@
 const expect = require('chai').expect
 
-// 2. Write a JavaScript function to clone an inputed array.
+// const numbersToTest = [6, 99, -2, 14, 56];
 
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-2.php
+// function differenceInNumbers (ages) {
 
-// test 1 - make sure it's a function
+//     let max = Math.max(...ages),
+//         min = Math.min(...ages)
+//         diff = max - min
 
-// test 2 - make sure it doesn't just return the same array
-
-// test 3 - make sure it returns a copy of the inputed array
-
-// const arrayToClone = [1, 2, 3, 4, 5, 6]
-
-// function cloneArray(input) {
-//     const newArray = input.slice();
-//     return newArray;
+//     return [min, max, diff]
 // }
 
-// console.log(cloneArray(arrayToClone));
+// console.log(differenceInNumbers(numbersToTest));
 
 module.exports = [{
-  text: 'reverseMe should exist',
+  text: 'Returns an array',
   assertion: function () {
-    expect(this.subject.toString()).includes('reverseMe');
+    let arr = [20,32,10]
+    expect(this.subject(arr)).to.be.an("array");
     }
   },
   {
-    text: 'reverseMe should reverse an array',
+    text: 'Returns an array with the correct order of youngest age, oldest age, and the difference between youngest and oldest ages',
     assertion: function () {
-      const arr = [1,2,3]
-      expect(this.subject(arr)[0]).to.equal(3)
-      expect(this.subject(arr)[1]).to.equal(2)
-      expect(this.subject(arr)[2]).to.equal(1)
+      const arr = [19,22,29]
+      expect(this.subject(arr)[0]).to.equal(19)
+      expect(this.subject(arr)[1]).to.equal(29)
+      expect(this.subject(arr)[2]).to.equal(10)
       }
     }
 ]
