@@ -1,32 +1,3 @@
-// 3. Write a function that takes in an array, and returns an array with the input array items in alphanumeric order. The input array will include either only strings or only numbers.
-
-// https://www.w3resource.com/javascript-exercises/javascript-array-exercise-7.php
-
-// test 1 - make sure it's a function
-
-// test 2 - if the array includes strings, make sure that an array is returned in alphabetical order
-
-// test 3 - if the array includes numbers, make sure that an array is returned in numeric order
-
-const alphabeticArray = ['Washer', 'Dryer', 'Yarn', 'Acid', 'Lovely'];
-
-const numericArray = [33, 100, 9, 45, 1, 330, 3200];
-
-function returnSortedArray(input) {
-    if (typeof input[0] === 'number') {
-        function sortNumber(a, b) {
-            return a - b;
-        }
-
-        return input.sort(sortNumber);
-    }
-    else return input.sort();
-}
-
-console.log(returnSortedArray(alphabeticArray));
-
-console.log(returnSortedArray(numericArray));
-
 // 5. Write a JavaScript program to remove duplicate items from an input array (ignore case sensitivity).
 
 // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-14.php
