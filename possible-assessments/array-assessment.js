@@ -27,38 +27,57 @@ console.log(returnSortedArray(alphabeticArray));
 
 console.log(returnSortedArray(numericArray));
 
-// 4. Write a function that takes in an array and returns an array without any duplicate elements, ignoring case sensitivity.
+// 4. Write a function that takes in an array of numbers and returns an array without any duplicate numbers
 
 // https://www.w3resource.com/javascript-exercises/javascript-array-exercise-14.php
 
-// test 1 - make sure it's a function
+// test 1 - Should return an array
 
-// test 2 - make sure it ignores case sensitivity
+// test 2 - Should contain no duplicate numbers
 
-// test 3 - make sure there are no duplicate items
-
-const duplicateArray = ['Red', 'Blue', 'blue', 'YELLOW', 'yellow', 'YeLlOw']
-const duplicateNumericArray = [1, 1, 2, 2, 3, 2, 1, 4, 6, 6]
+const duplicateNumericArray = [1, 1, 2, 2, 3, 2, 1, 4, 6, 6];
+const duplicateNumericArray2 = [0, 2, -10, -10, 2, 0, 9];
+const duplicateNumericArray3 = [-99, -99, -99, -99];
+const duplicateNumericArray4 = [1, 2, 3, 4, 5];
 
 function removeDuplicates(input) {
-    const arr = input.map(x => typeof x === 'string' ? x.toLowerCase() : x);
-    let seen = {};
-    let out = [];
-    let len = arr.length;
-    let j = 0;
-    for (let i = 0; i < len; i++) {
-        let item = arr[i];
-        if (seen[item] !== 1) {
-            seen[item] = 1;
-            out[j++] = item;
-        }
-    }
-    return out;
+    const seen = {};
+    const answer = [];
+
+    for (let i = 0; i < input.length; i++) {
+        seen[input[i]] = 0;
+      }
+    for (i in seen) {
+        answer.push(i);
+      }
+      const realAnswer = answer.map(number => {
+          return parseInt(number, 10);
+      })
+    return realAnswer;
 }
 
-console.log(removeDuplicates(duplicateArray));
+function removeDuplicates2(array) {
+    const answer = [];
+
+    array.forEach((number, i) => {
+        if (!answer.includes(number)) {
+            answer.push(number);
+        }
+    })
+    return answer;
+};
+
+
 
 console.log(removeDuplicates(duplicateNumericArray));
+console.log(removeDuplicates(duplicateNumericArray2));
+console.log(removeDuplicates(duplicateNumericArray3));
+console.log(removeDuplicates(duplicateNumericArray4));
+
+console.log(removeDuplicates2(duplicateNumericArray));
+console.log(removeDuplicates2(duplicateNumericArray2));
+console.log(removeDuplicates2(duplicateNumericArray3));
+console.log(removeDuplicates2(duplicateNumericArray4));
 
 // 5. Write a function that takes in two arrays: the first array contains the correct answers to an exam, like ["a", "a", "b", "d"], and the second contains a student's answers.
 
