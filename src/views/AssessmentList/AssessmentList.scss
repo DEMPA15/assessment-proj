@@ -101,6 +101,7 @@
         min-width: 320px;
         word-wrap: break-word;
         border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid;
+        overflow-y: scroll;
     }
     
     .slide-up-button {
@@ -130,5 +131,8 @@
             left: 0px;
         }
 }
-
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;
+}
 }
