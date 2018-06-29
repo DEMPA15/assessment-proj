@@ -28,7 +28,9 @@ module.exports = [{
   {
     text: 'arrayCopier should return a new array',
     assertion: function () {
-    expect(this.subject)
+      const answer = this.subject([1,2,3])
+    expect(answer).to.eql(answer)
+    expect(answer).to.not.equal(answer);
     }
   }
 ]

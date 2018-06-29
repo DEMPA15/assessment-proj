@@ -13,9 +13,6 @@ const expect =  require('chai').expect
 //   else return false;
 // }
 
-// console.log(checkArray(1));
-// console.log(checkArray([1]));
-
 module.exports = [{
   text: 'arrayCheck should be a function',
   assertion: function () {
@@ -27,7 +24,8 @@ module.exports = [{
     assertion: function () {
 
       const answer = this.subject([1,2,3])
-      expect(answer).to.be.true
+      expect(answer).to.be.true;
+      expect(this.subject.toString()).includes('arrayCheck');
 
     }
   }
