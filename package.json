@@ -2,12 +2,7 @@
   "name": "code_bar",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
   "proxy": "http://localhost:8000",
-
-=======
-  "proxy": "http://localhost:8000/",
->>>>>>> c58c85303362a9da640723ca44e3f35281cc1366
   "engines": {
     "node": "8.11.3"
   },
