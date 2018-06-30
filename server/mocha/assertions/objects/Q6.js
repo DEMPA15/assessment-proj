@@ -1,22 +1,96 @@
 const expect = require('chai').expect
+
 module.exports = [{
-        text: 'doorKeys should exist',
-        assertion: function () {
-            expect(this.subject.toString()).include('doorKeys');
+        text: 'Should return a string',
+        assertion: function (){
+            const contacts = {
+                 Jon: {
+                  house: 'Apartment',
+                  children: {
+                   Kyle: 4,
+                   Jessica: 2
+                  },
+                  cars: [
+                   {
+                    make: 'Toyota',
+                    model: '4-Runner',
+                    color: 'blue'
+                   },
+                   {
+                    make: 'Honda',
+                    model: 'Civic',
+                    color: 'silver'
+                   }
+                  ]
+                 },
+                 Bob: {
+                  house: 'Condo',
+                  children: {
+                   Jan: 11,
+                   Brittney: 15
+                  },
+                  cars: [
+                   {
+                    make: 'Ford',
+                    model: 'F-150',
+                    color: 'blue'
+                   },
+                   {
+                    make: 'Honda',
+                    model: 'Del Sol',
+                    color: 'red'
+                   }
+                  ]
+                 },
+                }
+            expect(this.subject(contacts, 'Bob', 'red')).to.be.a('string')
         }
     },
     {
-        text: 'doorKeys should be an array',
-        assertion: function () {
-            const doors = {red: "cedar", blue: "stone", green: "pine", brown: "mahogany"}
-            expect(this.subject(doors)).to.be.an('array');
+        text: 'Should return the correct make of the vehicle',
+        assertion: function (){
+            const contacts = {
+                Jon: {
+                 house: 'Apartment',
+                 children: {
+                  Kyle: 4,
+                  Jessica: 2
+                 },
+                 cars: [
+                  {
+                   make: 'Toyota',
+                   model: '4-Runner',
+                   color: 'blue'
+                  },
+                  {
+                   make: 'Honda',
+                   model: 'Civic',
+                   color: 'silver'
+                  }
+                 ]
+                },
+                Bob: {
+                 house: 'Condo',
+                 children: {
+                  Jan: 11,
+                  Brittney: 15
+                 },
+                 cars: [
+                  {
+                   make: 'Ford',
+                   model: 'F-150',
+                   color: 'blue'
+                  },
+                  {
+                   make: 'Honda',
+                   model: 'Del Sol',
+                   color: 'red'
+                  }
+                 ]
+                },
+               }
+           expect(this.subject(contacts, 'Bob', 'red')).to.equal('Honda')
+           expect(this.subject(contacts, 'Jon', 'blue')).to.equal('Toyota')
         }
     },
-    {
-        text: 'doorKeys should contain correct values',
-        assertion: function () {
-            const doors = {red: "cedar", blue: "stone", green: "pine", brown: "mahogany"}
-            expect(this.subject(doors)).include("red", "blue", "green", "brown");
-        }
-    },
-]
+] 

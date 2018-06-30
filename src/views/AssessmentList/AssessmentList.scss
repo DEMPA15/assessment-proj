@@ -5,9 +5,16 @@
 
     .assessments-list {
         display: flex;
-        text-align: left;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
+        width: 65%;
+        max-width:980px;
+    }
+    .assessments-list-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .add-remove-all {
@@ -72,7 +79,7 @@
         box-sizing: border-box;
         position: fixed;
         height: 45px;
-        background: #001012;
+        background: transparent;
         width: 40%;
         bottom: 0;
         left: 30%;
@@ -94,6 +101,7 @@
         min-width: 320px;
         word-wrap: break-word;
         border: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 930, from(#328cc1), to(#011518)) 1px solid;
+        overflow-y: scroll;
     }
     
     .slide-up-button {
@@ -123,5 +131,8 @@
             left: 0px;
         }
 }
-
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;
+}
 }
