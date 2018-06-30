@@ -83,7 +83,7 @@ editWelcomePopupVisibility(value){
                 <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
               </div>
               <div className='popup'>
-                <WelcomePopup visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editWelcomePopupVisibility(value)}/>/>
+                <WelcomePopup visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editWelcomePopupVisibility(value)}/>
               </div>
             </div>
           </div>
