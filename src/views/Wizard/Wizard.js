@@ -29,7 +29,7 @@ componentDidMount(){
         this.props.setCode({[question.qID]: ''})
         let tests = []
         question.tests.forEach(test=>{tests.push({text: test, passed: null})})
-        results[question.qID] = { attempted: false, passed: null, tests: tests}
+        results[question.qID] = { qText: question.qText, attempted: false, passed: null, tests: tests}
       })
       Promise.resolve(this.props.setResults(results))
         .then(response=>{
