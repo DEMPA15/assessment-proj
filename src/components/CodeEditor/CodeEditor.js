@@ -5,6 +5,8 @@ import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import 'brace/theme/solarized_dark'
 import 'brace/mode/javascript';
+import 'brace/snippets/javascript';
+import 'brace/ext/language_tools';
 
 class CodeEditor extends Component {
   constructor(props){
