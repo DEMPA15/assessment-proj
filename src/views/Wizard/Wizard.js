@@ -29,7 +29,7 @@ componentDidMount(){
         this.props.setCode({[question.qID]: ''})
         let tests = []
         question.tests.forEach(test=>{tests.push({text: test, passed: null})})
-        results[question.qID] = { qText: question.qText, attempted: false, passed: null, tests: tests}
+        results[question.qID] = { attempted: false, passed: null, tests: tests}
       })
       Promise.resolve(this.props.setResults(results))
         .then(response=>{
@@ -77,10 +77,10 @@ editWelcomePopupVisibility(value){
                 </div>
               </div>
               <div className='editor-container'>
-                <CodeEditor qID={qID} assessmentID={assessmentID} history={this.props.history} emailID = {emailID}/>
+                <CodeEditor qIndex={qIndex} qID={qID} assessmentID={assessmentID} history={this.props.history} emailID = {emailID}/>
               </div>
               <div className='progressBar-container  component-wrapper'>
-                <ProgressBar  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
+                <ProgressBar qIndex={qIndex}  qID={qID} assessmentID={assessmentID} emailID={emailID} history={this.props.history}/>
               </div>
               <div className='popup'>
                 <WelcomePopup visibility={this.state.confirmSubmitPopup} sendResults={this.sendResults} closePopup={(value)=>this.editWelcomePopupVisibility(value)}/>

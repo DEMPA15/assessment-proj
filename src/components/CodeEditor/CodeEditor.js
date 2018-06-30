@@ -150,7 +150,7 @@ class CodeEditor extends Component {
     if (this.state.loaded === false){
       button = <div className = 'codeLoadingGif'></div>
     } else if (this.state.lastQ && this.state[this.props.qID] === this.props.code[this.props.qID] && this.props.results[this.props.qID].passed === true){
-      button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
+      button = <div className = 'submitButtonContainer'><SubmitButton qIndex={this.props.qIndex} emailID={this.props.emailID} history ={this.props.history} buttonText = 'Submit'/></div>
     } else if (this.props.results[this.props.qID].passed === true && this.state[this.props.qID] === this.props.code[this.props.qID]){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     } else {
