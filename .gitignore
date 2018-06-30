@@ -17,7 +17,7 @@
 .env.test.local
 .env.production.local
 
-
+*.css
 *.min.css
 *.css.map
 src/index.css.map
