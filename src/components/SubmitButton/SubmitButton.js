@@ -39,6 +39,7 @@ class SubmitButton extends Component {
     formatedResults.studentEmail = this.props.user.email
     Object.keys(this.props.code).forEach(question=>{
       formatedResults[question].code = this.props.code[question]
+      formatedResults[question].qText = this.props.questions[this.props.qIndex].qText
     })
     return formatedResults
   }
