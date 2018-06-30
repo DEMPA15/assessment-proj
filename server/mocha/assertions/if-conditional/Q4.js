@@ -17,6 +17,6 @@ module.exports = [
 {
     text: 'should return the highest number',
     assertion: function(){
-        expect(this.subject([5,10,500,6])).to.equal(500)
+        expect(this.subject([-5,-10,-500,-1])).to.equal(-1)
     }
 }]
