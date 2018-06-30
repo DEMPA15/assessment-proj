@@ -5,6 +5,8 @@ import AceEditor from 'react-ace';
 import SubmitButton from '../SubmitButton/SubmitButton'
 import 'brace/theme/solarized_dark'
 import 'brace/mode/javascript';
+import 'brace/snippets/javascript';
+import 'brace/ext/language_tools';
 
 class CodeEditor extends Component {
   constructor(props){
@@ -150,7 +152,7 @@ class CodeEditor extends Component {
     if (this.state.loaded === false){
       button = <div className = 'codeLoadingGif'></div>
     } else if (this.state.lastQ && this.state[this.props.qID] === this.props.code[this.props.qID] && this.props.results[this.props.qID].passed === true){
-      button = <div className = 'submitButtonContainer'><SubmitButton history ={this.props.history} buttonText = 'Submit'/></div>
+      button = <div className = 'submitButtonContainer'><SubmitButton qIndex={this.props.qIndex} emailID={this.props.emailID} history ={this.props.history} buttonText = 'Submit'/></div>
     } else if (this.props.results[this.props.qID].passed === true && this.state[this.props.qID] === this.props.code[this.props.qID]){
       button = <div className = 'buttonContainer'><button id = 'next' className ='next' onClick={(e)=> {this.nextPage(e)}}>Next</button></div>      
     } else {

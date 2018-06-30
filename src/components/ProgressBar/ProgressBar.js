@@ -25,7 +25,7 @@ class ProgressBar extends Component {
           {questions}
         </div>
         <div className='assessment-progress-submit-button'>
-          <SubmitButton  emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers >>>'}/>
+          <SubmitButton qIndex={this.props.qIndex} emailID={this.props.emailID} history={this.props.history} buttonText={'Submit Answers >>>'}/>
         </div>
       </div>
     );

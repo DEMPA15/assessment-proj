@@ -24,6 +24,8 @@ module.exports = {
         Question ${i + 1}:
         ${questionText[results].passed ? passed : failed }
         <br/>
+        ${questionText[results].qText}
+        <br/>
         <br/>
         Student Code:
         <br/>
