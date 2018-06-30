@@ -25,12 +25,9 @@ module.exports = [{
 // const numericArray = [33, 100, 9, 45, 1, 330, 3200];
 
 // function returnSortedArray(input) {
-//   function sortNumber(a,b) {
-//     return a-b;
-//   }
-//     if (typeof input[0] === 'number') {
-//         function sortNumber(a, b) {
-//             return a - b;
+//    if (typeof input[0] === 'number') {
+//        function sortNumber(a, b) {
+//            return a - b;
 //         }
 
 //         return input.sort(sortNumber);
